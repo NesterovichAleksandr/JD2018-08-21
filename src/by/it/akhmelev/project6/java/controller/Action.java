@@ -1,19 +1,25 @@
-package by.it.galushka.project.java;
+package by.it.akhmelev.project6.java.controller;
 
 enum Action {
 
     INDEX {{
         cmd = new CmdIndex();
     }},
+    RESET {{
+        cmd = new CmdReset();
+    }},
     LOGIN {{
         cmd = new CmdLogin();
     }},
-    SIGNUP {{
-        cmd = new CmdSignUp();
+    PROFILE {{
+        cmd = new CmdProfile();
     }},
-//    LOGOUT {{
-//        cmd = new CmdLogout();
-//    }},
+    CREATEAD {{
+        cmd = new CmdCreateAd();
+    }},
+    SIGNUP {{
+        cmd = new CmdSignup();
+    }},
     ERROR {{
         cmd = new CmdError();
     }};
@@ -23,4 +29,5 @@ enum Action {
     }
 
     public Cmd cmd = new CmdError();
+
 }

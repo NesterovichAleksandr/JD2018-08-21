@@ -4,26 +4,19 @@
     <div class="container">
     <%@ include file="include/menu.htm" %>
 
-<form class="form-horizontal" action="do?command=SignUp" method="post">
+<form class="form-horizontal" action="do?command=Login" method="post">
 <fieldset>
 
+<p>${user}<br></p>
+
 <!-- Form Name -->
-<legend>Form SignUp</legend>
+<legend>Form Login</legend>
 
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="login">Login</label>
   <div class="col-md-4">
   <input id="login" name="login" value="TestLogin" type="text" placeholder="" class="form-control input-md" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="email">Email</label>
-  <div class="col-md-4">
-  <input id="email" name="email" value="TestEmail@mail.ru" type="text" placeholder="" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -49,13 +42,6 @@
 </form>
 
 
-
-
-
-    </div>
 </body>
 </html>
-
-
-
 
