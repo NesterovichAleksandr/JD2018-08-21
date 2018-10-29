@@ -1,9 +1,9 @@
-package by.it.galushka.project.java;
+package by.it.galushka.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CmdError extends Cmd {
+public class CmdCreateOrder extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) {
         return null;

@@ -1,4 +1,4 @@
-package by.it.galushka.project.java;
+package by.it.galushka.project.java.controller;
 
 enum Action {
 

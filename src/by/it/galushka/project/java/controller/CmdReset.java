@@ -1,11 +1,11 @@
-package by.it.galushka.project.java.sql;
+package by.it.galushka.project.java.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ResetDB {
+public class CmdReset {
 
     public static void main(String[] args) {
         Reset();

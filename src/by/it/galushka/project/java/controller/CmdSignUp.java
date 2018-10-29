@@ -1,4 +1,4 @@
-package by.it.galushka.project.java;
+package by.it.galushka.project.java.controller;
 
 import by.it.galushka.project.java.beans.User;
 import by.it.galushka.project.java.dao.Dao;
