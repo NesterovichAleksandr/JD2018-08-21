@@ -2,7 +2,7 @@ package by.it.galushka.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ActionsResolver {
+class ActionsResolver {
 
     Action resolve(HttpServletRequest req) {
         Action result = Action.ERROR;

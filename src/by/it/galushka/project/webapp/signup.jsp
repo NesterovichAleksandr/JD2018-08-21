@@ -4,7 +4,7 @@
     <div class="container">
     <%@ include file="include/menu.htm" %>
 
-<form class="form-horizontal">
+<form class="form-horizontal" action="do?command=SignUp" method="post">
 			<fieldset>
 
 			<!-- Form Name -->
@@ -14,7 +14,7 @@
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="Login">Login</label>
 			  <div class="col-md-4">
-			  <input id="Login" name="Login" type="text" placeholder="" class="form-control input-md" required="">
+			  <input id="Login" value="TestUser" name="Login" type="text" placeholder="" class="form-control input-md" required="">
 
 			  </div>
 			</div>
@@ -23,7 +23,7 @@
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="Password">Password</label>
 			  <div class="col-md-4">
-			    <input id="Password" name="Password" type="password" placeholder="" class="form-control input-md" required="">
+			    <input id="Password" value="TestQwerty" name="Password" type="password" placeholder="" class="form-control input-md" required="">
 
 			  </div>
 			</div>
@@ -32,7 +32,7 @@
 			<div class="form-group">
 			  <label class="col-md-4 control-label" for="Email">Email</label>
 			  <div class="col-md-4">
-			  <input id="Email" name="Email" type="text" placeholder="" class="form-control input-md" required="">
+			  <input id="Email" value="TestUser@mail.ru" name="Email" type="text" placeholder="" class="form-control input-md" required="">
 
 			  </div>
 			</div>
