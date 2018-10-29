@@ -9,6 +9,9 @@ enum Action {
     INDEX {{
         cmd = new CmdIndex();
     }},
+    PROFILE{{
+       cmd = new CmdProfile();
+    }},
     LOGIN {{
         cmd = new CmdLogin();
     }},
@@ -29,6 +32,9 @@ enum Action {
     }},
     ADDCARDONE {{
         cmd = new CmdAddCarDone();
+    }},
+    CARLIST{{
+       cmd = new CmdCarList();
     }},
     ERROR {{
         cmd = new CmdError();

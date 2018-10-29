@@ -3,7 +3,7 @@
 <body>
     <div class="container">
         <%@ include file="include/menu.htm" %>
-        <h3>Car list getting ready</h>
+        <p>Cars: ${cars}</p>
     </div>
 </body>
 </html>

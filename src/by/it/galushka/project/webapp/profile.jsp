@@ -5,7 +5,7 @@
     <%@ include file="include/menu.htm" %>
     <p>UserData: ${user}</p>
 
-    <p>UserAds: ${ads}</p>
+    <p>UserOrders: ${orders}</p>
 
     <form class="form-horizontal" action="do?command=Profile" method="post">
     <fieldset>
