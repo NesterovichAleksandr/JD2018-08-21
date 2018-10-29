@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class CmdEditTicket extends Cmd {
+ class CmdEditTicket extends Cmd {
     @Override
     Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         User user = Util.getUser(req);
@@ -50,7 +50,7 @@ public class CmdEditTicket extends Cmd {
             }
 
             Timestamp when = Timestamp.valueOf(req.getParameter("date"));
-            if (when == null || when.toString().equalsIgnoreCase("")) {
+            if (when.toString().equalsIgnoreCase("")) {
                 when = ticket.getData();
             }
             ticket.setTransport(transport);
