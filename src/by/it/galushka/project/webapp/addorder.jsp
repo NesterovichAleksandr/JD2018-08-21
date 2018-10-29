@@ -4,7 +4,7 @@
     <div class="container">
         <%@ include file="include/menu.htm" %>
 
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="do?command=AddOrder" method="post">
         		<fieldset>
 
         		<!-- Form Name -->
@@ -14,7 +14,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="PassportID">Passport ID</label>
         		  <div class="col-md-4">
-        		  <input id="PassportID" name="PassportID" type="text" placeholder="" class="form-control input-md" required="">
+        		  <input id="PassportID" value="12345678912345" name="PassportID" type="text" placeholder="" class="form-control input-md" required="">
 
         		  </div>
         		</div>
@@ -23,7 +23,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="StartDate">Start date</label>
         		  <div class="col-md-4">
-        		  <input id="StartDate" name="StartDate" type="text" placeholder="" class="form-control input-md" required="">
+        		  <input id="StartDate" value="2018/01/01" name="StartDate" type="text" placeholder="" class="form-control input-md" required="">
 
         		  </div>
         		</div>
@@ -32,7 +32,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="ReturneDate">Returne date</label>
         		  <div class="col-md-4">
-        		  <input id="ReturneDate" name="ReturneDate" type="text" placeholder="" class="form-control input-md" required="">
+        		  <input id="ReturneDate" value="2018/12/31" name="ReturneDate" type="text" placeholder="" class="form-control input-md" required="">
 
         		  </div>
         		</div>
@@ -41,7 +41,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="Surname">Surname</label>
         		  <div class="col-md-4">
-        		  <input id="Surname" name="Surname" type="text" placeholder="" class="form-control input-md" required="">
+        		  <input id="Surname" value="TestName" name="Surname" type="text" placeholder="" class="form-control input-md" required="">
 
         		  </div>
         		</div>
@@ -50,7 +50,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="Name">Name</label>
         		  <div class="col-md-4">
-        		  <input id="Name" name="Name" type="text" placeholder="" class="form-control input-md" required="">
+        		  <input id="Name" value="Name" name="Name" type="text" placeholder="" class="form-control input-md" required="">
 
         		  </div>
         		</div>
@@ -59,7 +59,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="MiddleName">Middle name </label>
         		  <div class="col-md-4">
-        		  <input id="MiddleName" name="MiddleName" type="text" placeholder="" class="form-control input-md" required="">
+        		  <input id="MiddleName" value="Middle name" name="MiddleName" type="text" placeholder="" class="form-control input-md" required="">
 
         		  </div>
         		</div>
@@ -68,7 +68,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="Address">Address</label>
         		  <div class="col-md-4">
-        		  <input id="Address" name="Address" type="text" placeholder="" class="form-control input-md" required="">
+        		  <input id="Address" value="Prospekt Mira, 99" name="Address" type="text" placeholder="" class="form-control input-md" required="">
 
         		  </div>
         		</div>

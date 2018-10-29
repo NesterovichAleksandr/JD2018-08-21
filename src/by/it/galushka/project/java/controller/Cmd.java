@@ -4,9 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
-abstract class Cmd {
+public abstract class Cmd {
 
-    abstract Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException;
+    public abstract Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException;
 
     @Override
     public String toString() {

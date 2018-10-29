@@ -1,5 +1,9 @@
 package by.it.galushka.project.java.controller;
 
+import by.it.galushka.project.java.controller.doneOperation.CmdAddCarDone;
+import by.it.galushka.project.java.controller.doneOperation.CmdAddOrderDone;
+import by.it.galushka.project.java.controller.doneOperation.CmdSignUpDone;
+
 enum Action {
 
     INDEX {{
@@ -11,11 +15,26 @@ enum Action {
     SIGNUP {{
         cmd = new CmdSignUp();
     }},
-//    LOGOUT {{
-//        cmd = new CmdLogout();
-//    }},
+    SIGNUPDONE {{
+        cmd = new CmdSignUpDone();
+    }},
+    ADDORDER {{
+        cmd = new CmdAddOrder();
+    }},
+    ADDORDERDONE {{
+        cmd = new CmdAddOrderDone();
+    }},
+    ADDCAR {{
+        cmd = new CmdAddCar();
+    }},
+    ADDCARDONE {{
+        cmd = new CmdAddCarDone();
+    }},
     ERROR {{
         cmd = new CmdError();
+    }},
+    RESET {{
+        cmd = new CmdReset();
     }};
 
     public String getJsp() {

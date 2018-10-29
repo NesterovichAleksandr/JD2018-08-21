@@ -18,7 +18,7 @@ public class CmdSignUp extends Cmd {
             User user = new User(0, login, password, email, 2);
             Dao dao = Dao.getDao();
             dao.user.create(user);
-            return Action.SIGNUP.cmd;
+            return Action.SIGNUPDONE.cmd;
         }
         return null;
     }
