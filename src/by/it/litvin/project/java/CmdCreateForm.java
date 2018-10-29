@@ -24,6 +24,7 @@ public class CmdCreateForm extends Cmd {
             Dao dao=Dao.getDao();
             dao.form.create(form);
         }
+        
         return null;
     }
     }
