@@ -2,7 +2,7 @@ package by.it.litvin.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ActionResolver {
+ class ActionResolver {
 
     Action resolve(HttpServletRequest req) {
         Action result = Action.ERROR;

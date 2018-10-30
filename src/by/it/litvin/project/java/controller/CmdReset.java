@@ -13,10 +13,6 @@ public class CmdReset extends Cmd {
 
     }
 
-//    public static void main(String[] args) throws SQLException {
-//        String where = String.format(" WHERE Login='%s' AND PASSWORD='%s'", "testLogin", "testPassword");
-//        List<User> all = Dao.getDao().user.getAll(where);
-//        System.out.println(all.get(0));
-//    }
+
 }
 
