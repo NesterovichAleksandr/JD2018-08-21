@@ -19,7 +19,8 @@ public class CmdCreateForm extends Cmd {
             int age=Integer.parseInt(req.getParameter("age"));
             String information = req.getParameter("information");
             String aim = req.getParameter("aim");
-            Form form=new Form(0,name,surname,address,description,age, information,aim,2);
+            Form form=new Form(0,name,surname,address,description,age,
+                    information,aim,2);
             Dao dao=Dao.getDao();
             dao.form.create(form);
         }
