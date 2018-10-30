@@ -1,12 +1,10 @@
 package by.it.yaroshchuk.jd03_03.beans;
 
-import java.sql.Timestamp;
-
 public class Resume {
 
     private long id;
     private String fullName;
-    private Timestamp dob;
+    private String dob;
     private String country;
     private String city;
     private String education;
@@ -20,7 +18,7 @@ public class Resume {
     public Resume() {
     }
 
-    public Resume(long id, String fullName, Timestamp dob, String country, String city, String education,
+    public Resume(long id, String fullName, String dob, String country, String city, String education,
                   String degree, int graduateYear, String experience, String post, int worktime, long usersId) {
         this.id = id;
         this.fullName = fullName;
@@ -52,11 +50,11 @@ public class Resume {
         this.fullName = fullName;
     }
 
-    public Timestamp getDob() {
+    public String getDob() {
         return dob;
     }
 
-    public void setDob(Timestamp dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 

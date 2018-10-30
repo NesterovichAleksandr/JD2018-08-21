@@ -25,7 +25,7 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
     public boolean create(Resume resume) throws SQLException {
         String sql = String.format("INSERT INTO `resumes` (`full_name`, `dob`, `country`, `city`, `education`," +
                         " `degree`, `graduate_year`, `experience`, `post`, `worktime`, `users_id`)" +
-                        " VALUES ('%s', '%tc', '%s', '%s', '%s', '%s', %d, '%s', '%s', %d, %d);",
+                        " VALUES ('%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', %d, %d);",
                 resume.getFullName(),
                 resume.getDob(),
                 resume.getCountry(),
@@ -46,11 +46,11 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
     public boolean update(Resume resume) throws SQLException {
         String sql = String.format("UPDATE `resumes` SET " +
                         "`full_name` = '%s', " +
-                        "`dob` = '%tc', " +
+                        "`dob` = '%s', " +
                         "`country` = '%s', " +
                         "`city` = '%s', " +
-                        "`education` = '%s'," +
-                        " `degree` = '%s', " +
+                        "`education` = '%s', " +
+                        "`degree` = '%s', " +
                         "`graduate_year` = %d, " +
                         "`experience` = '%s', " +
                         "`post` = '%s', " +
@@ -95,7 +95,7 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
                 Resume resume = new Resume();
                 resume.setId(resultSet.getLong("id"));
                 resume.setFullName(resultSet.getString("full_name"));
-                resume.setDob(resultSet.getTimestamp("dob"));
+                resume.setDob(resultSet.getString("dob"));
                 resume.setCountry(resultSet.getString("country"));
                 resume.setCity(resultSet.getString("city"));
                 resume.setEducation(resultSet.getString("education"));

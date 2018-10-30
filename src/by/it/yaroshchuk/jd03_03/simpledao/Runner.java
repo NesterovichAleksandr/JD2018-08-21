@@ -1,9 +1,6 @@
 package by.it.yaroshchuk.jd03_03.simpledao;
 
-import by.it.yaroshchuk.jd03_03.beans.Company;
-import by.it.yaroshchuk.jd03_03.beans.Request;
-import by.it.yaroshchuk.jd03_03.beans.Role;
-import by.it.yaroshchuk.jd03_03.beans.User;
+import by.it.yaroshchuk.jd03_03.beans.*;
 
 import java.sql.SQLException;
 
@@ -60,5 +57,20 @@ public class Runner {
             System.out.println("UPDATE REQUEST: \n" + dao.request.getAll());
         if(dao.request.delete(request))
             System.out.println("DELETE REQUEST: \n" + dao.request.getAll());
+        
+        //check Resume
+        Resume resume = new Resume(0, "DaoFullName",
+                "1992-10-12",
+                "DaoCountry", "DaoCity", "DaoEducation", "DaoDegree",
+                2008, "DaoExperience", "DaoPost", 2, 2);
+        System.out.println("\nROLE");
+        if(dao.resume.create(resume))
+            System.out.println("CREATE USER: \n" + dao.resume.getAll());
+        resume = dao.resume.read(resume.getId());
+        resume.setCountry("aaaaaaaaaaaaaaaaa22222");
+        if(dao.resume.update(resume))
+            System.out.println("UPDATE USER: \n" + dao.resume.getAll());
+        if(dao.resume.delete(resume))
+            System.out.println("DELETE USER: \n" + dao.resume.getAll());
     }
 }
