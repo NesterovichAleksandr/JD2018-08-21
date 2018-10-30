@@ -58,4 +58,15 @@ public class Company {
     public void setRolesId(long rolesId) {
         this.rolesId = rolesId;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", start_year='" + start_year + '\'' +
+                ", about='" + about + '\'' +
+                ", rolesId=" + rolesId +
+                '}';
+    }
 }

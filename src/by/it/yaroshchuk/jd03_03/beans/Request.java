@@ -48,4 +48,14 @@ public class Request {
     public void setUsersId(long usersId) {
         this.usersId = usersId;
     }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "id=" + id +
+                ", message='" + message + '\'' +
+                ", companiesId=" + companiesId +
+                ", usersId=" + usersId +
+                '}';
+    }
 }

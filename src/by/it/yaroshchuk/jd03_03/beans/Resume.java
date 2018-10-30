@@ -131,4 +131,22 @@ public class Resume {
     public void setUsersId(long usersId) {
         this.usersId = usersId;
     }
+
+    @Override
+    public String toString() {
+        return "Resume{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", dob=" + dob +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", education='" + education + '\'' +
+                ", degree='" + degree + '\'' +
+                ", graduateYear=" + graduateYear +
+                ", experience='" + experience + '\'' +
+                ", post='" + post + '\'' +
+                ", worktime=" + worktime +
+                ", usersId=" + usersId +
+                '}';
+    }
 }
