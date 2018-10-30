@@ -99,19 +99,27 @@ public class Reset {
                     "    ON UPDATE NO ACTION)\n" +
                     "ENGINE = InnoDB;");
 
+            //INSERT ROLES
             statement.executeUpdate("INSERT INTO `hr`.`roles` (`id`, `role`) VALUES (DEFAULT, 'administrator');");
             statement.executeUpdate("INSERT INTO `hr`.`roles` (`id`, `role`) VALUES (DEFAULT, 'user');");
             statement.executeUpdate("INSERT INTO `hr`.`roles` (`id`, `role`) VALUES (DEFAULT, 'company');");
 
+            //INSERT USERS
             statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
                     "VALUES (DEFAULT, 'user1', 'users1password', 'user1@gmail.com', '2');");
 
+            //INSERT RESUMES
             statement.executeUpdate("INSERT INTO `hr`.`resumes` " +
                     "(`id`, `full_name`, `dob`, `country`, `city`, `education`, `degree`, " +
                     "`graduate_year`, `experience`, `post`, `worktime`, `users_id`) " +
                     "VALUES (NULL, 'Full Name1', '1992-10-25 00:00:00.000000', 'Country1', " +
                     "'City1', 'University name1', 'some degree', '2015', 'Company name1', " +
                     "'some post', '2', '1');");
+
+            //INSERT COMPANIES
+            statement.executeUpdate("INSERT INTO `hr`.`companies` " +
+                    "(`id`, `company_name`, `start_year`, `about`, `roles_id`)" +
+                    "VALUES (NULL, 'company_name1', '2007', 'about1', 3)");
 
         } catch (SQLException e) {
             e.printStackTrace();
