@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -12,9 +13,9 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="login">Login</label>
+                <label class="col-md-4 control-label" for="name">Name</label>
                 <div class="col-md-4">
-                    <input id="login" name="login" value="TestLogin" type="text" placeholder=""
+                    <input id="name" name="name" value="TestName" type="text" placeholder=""
                            class="form-control input-md" required="">
 
                 </div>
@@ -23,9 +24,9 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="email">Email</label>
+                <label class="col-md-4 control-label" for="address">Address</label>
                 <div class="col-md-4">
-                    <input id="email" name="email" value="TestEmail@mail.ru" type="text" placeholder=""
+                    <input id="address" name="address" value="TestAddress" type="text" placeholder=""
                            class="form-control input-md" required="">
 
                 </div>

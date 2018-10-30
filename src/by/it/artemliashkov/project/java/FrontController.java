@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class FrontController extends HttpServlet {
 
+
     private ActionResolver actionResolver;
 
     @Override
@@ -18,17 +19,21 @@ public class FrontController extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         process(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         process(req, resp);
     }
 
-    private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Actions action = actionResolver.resolver(req);
+
+    private void process(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        Actions action = actionResolver.resovler(req);
         Cmd command = action.cmd;
         String view = action.getJsp();
         Cmd nextCommand;
@@ -41,8 +46,7 @@ public class FrontController extends HttpServlet {
         }
         if (nextCommand == null || nextCommand == command) {
             getServletContext().getRequestDispatcher(view).forward(req, resp);
-        } else {
+        } else
             resp.sendRedirect("do?command=" + nextCommand.toString());
-        }
     }
 }

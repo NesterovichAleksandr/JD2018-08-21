@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -15,7 +15,7 @@
                     <div class=col-md-3><b>AmountAgents</b></div>
                     <div class=col-md-1><b>Address</b></div>
                 </div>
-                <c:forEach items="${companies}" var="company">
+                <c:forEach items="${Companies}" var="company">
                     <tr>
                         <div class="row">
                             <div class=col-md-1>${company.id}</div>

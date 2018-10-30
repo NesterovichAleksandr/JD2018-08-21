@@ -50,7 +50,7 @@ public class Agent {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Agent{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
