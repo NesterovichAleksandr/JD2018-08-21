@@ -52,9 +52,9 @@ public class CompanyCRUD {
              Statement statement = connection.createStatement()) {
             String sql = String.format(
                     "UPDATE `companies` SET " +
-                            "`company_name`='%s'" +
-                            "`start_year`='%s'" +
-                            "`about`='%s'" +
+                            "`company_name`='%s'," +
+                            "`start_year`='%s'," +
+                            "`about`='%s'," +
                             "`roles_id`=%d WHERE `id`=%d",
                     company.getName(),
                     company.getStart_year(),
@@ -73,5 +73,22 @@ public class CompanyCRUD {
                     company.getId());
             return (statement.executeUpdate(sql) == 1);
         }
+    }
+
+    public static void main(String[] args) throws SQLException {
+        Company company = new Company(0, "company name 2", "2004", "something about 2", 3);
+        if(create(company))
+            System.out.println("CREATE OK: " + company);
+        long id = company.getId();
+        company = null;
+        company = read(id);
+        if (company != null) {
+            System.out.println("READ OK: " + company);
+        }
+        company.setAbout("aaaaaaaaaaaaaaaaa22222");
+        if(update(company))
+            System.out.println("UPDATE OK: " + company);
+        if(delete(company))
+            System.out.println("DELETE OK: " + company);
     }
 }

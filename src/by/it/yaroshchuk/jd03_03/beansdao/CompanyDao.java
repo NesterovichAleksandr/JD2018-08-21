@@ -37,9 +37,9 @@ public class CompanyDao extends AbstractDao implements InterfaceDao<Company> {
     @Override
     public boolean update(Company company) throws SQLException {
         String sql = String.format("UPDATE `companies` SET " +
-                        "`company_name`='%s'" +
-                        "`start_year`='%s'" +
-                        "`about`='%s'" +
+                        "`company_name`='%s'," +
+                        "`start_year`='%s'," +
+                        "`about`='%s'," +
                         "`roles_id`=%d WHERE `id`=%d",
                 company.getName(),
                 company.getStart_year(),
