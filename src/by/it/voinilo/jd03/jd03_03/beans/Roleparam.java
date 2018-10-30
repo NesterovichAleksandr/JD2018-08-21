@@ -1,4 +1,4 @@
-package by.it.voinilo.jd03.jd03_03.beans;
+package by.it.voinilo.jd03.jd03_02.beans;
 
 public class Roleparam {
     private long id;
