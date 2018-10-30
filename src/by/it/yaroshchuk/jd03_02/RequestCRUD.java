@@ -35,7 +35,7 @@ public class RequestCRUD {
              Statement statement = connection.createStatement()) {
             String sql = String.format("SELECT * FROM `requests` WHERE `id`=%d", id);
             ResultSet resultSet = statement.executeQuery(sql);
-            if (resultSet.next()) {
+                if (resultSet.next()) {
                 return new Request(resultSet.getLong("id"),
                         resultSet.getString("message"),
                         resultSet.getLong("companies_id"),
