@@ -70,4 +70,21 @@ public class RequestCRUD {
             return (statement.executeUpdate(sql) == 1);
         }
     }
+
+    public static void main(String[] args) throws SQLException {
+        Request request = new Request(0, "message blablabla", 1, 2);
+        if(create(request))
+            System.out.println("CREATE OK: " + request);
+        long id = request.getId();
+        request = null;
+        request = read(id);
+        if (request != null) {
+            System.out.println("READ OK: " + request);
+        }
+        request.setMessage("aaaaaaaaaaaaaaaaa22222");
+        if(update(request))
+            System.out.println("UPDATE OK: " + request);
+        if(delete(request))
+            System.out.println("DELETE OK: " + request);
+    }
 }
