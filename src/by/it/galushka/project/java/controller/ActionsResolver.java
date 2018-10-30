@@ -10,6 +10,7 @@ class ActionsResolver {
         try {
             result = Action.valueOf(command.toUpperCase());
         } catch (IllegalArgumentException e) {
+            req.setAttribute("message", e.toString());
 //            result = Action.ERROR;
 //            message to error.jsp
         }
