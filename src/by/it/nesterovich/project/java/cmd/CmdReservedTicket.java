@@ -1,6 +1,8 @@
 package by.it.nesterovich.project.java.cmd;
 
+import by.it.nesterovich.project.java.Action;
 import by.it.nesterovich.project.java.beans.ReservedTicket;
+import by.it.nesterovich.project.java.beans.User;
 import by.it.nesterovich.project.java.dao.Dao;
 import by.it.nesterovich.project.java.utils.Form;
 import by.it.nesterovich.project.java.utils.Utils;
@@ -13,6 +15,10 @@ public class CmdReservedTicket extends Cmd {
 
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        User user = Utils.getUser(req);
+        if (user == null) {
+            return Action.LOGIN.cmd;
+        }
         if (Form.isGet(req)) {
             Dao dao = Dao.getDao();
             //String sql = "SELECT reserved_tickets.code, reserved_tickets.cost, reserved_tickets.users_id, films.name, cinemas.name
