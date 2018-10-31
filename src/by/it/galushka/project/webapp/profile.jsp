@@ -117,6 +117,29 @@
         </table>
         </c:if>
 
+        <form class="form-horizontal" method="post" action="do?command=EditOrders">
+        <fieldset>
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-2">
+                <c:if test="${user.roles_Id!=1}">
+                    <fieldset>
+
+                    <!-- Button -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="editOrders"></label>
+                      <div class="col-md-4">
+                        <button id="editOrders" name="editOrders" class="btn btn-warning">Edit your orders</button>
+                      </div>
+                    </div>
+
+                    </fieldset>
+                </c:if>
+            </div>
+        </div>
+        </fieldset>
+        </form>
     </div>
 </body>
 </html>

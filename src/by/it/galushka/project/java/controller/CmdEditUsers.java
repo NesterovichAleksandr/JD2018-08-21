@@ -18,7 +18,7 @@ public class CmdEditUsers extends Cmd {
             return Action.LOGIN.cmd;
         long idAdmin = admin.getID();
         if (idAdmin == 1 && Form.isPost(req)){
-            long idUser = Form.getLong(req, "id");
+            long idUser = Form.getLong(req, "ID");
             String login = req.getParameter("login");
             String password = req.getParameter("password");
             String email = req.getParameter("email");

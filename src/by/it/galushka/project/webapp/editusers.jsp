@@ -11,7 +11,7 @@
         <c:forEach items="${users}" var="user">
             <form action="do?command=EditUsers" method="post" >
               <div class="form-row">
-              <div class="col-1">
+                <div class="col-1">
                     <input id="id" name="id" type="text" class="form-control" value="${user.ID}">
                 </div>
                 <div class="col">

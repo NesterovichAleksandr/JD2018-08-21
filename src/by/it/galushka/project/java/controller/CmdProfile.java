@@ -25,12 +25,14 @@ public class CmdProfile extends Cmd {
                 user.setEmail(req.getParameter("email"));
                 user.setPassword(req.getParameter("password"));
                 Dao.getDao().user.update(user);
-            } else if (req.getParameter("edit") != null){
+            } else if (req.getParameter("edit") != null) {
                 return Action.EDITUSERS.cmd;
             } else if (req.getParameter("logout") != null) {
                 HttpSession session = req.getSession();
                 session.invalidate();
                 return Action.LOGIN.cmd;
+            } else if (req.getParameter("editOrders") != null) {
+                return Action.EDITORDERS.cmd;
             }
         }
 
