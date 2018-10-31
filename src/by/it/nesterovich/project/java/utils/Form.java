@@ -13,6 +13,14 @@ public class Form {
         }
     }
 
+    public static Long getLong(HttpServletRequest request, String name)  throws ParseException {
+        String value = request.getParameter(name);
+        if (value != null && value.matches("[-0-9]+"))
+            return Long.valueOf(value);
+        throw new ParseException("Input error: " + value, 1);
+
+    }
+
     public static boolean isPost(HttpServletRequest req) {
         return req.getMethod().equalsIgnoreCase("post");
     }

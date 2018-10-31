@@ -14,19 +14,30 @@
                     <div class=col-md-1><b>Users id</b></div>
                     <div class=col-md-1><b>Code</b></div>
                     <div class=col-md-1><b>Cost</b></div>
-                    <div class=col-md-1><b>Film</b></div>
+                    <div class=col-md-2><b>Film</b></div>
                     <div class=col-md-1><b>Cinema</b></div>
                 </div>
                 <c:forEach items="${reservedTickets}" var="reservedTicket">
-                    <tr>
                         <div class="row">
                             <div class=col-md-1>${reservedTicket.users_id}</div>
                             <div class=col-md-1>${reservedTicket.code}</div>
                             <div class=col-md-1>${reservedTicket.cost}</div>
-                            <div class=col-md-1>${reservedTicket.films_id}</div>
-                            <div class=col-md-1>${reservedTicket.cinemas_id}</div>
+                            <div class=col-md-2>
+                                <c:forEach items="${films}" var="film">
+                                    <c:if test="${film.id==reservedTicket.films_id}">
+                                        <c:out value="${film.name}" escapeXml="false"/>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
+                            <div class=col-md-1>
+                                <c:forEach items="${cinemas}" var="cinema">
+                                    <c:if test="${cinema.id==reservedTicket.cinemas_id}">
+                                        <c:out value="${cinema.name}" escapeXml="false"/>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
+
                         </div>
-                    </tr>
                 </c:forEach>
             </table>
         </fieldset>

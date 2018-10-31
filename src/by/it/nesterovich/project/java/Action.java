@@ -31,6 +31,9 @@ public enum Action {
     RESERVEDTICKET {{
         cmd = new CmdReservedTicket();
     }},
+    DELETERESERVEDTICKET {{
+        cmd = new CmdDeleteReservedTicket();
+    }},
     CREATEFILM {{
         cmd = new CmdCreateFilm();
     }},
