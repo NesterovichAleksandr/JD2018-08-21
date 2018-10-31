@@ -1,4 +1,4 @@
-package by.it.litvin.project.java;
+package by.it.litvin.project.java.controller;
 
 import by.it.litvin.project.java.dao.Dao;
 import by.it.litvin.project.java.dao.beans.User;
@@ -7,10 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
+
 public class CmdSignup extends Cmd {
+
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
-        if (req.getMethod().equalsIgnoreCase("post")) {
+        if (Forms.isPost(req)){
             String login = req.getParameter("login");
             String email = req.getParameter("email");
             String password = req.getParameter("password");
