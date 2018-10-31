@@ -10,15 +10,11 @@ import java.util.List;
 public class CmdListResumes extends Cmd {
     @Override
     Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        System.out.println("IN CMD LIST RESUMES");
-        if(req.getMethod().equalsIgnoreCase("post")) {
-            System.out.println("LIST RESUMES - IF");
-            Dao dao = Dao.getDao();
-            List<Resume> resumes = dao.resume.getAll();
+            List<Resume> resumes = Dao.getDao().resume.getAll();
             if(resumes.size() > 0) {
-                req.setAttribute("RESUMES: ", resumes);
+                req.setAttribute("resumes", resumes);
             }
-        }
+
         return null;
     }
 }

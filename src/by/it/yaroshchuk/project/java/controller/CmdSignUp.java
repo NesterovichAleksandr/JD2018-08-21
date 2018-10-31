@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CmdSignUp extends Cmd {
     @Override
     Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        System.out.println("I'M IN SIGNUP!!!");
         if (req.getMethod().equalsIgnoreCase("post")) {
-            System.out.println("ENTERED IF!!!");
             String login = req.getParameter("login");
             String password = req.getParameter("password");
             String email = req.getParameter("email");

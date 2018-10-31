@@ -32,18 +32,15 @@ public class FrontController extends HttpServlet {
         Cmd nextCommand;
         try {
             nextCommand = command.execute(req, resp);
-            System.out.println("IN TRY!!!!");
         } catch (Exception e) {
             nextCommand = null;
             view = Action.ERROR.getJsp();
             req.setAttribute("printStackTrace", e.toString());
         }
         if(nextCommand == null || nextCommand == command) {
-            System.out.println("IN IF!!!!");
             getServletContext().getRequestDispatcher(view).forward(req, resp);
         }
         else {
-            System.out.println("REDIRECT!!!!");
             resp.sendRedirect("do?command" + nextCommand.toString());
         }
     }
