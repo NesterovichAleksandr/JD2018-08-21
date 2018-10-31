@@ -13,6 +13,9 @@
         <form action="do?command=EditOrders" method="post" >
             <div class="form-row">
                 <div class="col">
+                    <input id="id" value="${order.ID}" name="id" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+                <div class="col">
                     <input id="PassportID" value="${order.passportId}" name="PassportID" type="text" placeholder="" class="form-control input-md" required="">
                 </div>
                 <div class="col">
