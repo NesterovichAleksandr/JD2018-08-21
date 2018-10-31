@@ -4,7 +4,7 @@
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
-    <%@ include file="include/menu.htm" %>
+    <%@ include file="include/menu.jsp" %>
         <legend>List cinema</legend>
 
     <form class="form-horizontal" action="do?command=ListCinema" method="get">
