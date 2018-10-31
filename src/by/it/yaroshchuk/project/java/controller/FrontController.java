@@ -1,4 +1,4 @@
-package by.it.yaroshchuk.project.java;
+package by.it.yaroshchuk.project.java.controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

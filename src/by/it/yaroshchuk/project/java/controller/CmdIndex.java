@@ -1,4 +1,4 @@
-package by.it.yaroshchuk.project.java;
+package by.it.yaroshchuk.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
