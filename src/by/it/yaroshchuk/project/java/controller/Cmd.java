@@ -3,7 +3,14 @@ package by.it.yaroshchuk.project.java.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-interface Cmd {
+abstract class Cmd {
 
-    Cmd execute(HttpServletRequest req, HttpServletResponse resp);
+    abstract Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception;
+
+    @Override
+    public String toString() {
+        String name = this.getClass().getSimpleName();
+        String cmd = name.replace("Cmd", "");
+        return cmd;
+    }
 }

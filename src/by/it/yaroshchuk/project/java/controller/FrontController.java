@@ -8,6 +8,13 @@ import java.io.IOException;
 
 public class FrontController extends HttpServlet {
 
+    private ActionResolver actionResolver;
+
+    @Override
+    public void init() throws ServletException {
+        actionResolver = new ActionResolver();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         process(req, resp);
@@ -18,22 +25,26 @@ public class FrontController extends HttpServlet {
         process(req, resp);
     }
 
-    private void process (HttpServletRequest rq, HttpServletResponse res) throws IOException, ServletException {
-
-        String command = rq.getParameter("command");
-        String view = "/error.jsp";
-        switch (command) {
-            case "Login": view = Actions.LOGIN.jsp;
-            break;
-            case "Logout": view = Actions.LOGOUT.jsp;
-                break;
-            case "Index": view = Actions.INDEX.jsp;
-                break;
-            case "SignUp": view = Actions.SIGNUP.jsp;
-                break;
-
+    private void process (HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        Action action = actionResolver.resolve(req);
+        Cmd command = action.cmd;
+        String view = action.getJsp();
+        Cmd nextCommand;
+        try {
+            nextCommand = command.execute(req, resp);
+            System.out.println("IN TRY!!!!");
+        } catch (Exception e) {
+            nextCommand = null;
+            view = Action.ERROR.getJsp();
+            req.setAttribute("printStackTrace", e.toString());
         }
-
-        getServletContext().getRequestDispatcher(view).forward(rq,res);
+        if(nextCommand == null || nextCommand == command) {
+            System.out.println("IN IF!!!!");
+            getServletContext().getRequestDispatcher(view).forward(req, resp);
+        }
+        else {
+            System.out.println("REDIRECT!!!!");
+            resp.sendRedirect("do?command" + nextCommand.toString());
+        }
     }
 }
