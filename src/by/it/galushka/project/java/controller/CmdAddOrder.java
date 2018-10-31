@@ -1,6 +1,7 @@
 package by.it.galushka.project.java.controller;
 
 import by.it.galushka.project.java.beans.Order;
+import by.it.galushka.project.java.beans.User;
 import by.it.galushka.project.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ public class CmdAddOrder extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
         if (req.getMethod().equalsIgnoreCase("post")) {
+            User user = Util.getUser(req);
             String passportId = req.getParameter("PassportID");
             String orderDate = req.getParameter("StartDate");
             String returnDate = req.getParameter("ReturneDate");
@@ -19,7 +21,7 @@ public class CmdAddOrder extends Cmd {
             String middleName = req.getParameter("MiddleName");
             String address = req.getParameter("Address");
             Order order = new Order(0, passportId, orderDate, returnDate, surname,
-                    name, middleName, address, 2);
+                    name, middleName, address, user.getID());
             Dao dao = Dao.getDao();
             dao.order.create(order);
             return Action.ADDORDERDONE.cmd;

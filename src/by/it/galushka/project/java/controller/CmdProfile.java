@@ -19,17 +19,24 @@ public class CmdProfile extends Cmd {
             return Action.LOGIN.cmd;
         }
 
-        if (Form.isPost(req) && req.getParameter("logout") != null) {
-            HttpSession session = req.getSession();
-            session.invalidate();
-            return Action.LOGIN.cmd;
+        if (Form.isPost(req)) {
+            if (req.getParameter("update") != null) {
+                user.setLogin(req.getParameter("login"));
+                user.setEmail(req.getParameter("email"));
+                user.setPassword(req.getParameter("password"));
+                Dao.getDao().user.update(user);
+            } else if (req.getParameter("edit") != null){
+                return Action.EDITUSERS.cmd;
+            } else if (req.getParameter("logout") != null) {
+                HttpSession session = req.getSession();
+                session.invalidate();
+                return Action.LOGIN.cmd;
+            }
         }
 
-        if (user != null) {
-            List<Order> orders = Dao.getDao().order.getAll(String.format(" WHERE `users_id`= %d ", user.getID()));
-            HttpSession session = req.getSession();
-            session.setAttribute("orders", orders);
-        }
+        List<Order> orders = Dao.getDao().order.getAll(String.format(" WHERE `users_id`= %d ", user.getID()));
+        HttpSession session = req.getSession();
+        session.setAttribute("orders", orders);
 
         return null;
     }
