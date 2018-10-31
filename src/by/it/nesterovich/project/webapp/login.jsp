@@ -8,7 +8,7 @@
     <form class="form-horizontal" action="do?command=Login" method="post">
         <fieldset>
 
-            <p>${user}<br></p>
+            <p>${noUser}<br></p>
 
             <!-- Form Name -->
             <legend>Form Login</legend>

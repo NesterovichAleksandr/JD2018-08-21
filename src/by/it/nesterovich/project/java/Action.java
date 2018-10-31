@@ -28,8 +28,8 @@ public enum Action {
     EDITUSERINFO {{
         cmd = new CmdEditUserInfo();
     }},
-    RESERVEDTICKET {{
-        cmd = new CmdReservedTicket();
+    LISTRESERVEDTICKET {{
+        cmd = new CmdListReservedTicket();
     }},
     DELETERESERVEDTICKET {{
         cmd = new CmdDeleteReservedTicket();

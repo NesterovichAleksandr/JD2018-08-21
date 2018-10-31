@@ -11,17 +11,22 @@
         <fieldset>
             <table>
                 <div class="row">
-                    <div class=col-md-1><b>Users id</b></div>
+                    <div class=col-md-1><b>id ticket</b></div>
                     <div class=col-md-1><b>Code</b></div>
                     <div class=col-md-1><b>Cost</b></div>
+                    <div class=col-md-1><b>Users id</b></div>
                     <div class=col-md-2><b>Film</b></div>
                     <div class=col-md-1><b>Cinema</b></div>
                 </div>
                 <c:forEach items="${reservedTickets}" var="reservedTicket">
                         <div class="row">
-                            <div class=col-md-1>${reservedTicket.users_id}</div>
+                            <div class=col-md-1>
+                                    ${reservedTicket.id}
+                                        <input id="id" name="id" type="hidden" value="${reservedTicket.id}"/>
+                            </div>
                             <div class=col-md-1>${reservedTicket.code}</div>
                             <div class=col-md-1>${reservedTicket.cost}</div>
+                            <div class=col-md-1>${reservedTicket.users_id}</div>
                             <div class=col-md-2>
                                 <c:forEach items="${films}" var="film">
                                     <c:if test="${film.id==reservedTicket.films_id}">
@@ -36,6 +41,8 @@
                                     </c:if>
                                 </c:forEach>
                             </div>
+
+
 
                         </div>
                 </c:forEach>

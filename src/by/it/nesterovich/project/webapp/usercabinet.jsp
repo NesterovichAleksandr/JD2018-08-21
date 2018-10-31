@@ -7,11 +7,9 @@
 
     <form class="form-horizontal" action="do?command=UserCabinet" method="post">
         <fieldset>
+            <legend>User cabinet: ${userLogin}</legend>
 
-            <legend>User cabinet</legend>
-            <p>${user}<br></p>
-
-            <div><a href="do?command=ReservedTicket">Reserved ticket</a></div>
+            <div><a href="do?command=ListReservedTicket">Reserved ticket</a></div>
             <div><a href="do?command=ListFilm">List film</a></div>
             <div><a href="do?command=EditUserInfo">Edit info user</a></div>
 

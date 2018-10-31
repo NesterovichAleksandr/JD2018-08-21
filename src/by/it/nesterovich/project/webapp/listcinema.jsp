@@ -24,6 +24,7 @@
                         </div>
                     </tr>
                 </c:forEach>
+
             </table>
         </fieldset>
     </form>
