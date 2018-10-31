@@ -61,24 +61,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
+                    </div>
+
                         <c:if test="${user.roles_Id==1}">
-
-
-                         <!-- Form Name -->
 
                          <!-- Button -->
                          <div class="form-group">
-                         <label class="col-md-4 control-label" for="edit"></label>
                          <div class="col-md-4">
-                             <button id="edit" name="edit" class="btn btn-warning">Edit other users</button>
+                             <button id="edit" name="edit" class="btn btn-warning btn-block">Edit other users</button>
                          </div>
-                          </div>
+                         </div>
 
+                         <!-- Button -->
+                         <div class="form-group">
+                         <div class="col-md-4">
+                             <button id="editCarList" name="editCarList" class="btn btn-warning btn-block">Edit car list</button>
+                         </div>
+                         </div>
 
-                          </c:if>
-                        </div>
-                    </div>
+                         </c:if>
 
             </fieldset>
 

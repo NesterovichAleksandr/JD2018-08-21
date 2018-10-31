@@ -5,31 +5,37 @@
 <body>
     <div class="container">
         <%@ include file="include/menu.htm" %>
-                <h2>Cars list:</h2>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Mark</th>
-                        <th scope="col">Model</th>
-                        <th scope="col">Color</th>
-                        <th scope="col">Engine capacity</th>
-                        <th scope="col">Release date</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="car" items="${cars}">
-                        <tr>
-                            <td>${car.mark}</td>
-                            <td>${car.model}</td>
-                            <td>${car.color}</td>
-                            <td>${car.engineCapacity}</td>
-                            <td>${car.releaseDate}</td>
-                        </tr>
-                    </c:forEach>
+
+        <h2>Car list:</h2>
+
+        <c:forEach var="car" items="${cars}">
+
+<div class="row">
+      <div class="col-1">
+      </div>
 
 
-                    </tbody>
-                </table>
+      <div class="col">
+        <div class="media shadow p-3 mb-5 bg-white rounded">
+        <img class="align-self-center mr-3" src="img/car.png" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0">Car info</h5>
+          <p><span class="font-weight-bold">Mark:</span> ${car.mark}<br>
+          <span class="font-weight-bold">Model:</span> ${car.model}<br>
+          <span class="font-weight-bold">Color:</span> ${car.color}<br>
+          <span class="font-weight-bold">Engine capacity:</span> ${car.engineCapacity}<br>
+          <span class="font-weight-bold">Release date:</span> ${car.releaseDate}</p>
+        </div>
+        </div>
+      </div>
+
+
+      <div class="col-1">
+      </div>
+    </div>
+
+    </c:forEach>
+
     </div>
 </body>
 </html>

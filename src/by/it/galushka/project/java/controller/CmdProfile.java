@@ -1,5 +1,6 @@
 package by.it.galushka.project.java.controller;
 
+import by.it.galushka.project.java.beans.Car;
 import by.it.galushka.project.java.beans.Order;
 import by.it.galushka.project.java.beans.User;
 import by.it.galushka.project.java.dao.Dao;
@@ -33,13 +34,17 @@ public class CmdProfile extends Cmd {
                 return Action.LOGIN.cmd;
             } else if (req.getParameter("editOrders") != null) {
                 return Action.EDITORDERS.cmd;
+            } else if (req.getParameter("editCarList") != null) {
+                return Action.EDITCARLIST.cmd;
             }
         }
 
-        List<Order> orders = Dao.getDao().order.getAll(String.format(" WHERE `users_id`= %d ", user.getID()));
         HttpSession session = req.getSession();
+        List<Order> orders = Dao.getDao().order.getAll(String.format(" WHERE `users_id`= %d ", user.getID()));
         session.setAttribute("orders", orders);
 
+        List<Car> cars = Dao.getDao().car.getAll();
+        session.setAttribute("cars", cars);
         return null;
     }
 }

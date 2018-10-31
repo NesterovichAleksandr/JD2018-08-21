@@ -12,29 +12,29 @@
 
         <form action="do?command=EditOrders" method="post" >
             <div class="form-row">
-                <div class="col">
-                    <input id="id" value="${order.ID}" name="id" type="text" placeholder="" class="form-control input-md" required="">
+                <div class="col-1">
+                    <input id="ID" value="${order.ID}" name="ID" type="text" placeholder="" class="form-control input-sm invisible" required="" >
                 </div>
                 <div class="col">
-                    <input id="PassportID" value="${order.passportId}" name="PassportID" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="PassportID" value="${order.passportId}" name="PassportID" type="text" placeholder="" class="form-control input-sm" required="">
                 </div>
                 <div class="col">
-                    <input id="StartDate" value="${order.orderDate}" name="StartDate" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="StartDate" value="${order.orderDate}" name="StartDate" type="text" placeholder="" class="form-control input-sm" required="">
                 </div>
                 <div class="col">
-                    <input id="ReturneDate" value="${order.returnDate}" name="ReturneDate" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="ReturneDate" value="${order.returnDate}" name="ReturneDate" type="text" placeholder="" class="form-control input-sm" required="">
                 </div>
                 <div class="col">
-                    <input id="Surname" value="${order.surname}" name="Surname" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="Surname" value="${order.surname}" name="Surname" type="text" placeholder="" class="form-control input-sm" required="">
                 </div>
                 <div class="col">
-                    <input id="Name" value="${order.name}" name="Name" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="Name" value="${order.name}" name="Name" type="text" placeholder="" class="form-control input-sm" required="">
                 </div>
                 <div class="col">
-                    <input id="MiddleName" value="${order.middleName}" name="MiddleName" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="MiddleName" value="${order.middleName}" name="MiddleName" type="text" placeholder="" class="form-control input-sm" required="">
                 </div>
                 <div class="col">
-                    <input id="Address" value="${order.address}" name="Address" type="text" placeholder="" class="form-control input-md" required="">
+                    <input id="Address" value="${order.address}" name="Address" type="text" placeholder="" class="form-control input-sm" required="">
                 </div>
                 <div class="col">
 

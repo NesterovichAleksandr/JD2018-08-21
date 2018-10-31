@@ -39,6 +39,9 @@ enum Action {
     EDITORDERS {{
         cmd = new CmdEditOrders();
     }},
+    EDITCARLIST {{
+        cmd = new CmdEditCarList();
+    }},
     CARLIST{{
        cmd = new CmdCarList();
     }},
