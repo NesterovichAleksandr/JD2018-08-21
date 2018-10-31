@@ -6,25 +6,24 @@ import by.it.galushka.project.java.dao.Dao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.text.ParseException;
 
 public class CmdEditUsers extends Cmd {
 
     @Override
-    public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
+    public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ParseException {
         Dao dao = Dao.getDao();
         User admin = Util.getUser(req);
         if (admin == null)
             return Action.LOGIN.cmd;
-        long id = admin.getID();
-        if (id == 1 && Form.isPost(req)){
-            String userId = req.getParameter("ID");
-            id = Long.valueOf(userId);
-            String login = req.getParameter("Login");
-            String password = req.getParameter("Password");
-            String email = req.getParameter("Email");
-            String roles = req.getParameter("roles_Id");
-            Long rolesId = Long.valueOf(roles);
-            User user = new User(id, login, password, email, rolesId);
+        long idAdmin = admin.getID();
+        if (idAdmin == 1 && Form.isPost(req)){
+            long idUser = Form.getLong(req, "id");
+            String login = req.getParameter("login");
+            String password = req.getParameter("password");
+            String email = req.getParameter("email");
+            long rolesId = Form.getLong(req, "rolesId");
+            User user = new User(idUser, login, password, email, rolesId);
             if (req.getParameter("Update") != null)
                 dao.user.update(user);
             if (req.getParameter("Delete") != null)
