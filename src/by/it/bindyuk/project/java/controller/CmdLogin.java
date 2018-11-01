@@ -19,34 +19,6 @@ public class CmdLogin extends Cmd {
                 String password = req.getParameter("password");
                 Dao dao = Dao.getDao();
 
-                if (req.getCookies().length > 0) {
-                    int loginBuff = 0;
-                    int passwordBuff = 0;
-                    Cookie[] cookies = req.getCookies();
-                    String loginCok = "login";
-                    String passCok = "password";
-                    for (int i = 0; i < cookies.length; i++) {
-                        Cookie myCookie = cookies[i];
-                        if (loginCok.equalsIgnoreCase(myCookie.getName())) {
-                            if (login.equalsIgnoreCase(myCookie.getValue())) {
-                                loginBuff = 1;
-                            }
-                        }
-                        if (passCok.equalsIgnoreCase(myCookie.getName())) {
-                            if (DigestUtils.md5Hex(password).equalsIgnoreCase(myCookie.getValue())) {
-                                passwordBuff = 1;
-                            }
-                        }
-                    }
-                    if (loginBuff == 1 && passwordBuff == 1) {
-                        String where = " WHERE login='" + login + "' AND password='" + password + "'";
-                        List<User> users = dao.user.getAll(where);
-                        HttpSession session = req.getSession();
-                        session.setAttribute("user", users.get(0));
-                        return Action.PROFILE.cmd;
-                    }
-                }
-
                 String where = " WHERE login='" + login + "' AND password='" + password + "'";
                 List<User> users = dao.user.getAll(where);
 

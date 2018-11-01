@@ -19,10 +19,10 @@ class CmdEditTicket extends Cmd {
         if (Form.isPost(req)) {
             long id = Long.valueOf(Form.getString(req, "id"));
             String transport = Form.getString(req, "transport");
-            long routesIdFrom = Long.valueOf(Form.getString(req, "routesIdFrom"));
-            long routesIdTo = Long.valueOf(Form.getString(req, "routesIdTo"));
+            long routesIdFrom = Long.valueOf(Form.getString(req, "routes_idFrom"));
+            long routesIdTo = Long.valueOf(Form.getString(req, "routes_idTo"));
             Timestamp data = Timestamp.valueOf(Form.getString(req, "data"));
-            long users_id = Long.valueOf(req.getParameter("usersId"));
+            long users_id = Long.valueOf(req.getParameter("users_id"));
 
             Ticket ticket = new Ticket(id, transport, routesIdFrom, routesIdTo, data, users_id);
             if (req.getParameter("Update") != null) {
@@ -34,6 +34,7 @@ class CmdEditTicket extends Cmd {
         }
         req.setAttribute("tickets", dao.ticket.getAll());
         req.setAttribute("users", dao.user.getAll());
+        req.setAttribute("routes", dao.route.getAll());
         return null;
     }
 }

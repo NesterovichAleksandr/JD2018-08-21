@@ -27,13 +27,23 @@
                     </div>
 
                     <div class=col-md-2>
-                        <input id="routesIdFrom" class="form-control input-md" name="routesIdFrom"
-                               value="${ticket.routesIdFrom}"/>
+                        <select id="routes_idFrom" name="routes_idFrom" class="form-control">
+                               <c:forEach items="${routes}" var="route">
+                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdFrom?"selected":""}>
+                                                   ${route.city}
+                                        </option>
+                               </c:forEach>
+                        </select>
                     </div>
 
                     <div class=col-md-2>
-                        <input id="routesIdTo" class="form-control input-md" name="routesIdTo"
-                               value="${ticket.routesIdTo}"/>
+                        <select id="routes_idTo" name="routes_idTo" class="form-control">
+                               <c:forEach items="${routes}" var="route">
+                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdTo?"selected":""}>
+                                                   ${route.city}
+                                        </option>
+                               </c:forEach>
+                        </select>
                     </div>
 
                     <div class=col-md-2>
