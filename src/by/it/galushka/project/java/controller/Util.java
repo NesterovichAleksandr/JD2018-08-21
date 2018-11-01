@@ -1,9 +1,14 @@
 package by.it.galushka.project.java.controller;
 
+import by.it.galushka.project.java.beans.Car;
 import by.it.galushka.project.java.beans.User;
+import by.it.galushka.project.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.List;
 
 class Util {
 
@@ -16,5 +21,17 @@ class Util {
             }
         }
         return null;
+    }
+
+    static Car getCar(HttpServletRequest req) throws ParseException, SQLException {
+        long id = Form.getLong(req, "carList");
+        String where = String.format(" WHERE `ID`=%d", id);
+        Dao dao = Dao.getDao();
+        List<Car> cars = dao.car.getAll(where);
+        if (cars.size() > 0) {
+            Car car = cars.get(0);
+            return car;
+        }
+        throw new ParseException("Не находит ID маштны!",0);
     }
 }

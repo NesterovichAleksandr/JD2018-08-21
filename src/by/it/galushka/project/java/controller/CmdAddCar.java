@@ -17,10 +17,11 @@ public class CmdAddCar extends Cmd {
             String engineCapacity = req.getParameter("EngineCapacity");
             double eC = Double.parseDouble(engineCapacity);
             String releaseDate = req.getParameter("ReleaseDate");
-            Car car = new Car(0, mark, model, color, eC, releaseDate, 1);
+            String reserved = req.getParameter("Reserved");
+            Car car = new Car(0, mark, model, color, eC, releaseDate, reserved, 1);
             Dao dao = Dao.getDao();
             dao.car.create(car);
-            return Action.ADDCARDONE.cmd;
+            return Action.EDITCARLIST.cmd;
         }
         return null;
     }

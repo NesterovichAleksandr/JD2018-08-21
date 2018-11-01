@@ -39,6 +39,7 @@ public class CmdEditCarList extends Cmd {
         String engineCapacity = req.getParameter("EngineCapacity");
         double eC = Double.parseDouble(engineCapacity);
         String releaseDate = req.getParameter("ReleaseDate");
-        return new Car(id, mark, model, color, eC, releaseDate, 1);
+        String reserved = req.getParameter("Reserved");
+        return new Car(id, mark, model, color, eC, releaseDate, reserved, 1);
     }
 }

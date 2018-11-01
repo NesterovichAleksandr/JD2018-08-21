@@ -12,6 +12,16 @@
         		<!-- Form Name -->
         		<legend>Your order</legend>
 
+                    <div class="col-md-4 control-label">
+                        <select id="carList" name="carList" class="form-control">
+                            <c:forEach items="${cars}" var="car">
+                                <option value="${car.ID}" car=${car.ID} ${car.ID==car.ID?"selected":""}>
+                                        ${car.mark} ${car.model} ${car.color}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
         		<!-- Password input-->
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="PassportID">Passport ID</label>

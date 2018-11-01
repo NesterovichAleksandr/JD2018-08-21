@@ -31,6 +31,9 @@
                     <input id="ReleaseDate" value="${car.releaseDate}" name="ReleaseDate" type="text" placeholder="" class="form-control input-md" required="">
                 </div>
                 <div class="col">
+                    <input id="Reserved" value="${car.reserved}" name="Reserved" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+                <div class="col">
 
                     <button id="editCar" name="editCar" class="btn btn-warning">Edit</button>
 

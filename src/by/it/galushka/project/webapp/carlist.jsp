@@ -27,8 +27,21 @@
           <span class="font-weight-bold">Release date:</span> ${car.releaseDate}</p>
         </div>
         <div class="media-body">
+        <c:if test="${car.reserved==true}">
           <h1 class="mt-0">Status: <span class="text-danger">reserved</span></h1>
+          <p>Sorry this car reserved!</p>
+        </c:if>
+        <c:if test="${car.reserved==false}">
+          <h1 class="mt-0">Status: <span class="text-success">free</span></h1>
           <p>You can order this car right now!</p>
+          <c:if test="${user==null}">
+          <p><a href="do?command=Login">Login</a> or <a href="do?command=SignUp">Registration</a> for create new order.</p>
+          </c:if>
+          <c:if test="${user!=null}">
+          <p><a href="do?command=AddOrder">Create new order.</a></p>
+          </c:if>
+        </c:if>
+
         </div>
         </div>
       </div>
