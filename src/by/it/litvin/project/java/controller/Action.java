@@ -11,6 +11,9 @@ enum Action {
    RESET {{
        cmd = new CmdReset();
    }},
+    EDITUSERS {{
+        cmd = new CmdEditUsers();
+    }},
    PROFILE {{
        cmd = new CmdProfile();
    }},
