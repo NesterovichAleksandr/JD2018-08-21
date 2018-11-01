@@ -1,22 +1,18 @@
-package by.it.galushka.project.java.sql;
+package by.it.galushka.project.java.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ResetDB {
-
-    public static void main(String[] args) {
-        Reset();
-    }
+class Reset {
 
     static final String URL_DB = "jdbc:mysql://127.0.0.1:2016/" +
             "?useUnicode=true&characterEncoding=UTF-8";
     static final String USER_DB = "root";
     static final String PASSWORD_DB = "";
 
-    private static void Reset() {
+    public static void main(String[] args) {
         try (Connection connection =
                      DriverManager.getConnection(URL_DB, USER_DB, PASSWORD_DB)
         ) {
@@ -82,7 +78,7 @@ public class ResetDB {
             statement.executeUpdate("INSERT INTO `galushka`.`users` (`ID`, `Login`, `Password`, `Email`, `roles_ID`) VALUES (DEFAULT, 'admin', 'padmin', 'admin@it.by', 1);");
             statement.executeUpdate("INSERT INTO `galushka`.`users` (`ID`, `Login`, `Password`, `Email`, `roles_ID`) VALUES (DEFAULT, 'user', 'puser', 'user@it.by', 2);");
             statement.executeUpdate("INSERT INTO `galushka`.`cars` (`ID`, `Mark`, `Model`, `Color`, `Engine capacity`, `Release date`, `users_ID`) VALUES (DEFAULT, 'Audi', 'A4', 'Grey', 2.0, '2018/01/01', 1);");
-            statement.executeUpdate("INSERT INTO `galushka`.`orders` (`ID`, `Passport id`, `Order date`, `Return date`, `Surname`, `Name`, `Middle name`, `Address`, `users_ID`) VALUES (DEFAULT, '123456789oiuyt', '2018.01.01', '2018/11/01', 'Ivanov', 'Ivan', 'Ivanovich', 'Lenina, 3', 2);");
+            statement.executeUpdate("INSERT INTO `galushka`.`orders` (`ID`, `Passport id`, `Order date`, `Return date`, `Surname`, `Name`, `Middle name`, `Address`, `users_ID`) VALUES (DEFAULT, '123456789oiuyt', '2018/01/01', '2018/11/01', 'Ivanov', 'Ivan', 'Ivanovich', 'Lenina, 3', 2);");
             System.out.println("--->Reset done");
         } catch (SQLException e) {
             e.printStackTrace();

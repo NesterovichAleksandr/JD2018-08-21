@@ -1,8 +1,8 @@
-package by.it.galushka.project.java;
+package by.it.galushka.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ActionsResolver {
+class ActionsResolver {
 
     Action resolve(HttpServletRequest req) {
         Action result = Action.ERROR;
@@ -10,6 +10,7 @@ public class ActionsResolver {
         try {
             result = Action.valueOf(command.toUpperCase());
         } catch (IllegalArgumentException e) {
+            req.setAttribute("message", e.toString());
 //            result = Action.ERROR;
 //            message to error.jsp
         }

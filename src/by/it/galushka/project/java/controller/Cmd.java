@@ -1,12 +1,13 @@
-package by.it.galushka.project.java;
+package by.it.galushka.project.java.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.text.ParseException;
 
-abstract class Cmd {
+public abstract class Cmd {
 
-    abstract Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException;
+    public abstract Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ParseException;
 
     @Override
     public String toString() {
