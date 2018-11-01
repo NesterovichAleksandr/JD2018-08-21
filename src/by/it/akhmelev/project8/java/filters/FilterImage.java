@@ -29,7 +29,7 @@ public class FilterImage implements Filter {
             filterChain.doFilter(req,res);
         }
         else
-            req.getRequestDispatcher("/image/noimage.jpg").forward(req,res);
+            req.getRequestDispatcher("/image/noimage.png").forward(req,res);
 
     }
 
