@@ -26,6 +26,10 @@
           <span class="font-weight-bold">Engine capacity:</span> ${car.engineCapacity}<br>
           <span class="font-weight-bold">Release date:</span> ${car.releaseDate}</p>
         </div>
+        <div class="media-body">
+          <h1 class="mt-0">Status: <span class="text-danger">reserved</span></h1>
+          <p>You can order this car right now!</p>
+        </div>
         </div>
       </div>
 
