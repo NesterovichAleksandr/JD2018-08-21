@@ -30,6 +30,7 @@ public class CmdLogin extends Cmd {
                 HttpSession session = req.getSession();
                 session.setMaxInactiveInterval(30);
                 session.setAttribute("user", users.get(0));
+                session.setAttribute("userId", users.get(0).getId());
                 session.setAttribute("userLogin",login);
                 return Action.USERCABINET.cmd;
             } else {
