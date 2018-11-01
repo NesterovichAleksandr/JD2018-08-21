@@ -12,14 +12,18 @@
             <c:if test="${user!=null}">
                 <mytag:menu command="CreateAd" text="Новое объявление"/>
                 <mytag:menu command="EditUsers" text="Админпанель"/>
-                <mytag:menu command="Profile" text="Профиль"/>
-            </c:if>
-            <c:if test="${user==null}">
-                <mytag:menu command="SignUp" text="Регистрация"/>
-                <mytag:menu command="Login" text="Авторизация"/>
             </c:if>
         </ul>
     </div>
+    <ul class="navbar-nav navbar-right">
+        <c:if test="${user!=null}">
+            <mytag:menu command="Profile" text="Профиль"/>
+        </c:if>
+        <c:if test="${user==null}">
+            <mytag:menu command="SignUp" text="Регистрация"/>
+            <mytag:menu command="Login" text="Авторизация"/>
+        </c:if>
+    </ul>
 </nav>
 
 

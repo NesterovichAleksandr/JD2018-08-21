@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,12 +29,14 @@ public class Util {
         Part part = req.getPart("upload");
         String path = req.getServletContext().getRealPath("/image") + File.separator + filename;
         try (
-        InputStream in = part.getInputStream();
-        FileOutputStream out=new FileOutputStream(path)
-        ){
-            byte[] buf=new byte[100000];
-            int len = in.read(buf);
-            out.write(buf,0,len);
+                InputStream in = part.getInputStream();
+                FileOutputStream out = new FileOutputStream(path)
+        ) {
+            while (in.available() > 0) {
+                byte[] buf = new byte[100000];
+                int len = in.read(buf);
+                out.write(buf, 0, len);
+            }
         }
 
 

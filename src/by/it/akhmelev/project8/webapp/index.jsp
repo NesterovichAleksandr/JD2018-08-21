@@ -6,7 +6,7 @@
 <body>
     <div class="container">
     <%@ include file="include/menu.htm" %>
-        <h2>Мои объявления</h2>
+        <h2>Все объявления</h2>
         <table class="table">
             <thead>
             <tr>

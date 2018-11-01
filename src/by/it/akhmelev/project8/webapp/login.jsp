@@ -9,10 +9,8 @@
 <form class="form-horizontal" action="do?command=Login" method="post">
 <fieldset>
 
-<p>${user}<br></p>
-
 <!-- Form Name -->
-<legend>Form Login</legend>
+<legend>Авторизация</legend>
 
 <!-- Text input-->
 <div class="form-group">
