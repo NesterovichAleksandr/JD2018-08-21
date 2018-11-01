@@ -3,7 +3,9 @@
 <body>
     <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>ALL FORMS: ${forms}</p>
+    <p>ERROR: ${printStackTrace}</p>
     </div>
 </body>
 </html>
+
+
