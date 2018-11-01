@@ -40,7 +40,7 @@ public class Util {
             }
         }
         //если файл нулевого размера то удалим его
-        if (img.exists() && img.length() > 0 && img.delete())
+        if (img.exists() && img.length() == 0 && img.delete())
             System.out.println(path + " deleted...");
     }
 }
