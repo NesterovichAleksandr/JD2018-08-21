@@ -27,8 +27,15 @@ import java.text.ParseException;
 
     static Integer getInt(HttpServletRequest request, String name) throws ParseException {
         String value = request.getParameter(name);
-        if (value != null && value.matches("[0-9]+"))
+        if (value != null && value.matches("[-0-9]+"))
             return Integer.valueOf(value);
-        throw new ParseException("Field " +name+ " incorrect ", 0);
+        throw new ParseException("Field " +name+ " incorrect. ", 0);
     }
+
+     static Long getLong(HttpServletRequest request, String name) throws ParseException {
+         String value = request.getParameter(name);
+         if (value != null && value.matches("[-0-9]+"))
+             return Long.valueOf(value);
+         throw new ParseException("Field " +name+ " incorrect. ", 0);
+     }
 }
