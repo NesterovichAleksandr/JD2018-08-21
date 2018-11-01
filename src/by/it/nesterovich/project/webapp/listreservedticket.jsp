@@ -30,14 +30,14 @@
                             <div class=col-md-2>
                                 <c:forEach items="${films}" var="film">
                                     <c:if test="${film.id==reservedTicket.films_id}">
-                                        <c:out value="${film.name}" escapeXml="false"/>
+                                        ${film.name}
                                     </c:if>
                                 </c:forEach>
                             </div>
                             <div class=col-md-1>
                                 <c:forEach items="${cinemas}" var="cinema">
                                     <c:if test="${cinema.id==reservedTicket.cinemas_id}">
-                                        <c:out value="${cinema.name}" escapeXml="false"/>
+                                        ${cinema.name}
                                     </c:if>
                                 </c:forEach>
                             </div>
