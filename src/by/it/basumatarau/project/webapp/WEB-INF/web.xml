@@ -11,16 +11,6 @@
         <servlet-class>by.it.basumatarau.project.java.controller.FrontController</servlet-class>
     </servlet>
 
-    <servlet>
-        <servlet-name>HelloWorld</servlet-name>
-        <servlet-class>by.it.basumatarau.project.java.controller.HelloServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HelloWorld</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>FrontEndController</servlet-name>
         <url-pattern>/do</url-pattern>
@@ -28,7 +18,7 @@
 
     <filter>
         <filter-name>EncodingFilter</filter-name>
-        <filter-class>by.it.basumatarau.project.java.controller.EncodingUTF8</filter-class>
+        <filter-class>by.it.basumatarau.project.java.filters.EncodingUTF8</filter-class>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>
@@ -39,5 +29,13 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>CookieAuth</filter-name>
+        <filter-class>by.it.basumatarau.project.java.filters.CookieAuth</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CookieAuth</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
 

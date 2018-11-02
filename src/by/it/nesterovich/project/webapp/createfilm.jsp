@@ -3,7 +3,7 @@
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
-    <%@ include file="include/menu.htm" %>
+    <%@ include file="include/menu.jsp" %>
     <p>Cmd CreateFilm: ${message}</p>
 
     <form class="form-horizontal" action="do?command=CreateFilm" method="post">
