@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -71,32 +73,20 @@
 </div>
 
 
-
-<!-- Button Drop Down -->
+<!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="aim">Aim</label>
-  <div class="col-md-4">
-    <div class="input-group">
-      <input id="aim" name="aim" value="TestAim" class="form-control" placeholder="" type="text" required="">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          options
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu pull-right">
-          <li><a href="#">Relationship</a></li>
-          <li><a href="#">Friendship</a></li>
-          <li><a href="#">Communication</a></li>
-          <li><a href="#">Nothing</a></li>
-        </ul>
-      </div>
-    </div>
+<label class="col-md-4 control-label" for="aim">Aim</label>
+<div class="col-md-4">
+<input id="aim" name="aim" value="Test Aim" type="text" placeholder="" class="form-control input-md" required="">
+
   </div>
 </div>
 
+
+
 <!-- Button -->
 <div class="form-group">
-   <label class="col-md-4 control-label" for="signupsubmit"></label>
+   <label class="col-md-4 control-label" for="signupsubmit">Single Button</label>
    <div class="col-md-4">
      <button id="signupsubmit" name="signupsubmit" class="btn btn-success">SignUp</button>
   </div>
