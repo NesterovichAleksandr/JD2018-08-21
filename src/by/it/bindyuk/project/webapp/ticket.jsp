@@ -1,10 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
      <div class="container">
      <%@ include file="include/menu.htm" %>
      <form class="form-horizontal" action="do?command=Ticket" method="post">
-     <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+
 
 <fieldset>
 
