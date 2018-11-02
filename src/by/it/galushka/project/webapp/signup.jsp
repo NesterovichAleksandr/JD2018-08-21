@@ -13,12 +13,18 @@
 			<legend>Registration</legend>
 
 			<!-- Text input-->
+
+
+
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="Login">Registration</label>
+			  <label class="col-md-4 control-label" for="Login">Login</label>
 			  <div class="col-md-4">
 			  <input id="Login" value="TestUser" name="Login" type="text" placeholder="" class="form-control input-md" required="">
 
 			  </div>
+			  <div class="text-danger">
+              	${loginExeption}
+              </div>
 			</div>
 
 			<!-- Password input-->
