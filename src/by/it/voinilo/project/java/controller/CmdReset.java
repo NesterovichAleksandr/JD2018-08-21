@@ -1,4 +1,4 @@
-package by.it.voinilo.project.java;
+package by.it.voinilo.project.java.controller;
 
 
 
@@ -15,7 +15,7 @@ public class CmdReset extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
             Dao.getDao().reset();
-            return Action.SIGNUP.cmd;
+            return Action.GOTOADMINPAGE.cmd;
     }
 
     public static void main(String[] args) throws SQLException {

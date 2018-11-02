@@ -37,7 +37,7 @@ public class Runner {
 
         Ads ad = new Ads();
         ad.setDescription("ad dao test ad dao test ad dao test ");
-        ad.setRoles_id(2);
+        ad.setRoleparam_id(2);
         if (dao.ad.create(ad))
             System.out.println("CREATE:\n" + dao.ad.getALL());
         ad = dao.ad.read((int) ad.getId());
