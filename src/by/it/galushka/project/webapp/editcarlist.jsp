@@ -10,7 +10,7 @@
 
 
 
-        <form action="do?command=EditCarList" method="post" >
+        <form>
 
             <div class="form-row">
                 <div class="form-group col-md-1">
@@ -39,8 +39,11 @@
                 </div>
 
             </div>
+        </form>
 
-            <c:forEach items="${cars}" var="car">
+        <c:forEach items="${cars}" var="car">
+        <form action="do?command=EditCarList" method="post" >
+
 
             <div class="form-row">
                 <div class="form-group col-md-1">
@@ -74,9 +77,10 @@
 
             </div>
 
-            </c:forEach>
+
 
         </form>
+        </c:forEach>
 
 
 
