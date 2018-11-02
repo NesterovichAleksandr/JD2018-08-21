@@ -21,41 +21,44 @@ public class CmdListFilm extends Cmd {
         if (user == null) {
             return Action.LOGIN.cmd;
         }
-        HttpSession session = req.getSession();
         Dao dao = Dao.getDao();
+
+
+        HttpSession session = req.getSession();
 
         List<Film> films = dao.film.getAll("");
         if (films.size() > 0) {
-            session.setAttribute("films", films);
-            //req.setAttribute("films", films);
+            //session.setAttribute("films", films);
+            req.setAttribute("films", films);
         }
 
         List<Cinema> cinemas = dao.cinema.getAll("");
         if (cinemas.size() > 0) {
-            session.setAttribute("cinemas", cinemas);
-            //req.setAttribute("cinemas", cinemas);
+            //session.setAttribute("cinemas", cinemas);
+            req.setAttribute("cinemas", cinemas);
         }
 
-        //List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(String.format(" WHERE films_cinemas.films_id=%d", Form.getLong(req, "filmId")));
-        List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(String.format(" WHERE films_cinemas.films_id=%d", 1));
+        //List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(
+        // String.format(" WHERE films_cinemas.films_id=%d", Form.getLong(req, "filmId")));
+        String formatFilmCinema = String.format(" WHERE films_cinemas.films_id=%s", 2);
+        List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(formatFilmCinema);
         if (listCinemasForFilm.size() > 0) {
-            session.setAttribute("listCinemaForFilm", listCinemasForFilm);
-            //req.setAttribute("listCinemaForFilm", listCinemasForFilm);
+            //session.setAttribute("listCinemaForFilm", listCinemasForFilm);
+            req.setAttribute("listCinemaForFilm", listCinemasForFilm);
         }
         if (Form.isPost(req)) {
-
             if (req.getParameter("reservButton") != null) {
                 //бронь создаётся с конкретными числами. проверено.
                 ReservedTicket reservedTicket = new ReservedTicket(
                         0,
                         11111111,
                         7.0,
-                        2,//user.getId(),
-                        1,//Form.getLong(req, "filmId"),//req.getParameter("filmId"),
-                        2//Form.getLong(req, "cinemaId") //req.getParameter("cinemaId")
+                        user.getId(),
+                        Form.getLong(req, "filmId"),
+                        Form.getLong(req, "cinemaId")
                 );
                 dao.reservedTicket.create(reservedTicket);
-                return Action.USERCABINET.cmd;
+                return Action.LISTRESERVEDTICKET.cmd;
             }
         }
         return null;
