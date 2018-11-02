@@ -19,6 +19,9 @@ public enum Action {
     LISTFILM {{
         cmd = new CmdListFilm();
     }},
+    UPDATEFILM {{
+        cmd = new CmdUpdateFilm();
+    }},
     LISTCINEMA {{
         cmd = new CmdListCinema();
     }},
@@ -28,8 +31,14 @@ public enum Action {
     EDITUSERINFO {{
         cmd = new CmdEditUserInfo();
     }},
-    RESERVEDTICKET {{
-        cmd = new CmdReservedTicket();
+    LISTRESERVEDTICKET {{
+        cmd = new CmdListReservedTicket();
+    }},
+    CREATERESERVEDTICKET {{
+        cmd = new CmdCreateReservedTicket();
+    }},
+    DELETERESERVEDTICKET {{
+        cmd = new CmdDeleteReservedTicket();
     }},
     CREATEFILM {{
         cmd = new CmdCreateFilm();

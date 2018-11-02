@@ -4,75 +4,71 @@
 <body>
 <div class="container">
     <%@ include file="include/menu.jsp" %>
-    <p>Cmd CreateFilm: ${message}</p>
 
-    <form class="form-horizontal" action="do?command=CreateFilm" method="post">
+    <form class="form-horizontal" action="do?command=UpdateFilm" method="post">
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Create film</legend>
+            <legend>Update film</legend>
+
+            <input type="hidden" name="filmId" value="${IdFilm}"/>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="name">Name</label>
+                <label class="col-md-4 control-label" for="filmName">Name</label>
                 <div class="col-md-4">
-                    <input id="name" name="name" value="TestName" type="text" placeholder=""
+                    <input id="filmName" name="filmName" value=${filmIdName} type="text" placeholder=""
                            class="form-control input-md" required="">
-
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="country">Country</label>
+                <label class="col-md-4 control-label" for="filmCountry">Country</label>
                 <div class="col-md-4">
-                    <input id="country" name="country" value="TestCountry" type="text" placeholder=""
+                    <input id="filmCountry" name="filmCountry" value=${filmIdCountry} type="text" placeholder=""
                            class="form-control input-md" required="">
-
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="genre">Genre</label>
+                <label class="col-md-4 control-label" for="filmGenre">Genre</label>
                 <div class="col-md-4">
-                    <input id="genre" name="genre" value="TestGenre" type="text" placeholder=""
+                    <input id="filmGenre" name="filmGenre" value=${filmIdGenre} type="text" placeholder=""
                            class="form-control input-md" required="">
-
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="yearOfIssue">Year of issue</label>
+                <label class="col-md-4 control-label" for="filmYearOfIssue">Year Of Issue</label>
                 <div class="col-md-4">
-                    <input id="yearOfIssue" name="yearOfIssue" value="2000" type="text" placeholder=""
+                    <input id="filmYearOfIssue" name="filmYearOfIssue" value=${filmIdYearOfIssue} type="text"
+                           placeholder=""
                            class="form-control input-md" required="">
-
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="duration">Phone number</label>
+                <label class="col-md-4 control-label" for="filmDuration">Duration</label>
                 <div class="col-md-4">
-                    <input id="duration" name="duration" value="111" type="text" placeholder=""
+                    <input id="filmDuration" name="filmDuration" value=${filmIdDuration} type="text" placeholder=""
                            class="form-control input-md" required="">
-
                 </div>
             </div>
 
             <!-- Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="createfilmsubmit"></label>
+                <label class="col-md-4 control-label" for="savefilmsubmit"></label>
                 <div class="col-md-4">
-                    <button id="createfilmsubmit" name="createfilmsubmit" class="btn btn-success">Create film</button>
+                    <button id="savefilmsubmit" name="savefilmsubmit" class="btn btn-success">Save</button>
                 </div>
             </div>
 
         </fieldset>
     </form>
-
 </div>
 </body>
 </html>

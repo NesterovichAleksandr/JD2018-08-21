@@ -2,11 +2,7 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-<div class="container">
-    <%@ include file="include/menu.jsp" %>
-    <p>ERROR: ${printStackTrace}</p>
-</div>
+<%@ include file="include/menu.jsp" %>
+<p>Cmd CreateFilm: ${message}</p>
 </body>
 </html>
-
-
