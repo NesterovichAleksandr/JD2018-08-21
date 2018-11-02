@@ -9,17 +9,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class CmdListResumes extends Cmd {
+public class CmdProfile extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-       if (Util.getUser(req) == null){
-           req.setAttribute("resumes", Dao.getDao().resume.getAll());
-           return null;
-       }
-
         User user = Util.getUser(req);
-
-
+        if(user == null)
+            return Action.LOGIN.cmd;
+        if(Form.isPost(req)) {
+            user.setLogin(Form.getString(req, "login"));
+            user.setPassword(Form.getString(req, "password"));
+            user.setEmail(Form.getString(req, "email"));
+            Dao.getDao().user.update(user);
+        } else if (req.getParameter("logout") != null) {
+            HttpSession session = req.getSession();
+            session.invalidate();
+            return Action.LOGIN.cmd;
+        }
 
         if(user.getRolesId() == 2){
             List<Resume> resumes = Dao.getDao().resume.getAll(" WHERE `resumes`.`users_id`=" + user.getId());

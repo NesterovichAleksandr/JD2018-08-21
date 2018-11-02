@@ -10,7 +10,6 @@ abstract class Cmd {
     @Override
     public String toString() {
         String name = this.getClass().getSimpleName();
-        String cmd = name.replace("Cmd", "");
-        return cmd;
+        return name.replace("Cmd", "");
     }
 }

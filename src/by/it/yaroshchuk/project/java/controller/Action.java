@@ -12,7 +12,7 @@ public enum Action {
             cmd = new CmdLogin();
         }},
     LOGOUT {{
-            cmd = new CmdIndex();
+            cmd = new CmdLogout();
         }},
     SIGNUP {{
             cmd = new CmdSignUp();
@@ -22,6 +22,9 @@ public enum Action {
         }},
     LISTRESUMES {{
             cmd = new CmdListResumes();
+    }},
+    PROFILE {{
+        cmd = new CmdError();
     }},
     ERROR {{
             cmd = new CmdError();
