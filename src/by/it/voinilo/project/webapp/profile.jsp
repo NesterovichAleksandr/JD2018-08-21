@@ -6,7 +6,10 @@
 <div class="container" >
 
 <%@ include file="include/menu.htm" %>
-<form class="form-horizontal" action="do?command=Login">
+<p>Ads: ${ads}</p>
+<hr>
+<p>${user}<br></p>
+<form class="form-horizontal" action="do?command=Profile" method="post">
 </br>
 </br>
 </br>
@@ -18,29 +21,13 @@
 
 
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Login</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" value="testLogin" placeholder="" class="form-control input-md">
 
-  </div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="passwordinput">Password</label>
-  <div class="col-md-4">
-    <input id="passwordinput" name="passwordinput" type="password" value="testPassword" placeholder="" class="form-control input-md">
-
-  </div>
-</div>
 
 <!-- Button -->
 <div class="form-group" >
-  <label class="col-md-4 control-label" for="submit" ></label>
+  <label class="col-md-4 control-label" for="logout" ></label>
   <div class="col-md-4" align="right">
-    <button id="submit" name="submit" class="btn btn-primary" >Login</button>
+    <button id="submit" name="logout" class="btn btn-primary" >Logout</button>
   </div>
 </div>
 

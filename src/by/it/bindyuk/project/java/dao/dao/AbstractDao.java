@@ -32,7 +32,7 @@ public abstract class AbstractDao {
 
         try (Connection connection = ConnectionCreator.getConnection();
              Statement statement = connection.createStatement()) {
-
+            System.out.println(sql);
             return (statement.executeUpdate(sql) > 0);
         }
     }
