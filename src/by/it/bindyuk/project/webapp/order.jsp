@@ -1,10 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
      <div class="container">
      <%@ include file="include/menu.htm" %>
      <form class="form-horizontal" action="do?command=Order" method="get">
-     <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
      <fieldset>
 
 
@@ -27,9 +28,10 @@
 </ul>
 
       <div class="jumbotron">
-        <h1 class="display-3">Ticket has been ordered&nbsp;</h1>
+        <h1 class="display-3">Билет куплен&nbsp;</h1>
         <p></p>
       </div>
+
 
         <p>TRANSPORT: ${transport}</p>
         <p>FROM: ${from}</p>

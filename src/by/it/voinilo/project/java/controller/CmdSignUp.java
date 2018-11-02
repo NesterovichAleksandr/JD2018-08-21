@@ -1,18 +1,15 @@
-package by.it.voinilo.project.java;
+package by.it.voinilo.project.java.controller;
 
 import by.it.voinilo.project.java.beans.Roleparam;
-import by.it.voinilo.project.java.entitydao.AbstractDao;
 import by.it.voinilo.project.java.entitydao.Dao;
-import by.it.voinilo.project.java.entitydao.Roleparam_Dao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.SQLException;
 
 public class CmdSignUp extends Cmd{
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse response) throws Exception {
-        if (req.getMethod().equalsIgnoreCase("post")) {
+        if (Form.isPost(req)) {
             String login = req.getParameter("login");
             String email = req.getParameter("email");
             String password = req.getParameter("password");

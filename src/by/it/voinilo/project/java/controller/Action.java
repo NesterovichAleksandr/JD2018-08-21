@@ -1,7 +1,10 @@
-package by.it.voinilo.project.java;
+package by.it.voinilo.project.java.controller;
 
 public enum Action {
-
+    GOTOADMINPAGE {{cmd = new CmdGotoAdminPage();}},
+    PROFILE{{
+        cmd=new CmdProfile();
+    }},
     INDEX {{
 
         cmd =new CmdIndex();
@@ -26,6 +29,6 @@ public enum Action {
     RESET {{cmd= new CmdReset();}};
 
     public String getJsp(){ return "/"+this.cmd.toString().toLowerCase() +".jsp";}
-    public Cmd cmd =new CmdError();
+    public  Cmd cmd =new CmdError();
 
 }

@@ -1,4 +1,4 @@
-package by.it.voinilo.project.java;
+package by.it.voinilo.project.java.controller;
 
 
 import javax.servlet.ServletException;

@@ -1,11 +1,11 @@
-package by.it.voinilo.project.java;
+package by.it.voinilo.project.java.controller;
 
 import by.it.voinilo.project.java.beans.Roleparam;
 import by.it.voinilo.project.java.entitydao.Dao;
 
-import javax.management.relation.Role;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class CmdLogin extends Cmd {
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
 
-      if (req.getMethod().equalsIgnoreCase("post")) {
+      if (Form.isPost(req)) {
 
           String login = req.getParameter("login");
           String password = req.getParameter("password");
@@ -23,18 +23,15 @@ public class CmdLogin extends Cmd {
           String where = String.format(" WHERE `login`='%s' AND `password`='%s'",login,password);
           List<Roleparam> users = dao.user.getALL(where);
           if (users.size()>0) {
-              req.setAttribute("user",users.get(0));
+              HttpSession session = req.getSession();
+              session.setAttribute("user", users.get(0));
+              return Action.PROFILE.cmd;
           }
 
       }
       return null;
   }
 
-    public static void main(String[] args) throws SQLException {
-        String where = String.format(" WHERE `login`='%s' AND `password`='%s'","a","c");
-        List<Roleparam> all = Dao.getDao().user.getALL(where);
-        System.out.println(all.get(0));
 
-}
 
 }

@@ -34,8 +34,8 @@ public class Ads_Dao extends AbstractDao implements interfaceDao<Ads> {
                 ad.setName(resultSet.getString("name"));
                 ad.setPrice(resultSet.getString("price"));
                 ad.setCondition(resultSet.getString("condition"));
-                ad.setCellnumber(resultSet.getString("cellnumber"));
-                ad.setRoles_id(resultSet.getInt("roles_id"));
+                ad.setNumber(resultSet.getString("number"));
+                ad.setRoleparam_id(resultSet.getInt("roleparam_id"));
                 ads.add(ad);
             }
             return ads;
@@ -52,9 +52,9 @@ public class Ads_Dao extends AbstractDao implements interfaceDao<Ads> {
 
             String sql = String.format("INSERT INTO `ads`(`description`," +
                             " `address`, `name`, `price`, `condition`," +
-                            " `cellnumber`, `roles_id`) VALUES ('%s','%s','%s','%s','%s','%s','%d')",
+                            " `number`, `roleparam_id`) VALUES ('%s','%s','%s','%s','%s','%s','%d')",
                     ads.getDescription(),ads.getAddress(),ads.getName(),ads.getPrice(),
-                    ads.getCondition(),ads.getCellnumber(), ads.getRoles_id());
+                    ads.getCondition(),ads.getNumber(), ads.getRoleparam_id());
             long id = executeCreate(sql);
             if (id>0)ads.setId(id);
             return id>0;
@@ -81,9 +81,9 @@ public class Ads_Dao extends AbstractDao implements interfaceDao<Ads> {
             String sql = String.format(
                     "UPDATE `ads` SET `description`='%s'," +
                             "`address`='%s',`name`='%s',`price`='%s'," +
-                            "`condition`='%s',`cellnumber`='%s',`roles_id`='%d' WHERE `id`= %d;",
+                            "`condition`='%s',`cellnumber`='%s',`roleparam_id`='%d' WHERE `id`= %d;",
                     ads.getDescription(),ads.getAddress(),ads.getName(),ads.getPrice(),
-                    ads.getCondition(),ads.getCellnumber(), ads.getRoles_id(),ads.getId());
+                    ads.getCondition(),ads.getNumber(), ads.getRoleparam_id(),ads.getId());
             return executeUpdate(sql);
 
     }

@@ -25,21 +25,23 @@ public class Util {
         return null;
     }
 
-    public static void saveImage(HttpServletRequest req, String filename) throws IOException, ServletException {
+    static void saveImage(HttpServletRequest req, String filename) throws IOException, ServletException {
         Part part = req.getPart("upload");
         String path = req.getServletContext().getRealPath("/image") + File.separator + filename;
+        File img = new File(path);
         try (
                 InputStream in = part.getInputStream();
-                FileOutputStream out = new FileOutputStream(path)
+                FileOutputStream out = new FileOutputStream(img)
         ) {
-            while (in.available() > 0) {
+            while (in.available() > 0) { //для больших файлов за один раз не получится
                 byte[] buf = new byte[100000];
                 int len = in.read(buf);
                 out.write(buf, 0, len);
             }
         }
-
-
+        //если файл нулевого размера то удалим его
+        if (img.exists() && img.length() == 0 && img.delete())
+            System.out.println(path + " deleted...");
     }
 }
 

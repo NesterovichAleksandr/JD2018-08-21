@@ -49,22 +49,24 @@ public class Reset {
                     "    ON UPDATE RESTRICT)\n" +
                     "ENGINE = InnoDB;\n");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `voinilo`.`ads` (\n" +
-                    "                      `id` INT(11) NOT NULL AUTO_INCREMENT,\n" +
-                    "                      `description` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL, \n" +
-                    "                      `address` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,  \n" +
-                    "                      `name` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL, \n" +
-                    "                      `price` INT(11) NOT NULL, \n" +
-                    "                      `condition` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL, \n" +
-                    "                      `number` VARCHAR(45) CHARACTER SET 'utf8' NULL DEFAULT NULL, \n" +
-                    "                      `roles_id` INT(11) NOT NULL, \n" +
-                    "                      PRIMARY KEY (`id`), \n" +
-                    "                      INDEX `fk_ads_roles1_idx` (`roles_id` ASC), \n" +
-                    "                      CONSTRAINT `fk_ads_roles1` \n" +
-                    "                      FOREIGN KEY (`roles_id`) \n" +
-                    "                       REFERENCES `voinilo`.`roleparam` (`id`) \n" +
-                    "                      ON DELETE CASCADE \n" +
-                    "                     ON UPDATE CASCADE) \n" +
-                    "                    ENGINE = InnoDB;\n");
+                    "  `id` INT(11) NOT NULL AUTO_INCREMENT,\n" +
+                    "  `description` VARCHAR(45) NOT NULL,\n" +
+                    "  `address` VARCHAR(45) NOT NULL,\n" +
+                    "  `name` VARCHAR(45) NOT NULL,\n" +
+                    "  `price` INT(11) NOT NULL,\n" +
+                    "  `condition` VARCHAR(45) NOT NULL,\n" +
+                    "  `number` VARCHAR(45) NULL DEFAULT NULL,\n" +
+                    "  `roleparam_id` INT(11) NOT NULL,\n" +
+                    "  PRIMARY KEY (`id`),\n" +
+                    "  INDEX `fk_ads_roles1_idx` (`roleparam_id` ASC),\n" +
+                    "  CONSTRAINT `fk_ads_roles1`\n" +
+                    "    FOREIGN KEY (`roleparam_id`)\n" +
+                    "    REFERENCES `voinilo`.`roleparam` (`id`)\n" +
+                    "    ON DELETE CASCADE\n" +
+                    "    ON UPDATE CASCADE)\n" +
+                    "ENGINE = InnoDB\n" +
+                    "AUTO_INCREMENT = 2\n" +
+                    "DEFAULT CHARACTER SET = utf8;");
             statement.executeUpdate("INSERT INTO `voinilo`.`roles` (`id`, `role`) VALUES (DEFAULT, 'admin');\n");
             statement.executeUpdate("INSERT INTO `voinilo`.`roles` (`id`, `role`) VALUES (DEFAULT, 'user');");
             statement.executeUpdate("INSERT INTO `voinilo`.`roles` (`id`, `role`) VALUES (DEFAULT, 'guest');");
