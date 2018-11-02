@@ -7,7 +7,7 @@
         <%@ include file="include/menu.htm" %>
         <br>
         <p class="font-weight-bold">The operation was successful.</p>
-        <p class="font-weight-bold">You can <a href="#">log in to your account</a> or continue using the site.</p>
+        <p class="font-weight-bold">You can <a href="do?command=Login">log in to your account</a> or continue using the site.</p>
         <br>
     </div>
 </body>
