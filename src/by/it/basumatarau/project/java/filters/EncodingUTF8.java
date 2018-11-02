@@ -1,10 +1,10 @@
-package by.it.basumatarau.project.java.controller;
+package by.it.basumatarau.project.java.filters;
 
 import javax.servlet.*;
 import java.io.IOException;
 
 public class EncodingUTF8 implements Filter {
-    private String encoding;
+    private static String encoding;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -18,7 +18,7 @@ public class EncodingUTF8 implements Filter {
         if(encoding!=null &&
                 !encoding.equalsIgnoreCase(servletRequest.getCharacterEncoding())
         ){
-            servletResponse.setCharacterEncoding(encoding);
+            servletRequest.setCharacterEncoding(encoding);
         }
 
         if(encoding!=null &&
