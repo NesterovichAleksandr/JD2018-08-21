@@ -37,7 +37,7 @@ public class UserDAO extends AbstractDao implements InterfaceDAO<User> {
     //==================================================================================================================
     //прочитать пользователя из бд по id
     public User read(long id) throws SQLException {
-        String where = String.format("WHERE `id`=%d", id);
+        String where = String.format(" WHERE `id`=%d", id);
         List<User> listUsers = getAll(where);
         if (listUsers.size() == 1) {
             return listUsers.get(0);
@@ -58,7 +58,7 @@ public class UserDAO extends AbstractDao implements InterfaceDAO<User> {
                         "`bancard number`='%s'," +
                         "`cid`='%d'," +
                         "`roles_id`='%d' " +
-                        "WHERE `id`=%d",
+                        " WHERE `id`=%d",
                 user.getLogin(),
                 user.getPassword(),
                 user.getEmail(),

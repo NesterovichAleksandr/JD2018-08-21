@@ -38,13 +38,21 @@ public enum Action {
         {
             cmd = new CmdReset();
         }
-    }, EDIT {
-        {
-            cmd = new CmdEdit();
-        }
     }, EDITTICKET {
         {
             cmd = new CmdEditTicket();
+        }
+    }, EDITUSERS {
+        {
+            cmd = new CmdEditUsers();
+        }
+    }, ADDROUTE{
+        {
+            cmd = new CmdAddRoute();
+        }
+    }, EDITROUTES {
+        {
+            cmd = new CmdEditRoutes();
         }
     };
 
