@@ -10,7 +10,6 @@
     <div><a href="do?command=CreateFilm">Create film</a></div>
     </c:if>
 
-
     <table>
         <div class="row">
             <div class=col-md-2><b>Name</b></div>
@@ -18,7 +17,7 @@
             <div class=col-md-3><b>Genre</b></div>
             <div class=col-md-1><b>Year of issue</b></div>
             <div class=col-md-1><b>Duration</b></div>
-            <div class=col-md-2><b>Cinema</b></div>
+            <div class=col-md-2><b>List cinema</b></div>
         </div>
         <c:forEach items="${films}" var="film">
             <form class="form-horizontal" action="do?command=ListFilm" method="post">
@@ -31,22 +30,10 @@
                             <div class=col-md-3>${film.genre}</div>
                             <div class=col-md-1>${film.yearOfIssue}</div>
                             <div class=col-md-1>${film.duration}</div>
-                            <div class=col-md-2>
-                                <select id="cinemaId" name="cinemaId" class="form-control">
-                                    <c:forEach items="${listCinemaForFilm}" var="cinemaT">
-                                        <option value="${cinemaT.cinemas_id}">
-                                            <c:forEach items="${cinemas}" var="cinema">
-                                                <c:if test="${cinema.id==cinemaT.cinemas_id}">
-                                                    ${cinema.name}
-                                                </c:if>
-                                            </c:forEach>
-                                        </option>
-                                    </c:forEach>
-                                </select>
-                            </div>
 
-                            <button id="reservButton" value="reservButton" name="reservButton" class="btn btn-primary">
-                                Reserv
+                            <button id="listCinemaButton" value="listCinemaButton" name="listCinemaButton"
+                                    class="btn btn-primary">
+                                List Cinema
                             </button>
 
                         </div>

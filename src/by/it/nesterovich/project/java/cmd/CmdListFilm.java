@@ -32,25 +32,10 @@ public class CmdListFilm extends Cmd {
         if (cinemas.size() > 0) {
             req.setAttribute("cinemas", cinemas);
         }
-        //List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(
-        // String.format(" WHERE films_cinemas.films_id=%d", Form.getLong(req, "filmId")));
-        String formatFilmCinema = String.format(" WHERE films_cinemas.films_id=%s", 2); //заглушка
-        List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(formatFilmCinema);
-        if (listCinemasForFilm.size() > 0) {
-            req.setAttribute("listCinemaForFilm", listCinemasForFilm);
-        }
         if (Form.isPost(req)) {
-            if (req.getParameter("reservButton") != null) {
-                ReservedTicket reservedTicket = new ReservedTicket(
-                        0,
-                        11111111,
-                        7.0,
-                        user.getId(),
-                        Form.getLong(req, "filmId"),
-                        Form.getLong(req, "cinemaId")
-                );
-                dao.reservedTicket.create(reservedTicket);
-                return Action.LISTRESERVEDTICKET.cmd;
+            if (req.getParameter("listCinemaButton") != null) {
+                session.setAttribute("IdFilm", Form.getLong(req, "filmId"));
+                return Action.LISTCINEMA.cmd;
             }
         }
         return null;
