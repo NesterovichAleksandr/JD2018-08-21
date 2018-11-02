@@ -19,6 +19,9 @@ public enum Action {
     LISTFILM {{
         cmd = new CmdListFilm();
     }},
+    UPDATEFILM {{
+        cmd = new CmdUpdateFilm();
+    }},
     LISTCINEMA {{
         cmd = new CmdListCinema();
     }},

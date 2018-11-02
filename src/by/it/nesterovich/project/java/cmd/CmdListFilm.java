@@ -4,12 +4,12 @@ import by.it.nesterovich.project.java.Action;
 import by.it.nesterovich.project.java.beans.*;
 import by.it.nesterovich.project.java.dao.Dao;
 import by.it.nesterovich.project.java.utils.Form;
+import by.it.nesterovich.project.java.utils.Patterns;
 import by.it.nesterovich.project.java.utils.Utils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -46,6 +46,22 @@ public class CmdListFilm extends Cmd {
             if (req.getParameter("listCinemaButton") != null) {
                 session.setAttribute("IdFilm", Form.getLong(req, "filmId"));
                 return Action.LISTCINEMA.cmd;
+            }
+            if (req.getParameter("deleteFilmButton") != null) {
+                dao.film.delete(
+                        new Film(Form.getLong(req, "filmId"), "", "", "", 1234, 123)
+                );
+                List<Film> filmsU = dao.film.getAll(limit);
+                req.setAttribute("films", filmsU);
+            }
+            if (req.getParameter("updateFilmButton") != null) {
+                session.setAttribute("IdFilm", Form.getLong(req, "filmId"));
+                session.setAttribute("filmIdName", Form.getString(req.getParameter("filmIdName"), Patterns.NAMEFILM));
+                session.setAttribute("filmIdCountry", Form.getString(req.getParameter("filmIdCountry"), Patterns.NAMEFILM));
+                session.setAttribute("filmIdGenre", Form.getString(req.getParameter("filmIdGenre"), Patterns.NAMEFILM));
+                session.setAttribute("filmIdYearOfIssue", Form.getInt(req, "filmIdYearOfIssue"));
+                session.setAttribute("filmIdDuration", Form.getInt(req, "filmIdDuration"));
+                return Action.UPDATEFILM.cmd;
             }
         }
         return null;

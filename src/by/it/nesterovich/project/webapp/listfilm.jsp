@@ -26,15 +26,27 @@
                         <div class="row">
                             <input type="hidden" name="filmId" value="${film.id}"/>
                             <div class=col-md-2>${film.name}</div>
+                            <input type="hidden" name="filmIdName" value="${film.name}"/>
                             <div class=col-md-1>${film.country}</div>
+                            <input type="hidden" name="filmIdCountry" value="${film.country}"/>
                             <div class=col-md-3>${film.genre}</div>
+                            <input type="hidden" name="filmIdGenre" value="${film.genre}"/>
                             <div class=col-md-1>${film.yearOfIssue}</div>
+                            <input type="hidden" name="filmIdYearOfIssue" value="${film.yearOfIssue}"/>
                             <div class=col-md-1>${film.duration}</div>
+                            <input type="hidden" name="filmIdDuration" value="${film.duration}"/>
 
-                            <button id="listCinemaButton" value="listCinemaButton" name="listCinemaButton"
-                                    class="btn btn-primary">
-                                List Cinema
+                            <button id="listCinemaButton" value="listCinemaButton" name="listCinemaButton">
+                                List cinema
                             </button>
+                            <c:if test="${user.roles_id==1}">
+                                <button id="deleteFilmButton" value="deleteFilmButton" name="deleteFilmButton">
+                                    delete film
+                                </button>
+                                <button id="updateFilmButton" value="updateFilmButton" name="updateFilmButton">
+                                    update film
+                                </button>
+                            </c:if>
 
                         </div>
                     </tr>
@@ -42,6 +54,6 @@
             </form>
         </c:forEach>
     </table>
-        <mytag:paginator count="${filmCount}" step="10" urlprefix="do?command=ListFilm&start="/>
+    <mytag:paginator count="${filmCount}" step="10" urlprefix="do?command=ListFilm&start="/>
 </body>
 </html>
