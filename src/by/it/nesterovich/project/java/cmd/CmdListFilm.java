@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 
 public class CmdListFilm extends Cmd {
@@ -24,7 +25,16 @@ public class CmdListFilm extends Cmd {
         Dao dao = Dao.getDao();
         HttpSession session = req.getSession();
 
-        List<Film> films = dao.film.getAll("");
+
+        int filmCount = dao.film.getAll("").size();
+        req.setAttribute("filmCount", filmCount);
+        Integer start = 0;
+        try {
+            start = Form.getInt(req, "start");
+        } catch (ParseException e) {
+        }
+        String limit = String.format(" LIMIT %s, 10", start);
+        List<Film> films = dao.film.getAll(limit);
         if (films.size() > 0) {
             req.setAttribute("films", films);
         }

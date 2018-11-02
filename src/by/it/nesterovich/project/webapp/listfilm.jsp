@@ -42,5 +42,6 @@
             </form>
         </c:forEach>
     </table>
+        <mytag:paginator count="${filmCount}" step="10" urlprefix="do?command=ListFilm&start="/>
 </body>
 </html>
