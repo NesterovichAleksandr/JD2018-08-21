@@ -12,7 +12,7 @@
             <fieldset>
 
                 <div class="form-group">
-                <img src="img/user${user.ID}" height="100px">
+                <img class="rounded float-left ml-3" src="img/user${user.ID}" height="100px">
 
                 <!-- File Button -->
                 <div class="form-group">
