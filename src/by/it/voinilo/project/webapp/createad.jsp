@@ -4,7 +4,7 @@
 <div class = "container">
 <%@ include file="include/menu.htm" %>
 <p>CreateAd: ${message}</p>
-<form class="form-horizontal" action="do?command=SignUp" method="post">
+<form class="form-horizontal" action="do?command=CreateAd" method="post">
 <fieldset>
 
 <!-- Form Name -->
@@ -48,9 +48,9 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="cellnumber">CellNumber</label>
+  <label class="col-md-4 control-label" for="number">CellNumber</label>
   <div class="col-md-6">
-  <input id="cellnumber" name="cellnumber" type="text" placeholder="" value="1515151115" class="form-control input-md">
+  <input id="number" name="number" type="text" placeholder="" value="1515151115" class="form-control input-md">
 
   </div>
 </div>
@@ -65,10 +65,11 @@
 </div>
 
 <!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton" >Single Button</label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-success">Submit</button>
+
+<div class="form-group" >
+  <label class="col-md-5 control-label  " for="submit" ></label>
+  <div class="col-md-5" align="right">
+    <button id="submit" name="submit" class="btn btn-primary btn-md" >Post</button>
   </div>
 </div>
 

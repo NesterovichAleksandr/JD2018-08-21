@@ -7,8 +7,8 @@ public class Ads {
     private String name;
     private String price;
     private String condition;
-    private String cellnumber;
-    private long roles_id;
+    private String number;
+    private long roleparam_id;
 
 
     public String getAddress() {
@@ -59,20 +59,20 @@ public class Ads {
         this.condition = condition;
     }
 
-    public String getCellnumber() {
-        return cellnumber;
+    public String getNumber() {
+        return number;
     }
 
-    public void setCellnumber(String cellnumber) {
-        this.cellnumber = cellnumber;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public long getRoles_id() {
-        return roles_id;
+    public long getRoleparam_id() {
+        return roleparam_id;
     }
 
-    public void setRoles_id(long roles_id) {
-        this.roles_id = roles_id;
+    public void setRoleparam_id(long roleparam_id) {
+        this.roleparam_id = roleparam_id;
     }
 
     public Ads(long id,
@@ -81,16 +81,16 @@ public class Ads {
                String name,
                String price,
                String condition,
-               String cellnumber,
-               long roles_id) {
+               String number,
+               long roleparam_id) {
         this.id = id;
         this.description = description;
         this.address = address;
         this.name = name;
         this.price = price;
         this.condition = condition;
-        this.cellnumber = cellnumber;
-        this.roles_id = roles_id;
+        this.number = number;
+        this.roleparam_id = roleparam_id;
     }
 
     public Ads() {
@@ -105,8 +105,8 @@ public class Ads {
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +
                 ", condition='" + condition + '\'' +
-                ", cellnumber='" + cellnumber + '\'' +
-                ", roles_id=" + roles_id +
+                ", number='" + number + '\'' +
+                ", roleparam_id=" + roleparam_id +
                 '}';
     }
 }
