@@ -1,67 +1,65 @@
-<html>
-<%@ include file="include/head.htm" %>
-<body>
-    <div class="container">
-    <%@ include file="include/menu.htm" %>
+package by.it.bindyuk.project.java.controller;
 
-    <form class="form-horizontal" action="do?command=editticket" method="post">
-    <fieldset>
+import by.it.bindyuk.project.java.dao.beans.Route;
+import by.it.bindyuk.project.java.dao.beans.Ticket;
+import by.it.bindyuk.project.java.dao.beans.User;
+import by.it.bindyuk.project.java.dao.dao.Dao;
 
-    <!-- Form Name -->
-    <legend>Edit Ticket</legend>
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.Timestamp;
+import java.util.List;
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="transport">Transport</label>
-      <div class="col-md-4">
-      <input id="transport" name="transport" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">на чем поедем?</span>
-      </div>
-    </div>
+class CmdEditTicket extends Cmd {
+    @Override
+    Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        User user = Util.getUser(req);
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="from">From</label>
-      <div class="col-md-4">
-      <input id="from" name="from" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">Откуда</span>
-      </div>
-    </div>
+        if (Form.isPost(req) && req.getParameter("confirm") != null) {
+            List<Route> routes = Dao.getDao().route.getAll();
+            assert user != null;
+            List<Ticket> all = Dao.getDao().ticket.getAll(" WHERE `tickets`.`users_id`=" + user.getId());
+            Ticket ticket = all.get(0);
+            String transport = Form.getString(req, "transport");
+            if (transport == null || transport.equalsIgnoreCase("")) {
+                transport = ticket.getTransport();
+            }
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="tot">To</label>
-      <div class="col-md-4">
-      <input id="tot" name="tot" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">куда</span>
-      </div>
-    </div>
+            //==========================================================================================================
+            String from = req.getParameter("from");
+            long idFrom = 0;
+            for (Route route : routes) {
+                if (route.getCity().equalsIgnoreCase(from)) {
+                    idFrom = route.getId();
+                }
+            }
+            if (from == null || from.equalsIgnoreCase("")) {
+                idFrom = ticket.getRoutesIdFrom();
+            }
 
-    <!-- Text input-->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="date">Date</label>
-      <div class="col-md-4">
-      <input id="date" name="date" type="text" placeholder="" class="form-control input-md">
-      <span class="help-block">дата и время поездки</span>
-      </div>
-    </div>
+            //==========================================================================================================
+            String to = req.getParameter("to");
+            long idTo = 0;
+            for (Route route : routes) {
+                if (route.getCity().equalsIgnoreCase(to)) {
+                    idTo = route.getId();
+                }
+            }
+            if (to == null || to.equalsIgnoreCase("")) {
+                idTo = ticket.getRoutesIdTo();
+            }
 
-    <!-- Button -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="confirm"></label>
-      <div class="col-md-4">
-        <button id="confirm" name="confirm" class="btn btn-primary">confirm</button>
-      </div>
-    </div>
-
-    </fieldset>
-    </form>
-
-    <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-    </div>
-</body>
-</html>
-
-
-
-
+            Timestamp when = Timestamp.valueOf(req.getParameter("date"));
+            if (when.toString().equalsIgnoreCase("")) {
+                when = ticket.getData();
+            }
+            ticket.setTransport(transport);
+            ticket.setRoutesIdFrom(idFrom);
+            ticket.setRoutesIdTo(idTo);
+            ticket.setData(when);
+            Dao.getDao().ticket.update(ticket);
+            return Action.PROFILE.cmd;
+        }
+        return null;
+    }
+}

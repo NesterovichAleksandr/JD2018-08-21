@@ -10,6 +10,6 @@ public interface Patterns {
     String PASSPORTSERIES = "[a-zA-Zа-яА-ЯёЁ]{2,3}";
     String CID = "[0-9]{3}";
     String TRANSPORT = "[a-zA-Zа-яА-ЯёЁ]{3,15}";
-    String CITY = "[a-zA-Zа-яА-ЯёЁ]{3,20}";
+    String CITY = "[a-zA-Zа-яА-ЯёЁ0-9]{1,20}";
 
 }

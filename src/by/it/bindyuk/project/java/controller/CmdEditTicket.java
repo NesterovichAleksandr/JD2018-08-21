@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.util.List;
 
- class CmdEditTicket extends Cmd {
+class CmdEditTicket extends Cmd {
     @Override
     Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         User user = Util.getUser(req);
