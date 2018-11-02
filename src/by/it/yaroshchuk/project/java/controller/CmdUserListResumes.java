@@ -27,7 +27,7 @@ public class CmdUserListResumes extends Cmd {
             String experience = Form.getString(req, "experience");
             String post = Form.getString(req, "post");
             Integer worktime = Form.getInt(req, "worktime");
-            Resume resume = new Resume(0, fullname, dob, country, city, education, degree, graduateYear,
+            Resume resume = new Resume(Form.getInt(req,"resumeId"), fullname, dob, country, city, education, degree, graduateYear,
                     experience, post, worktime, user.getId());
             if(req.getParameter("Update") != null)
                 dao.resume.update(resume);

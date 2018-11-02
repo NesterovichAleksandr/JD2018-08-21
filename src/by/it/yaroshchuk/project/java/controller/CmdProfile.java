@@ -26,11 +26,7 @@ public class CmdProfile extends Cmd {
             return Action.LOGIN.cmd;
         }
 
-        if(user.getRolesId() == 2){
-            List<Resume> resumes = Dao.getDao().resume.getAll(" WHERE `resumes`.`users_id`=" + user.getId());
-            HttpSession session = req.getSession();
-            session.setAttribute("resumes", resumes);
-        }
+
         return null;
     }
 }

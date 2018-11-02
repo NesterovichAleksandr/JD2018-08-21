@@ -105,18 +105,18 @@
 
 					 <!-- Text input-->
 					 <div class="form-group">
-					   <label class="col-md-4 control-label" for="id"></label>
+					   <label class="col-md-4 control-label" for="resumeId"></label>
 					   <div class="col-md-4">
-					   <input id="resume" name="resume" type="hidden" placeholder="" class="form-control input-md" value="${resume.id}">
+					   <input id="resumeId" name="resumeId" type="hidden" placeholder="" class="form-control input-md" value="${resume.id}">
 
 					   </div>
 					 </div>
 
 					 <!-- Text input-->
 					 <div class="form-group">
-					   <label class="col-md-4 control-label" for="resume"></label>
+					   <label class="col-md-4 control-label" for="resumeUsersId"></label>
 					   <div class="col-md-4">
-					   <input id="resume" name="resume" type="hidden" placeholder="" class="form-control input-md" value="${resume.usersId}">
+					   <input id="resumeUsersId" name="resumeUsersId" type="hidden" placeholder="" class="form-control input-md" value="${resume.usersId}">
 
 					   </div>
 					 </div>
