@@ -1,65 +1,79 @@
-package by.it.bindyuk.project.java.controller;
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<html>
+<%@ include file="include/head.htm" %>
+<body>
+<div class="container">
+    <%@ include file="include/menu.htm" %>
 
-import by.it.bindyuk.project.java.dao.beans.Route;
-import by.it.bindyuk.project.java.dao.beans.Ticket;
-import by.it.bindyuk.project.java.dao.beans.User;
-import by.it.bindyuk.project.java.dao.dao.Dao;
+    <div class="container">
+        <div class="row">
+            <div class=col-md-2>Транспорт</div>
+            <div class=col-md-2>Откуда</div>
+            <div class=col-md-2>Куда</div>
+            <div class=col-md-2>Дата</div>
+            <div class=col-md-2>Пользователь</div>
+        </div>
+    </div>
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.sql.Timestamp;
-import java.util.List;
+    <div class="container">
+        <c:forEach items="${tickets}" var="ticket">
+            <form class="update-ticket-${ticket.id}" action="do?command=EditTicket" method="post">
+                <div class="row">
+                    <input name="id" type="hidden" value="${ticket.id}"/>
+                    <div class=col-md-2>
+                        <input id="transport" class="form-control input-md" name="transport"
+                               value="${ticket.transport}"/>
+                    </div>
 
-class CmdEditTicket extends Cmd {
-    @Override
-    Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        User user = Util.getUser(req);
+                    <div class=col-md-2>
+                        <select id="routes_idFrom" name="routes_idFrom" class="form-control">
+                               <c:forEach items="${routes}" var="route">
+                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdFrom?"selected":""}>
+                                                   ${route.city}
+                                        </option>
+                               </c:forEach>
+                        </select>
+                    </div>
 
-        if (Form.isPost(req) && req.getParameter("confirm") != null) {
-            List<Route> routes = Dao.getDao().route.getAll();
-            assert user != null;
-            List<Ticket> all = Dao.getDao().ticket.getAll(" WHERE `tickets`.`users_id`=" + user.getId());
-            Ticket ticket = all.get(0);
-            String transport = Form.getString(req, "transport");
-            if (transport == null || transport.equalsIgnoreCase("")) {
-                transport = ticket.getTransport();
-            }
+                    <div class=col-md-2>
+                        <select id="routes_idTo" name="routes_idTo" class="form-control">
+                               <c:forEach items="${routes}" var="route">
+                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdTo?"selected":""}>
+                                                   ${route.city}
+                                        </option>
+                               </c:forEach>
+                        </select>
+                    </div>
 
-            //==========================================================================================================
-            String from = req.getParameter("from");
-            long idFrom = 0;
-            for (Route route : routes) {
-                if (route.getCity().equalsIgnoreCase(from)) {
-                    idFrom = route.getId();
-                }
-            }
-            if (from == null || from.equalsIgnoreCase("")) {
-                idFrom = ticket.getRoutesIdFrom();
-            }
+                    <div class=col-md-2>
+                        <input id="data" class="form-control input-md" name="data"
+                               value="${ticket.data}"/>
+                    </div>
 
-            //==========================================================================================================
-            String to = req.getParameter("to");
-            long idTo = 0;
-            for (Route route : routes) {
-                if (route.getCity().equalsIgnoreCase(to)) {
-                    idTo = route.getId();
-                }
-            }
-            if (to == null || to.equalsIgnoreCase("")) {
-                idTo = ticket.getRoutesIdTo();
-            }
+                    <div class=col-md-2>
+                        <select id="users_id" name="users_id" class="form-control">
+                               <c:forEach items="${users}" var="user">
+                                        <option value="${user.id}" user=${user.id} ${user.id==ticket.usersId?"selected":""}>
+                                                   ${user.login}
+                                        </option>
+                               </c:forEach>
+                        </select>
+                    </div>
 
-            Timestamp when = Timestamp.valueOf(req.getParameter("date"));
-            if (when.toString().equalsIgnoreCase("")) {
-                when = ticket.getData();
-            }
-            ticket.setTransport(transport);
-            ticket.setRoutesIdFrom(idFrom);
-            ticket.setRoutesIdTo(idTo);
-            ticket.setData(when);
-            Dao.getDao().ticket.update(ticket);
-            return Action.PROFILE.cmd;
-        }
-        return null;
-    }
-}
+                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
+                        Обновить
+                    </button>
+
+                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
+                        Удалить
+                    </button>
+                </div>
+            </form>
+            <p></p>
+        </c:forEach>
+    </div>
+
+</div>
+</body>
+
