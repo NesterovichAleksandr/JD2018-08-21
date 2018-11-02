@@ -22,33 +22,25 @@ public class CmdListFilm extends Cmd {
             return Action.LOGIN.cmd;
         }
         Dao dao = Dao.getDao();
-
-
         HttpSession session = req.getSession();
 
         List<Film> films = dao.film.getAll("");
         if (films.size() > 0) {
-            //session.setAttribute("films", films);
             req.setAttribute("films", films);
         }
-
         List<Cinema> cinemas = dao.cinema.getAll("");
         if (cinemas.size() > 0) {
-            //session.setAttribute("cinemas", cinemas);
             req.setAttribute("cinemas", cinemas);
         }
-
         //List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(
         // String.format(" WHERE films_cinemas.films_id=%d", Form.getLong(req, "filmId")));
-        String formatFilmCinema = String.format(" WHERE films_cinemas.films_id=%s", 2);
+        String formatFilmCinema = String.format(" WHERE films_cinemas.films_id=%s", 2); //заглушка
         List<FilmCinema> listCinemasForFilm = dao.filmCinema.getAll(formatFilmCinema);
         if (listCinemasForFilm.size() > 0) {
-            //session.setAttribute("listCinemaForFilm", listCinemasForFilm);
             req.setAttribute("listCinemaForFilm", listCinemasForFilm);
         }
         if (Form.isPost(req)) {
             if (req.getParameter("reservButton") != null) {
-                //бронь создаётся с конкретными числами. проверено.
                 ReservedTicket reservedTicket = new ReservedTicket(
                         0,
                         11111111,
