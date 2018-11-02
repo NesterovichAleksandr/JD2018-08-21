@@ -1,79 +1,67 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
     <%@ include file="include/menu.htm" %>
 
-    <div class="container">
-        <div class="row">
-            <div class=col-md-2>Транспорт</div>
-            <div class=col-md-2>Откуда</div>
-            <div class=col-md-2>Куда</div>
-            <div class=col-md-2>Дата</div>
-            <div class=col-md-2>Пользователь</div>
-        </div>
-    </div>
+    <form class="form-horizontal" action="do?command=editticket" method="post">
+        <fieldset>
 
-    <div class="container">
-        <c:forEach items="${tickets}" var="ticket">
-            <form class="update-ticket-${ticket.id}" action="do?command=EditTicket" method="post">
-                <div class="row">
-                    <input name="id" type="hidden" value="${ticket.id}"/>
-                    <div class=col-md-2>
-                        <input id="transport" class="form-control input-md" name="transport"
-                               value="${ticket.transport}"/>
-                    </div>
+            <!-- Form Name -->
+            <legend>Edit Ticket</legend>
 
-                    <div class=col-md-2>
-                        <select id="routes_idFrom" name="routes_idFrom" class="form-control">
-                               <c:forEach items="${routes}" var="route">
-                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdFrom?"selected":""}>
-                                                   ${route.city}
-                                        </option>
-                               </c:forEach>
-                        </select>
-                    </div>
-
-                    <div class=col-md-2>
-                        <select id="routes_idTo" name="routes_idTo" class="form-control">
-                               <c:forEach items="${routes}" var="route">
-                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdTo?"selected":""}>
-                                                   ${route.city}
-                                        </option>
-                               </c:forEach>
-                        </select>
-                    </div>
-
-                    <div class=col-md-2>
-                        <input id="data" class="form-control input-md" name="data"
-                               value="${ticket.data}"/>
-                    </div>
-
-                    <div class=col-md-2>
-                        <select id="users_id" name="users_id" class="form-control">
-                               <c:forEach items="${users}" var="user">
-                                        <option value="${user.id}" user=${user.id} ${user.id==ticket.usersId?"selected":""}>
-                                                   ${user.login}
-                                        </option>
-                               </c:forEach>
-                        </select>
-                    </div>
-
-                    <button id="Update" value="Update" name="Update" class="btn btn-success col-md-1">
-                        Обновить
-                    </button>
-
-                    <button id="Delete" value="Delete" name="Delete" class="btn btn-danger col-md-1">
-                        Удалить
-                    </button>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="transport">Transport</label>
+                <div class="col-md-4">
+                    <input id="transport" name="transport" type="text" placeholder="" class="form-control input-md">
+                    <span class="help-block">на чем поедем?</span>
                 </div>
-            </form>
-            <p></p>
-        </c:forEach>
-    </div>
+            </div>
 
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="from">From</label>
+                <div class="col-md-4">
+                    <input id="from" name="from" type="text" placeholder="" class="form-control input-md">
+                    <span class="help-block">Откуда</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="tot">To</label>
+                <div class="col-md-4">
+                    <input id="tot" name="tot" type="text" placeholder="" class="form-control input-md">
+                    <span class="help-block">куда</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="date">Date</label>
+                <div class="col-md-4">
+                    <input id="date" name="date" type="text" placeholder="" class="form-control input-md">
+                    <span class="help-block">дата и время поездки</span>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="confirm"></label>
+                <div class="col-md-4">
+                    <button id="confirm" name="confirm" class="btn btn-primary">confirm</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 </div>
 </body>
+</html>
+
+
+
 
