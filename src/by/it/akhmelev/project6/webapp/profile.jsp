@@ -3,7 +3,7 @@
 <body>
     <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>UserData: ${user}</p>
+    <p>UserData: ${agent}</p>
 
     <p>UserAds: ${ads}</p>
 
