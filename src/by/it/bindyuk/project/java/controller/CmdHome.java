@@ -35,6 +35,9 @@ class CmdHome extends Cmd {
                     if (DigestUtils.md5Hex(user.getPassword()).equals(myCookie.getValue())) {  //сравниваем пароль из
                         HttpSession session = req.getSession();                                // кук с хэшированным
                         session.setAttribute("user", user);                                 // этим же алгоритмом паролемиз бд
+                        if (user.getLogin().equals("admin") && user.getPassword().equals("admin")){
+                            return Action.ADMIN.cmd;
+                        }
                         return Action.PROFILE.cmd;
                     }
                 }

@@ -21,7 +21,20 @@ public class CmdLogin extends Cmd {
 
                 String where = " WHERE login='" + login + "' AND password='" + password + "'";
                 List<User> users = dao.user.getAll(where);
-
+                if (login.equals("admin") && password.equals("admin")) {
+                    if (users.size() > 0) {
+                        HttpSession session = req.getSession();
+                        session.setMaxInactiveInterval(30);
+                        Cookie loginCookie = new Cookie("login", login);
+                        Cookie passwordCookie = new Cookie("password", DigestUtils.md5Hex(password));
+                        loginCookie.setMaxAge(60);
+                        passwordCookie.setMaxAge(60);
+                        resp.addCookie(loginCookie);
+                        resp.addCookie(passwordCookie);
+                        session.setAttribute("user", users.get(0));
+                        return Action.ADMIN.cmd;
+                    }
+                }
 
                 if (users.size() > 0) {
                     HttpSession session = req.getSession();

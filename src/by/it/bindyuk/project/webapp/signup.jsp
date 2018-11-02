@@ -9,11 +9,11 @@
      <fieldset>
 
      <!-- Form Name -->
-     <legend>New User</legend>
+     <legend>Регистрация</legend>
 
      <!-- Text input-->
      <div class="form-group">
-       <label class="col-md-4 control-label" for="login">Login</label>
+       <label class="col-md-4 control-label" for="login">Логин</label>
        <div class="col-md-4">
        <input id="login" name="login" type="text" placeholder="" class="form-control input-md" required="">
 
@@ -22,7 +22,7 @@
 
      <!-- Password input-->
      <div class="form-group">
-       <label class="col-md-4 control-label" for="password">Password</label>
+       <label class="col-md-4 control-label" for="password">Пароль</label>
        <div class="col-md-4">
          <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
 
@@ -40,7 +40,7 @@
 
      <!-- Text input-->
      <div class="form-group">
-       <label class="col-md-4 control-label" for="passportseries">Passport Series</label>
+       <label class="col-md-4 control-label" for="passportseries">Серия пасспорта</label>
        <div class="col-md-4">
        <input id="passportseries" name="passportseries" type="text" placeholder="" class="form-control input-md" required="">
 
@@ -49,7 +49,7 @@
 
      <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="passportid">Passport ID</label>
+            <label class="col-md-4 control-label" for="passportid">Номер пасспорта</label>
             <div class="col-md-4">
             <input id="passportid" name="passportid" type="text" placeholder="" class="form-control input-md" required="">
 
@@ -58,7 +58,7 @@
 
      <!-- Text input-->
      <div class="form-group">
-       <label class="col-md-4 control-label" for="bancard">Bancard Number</label>
+       <label class="col-md-4 control-label" for="bancard">Номер банковской карты</label>
        <div class="col-md-4">
        <input id="bancard" name="bancard" type="text" placeholder="" class="form-control input-md" required="">
 
@@ -78,7 +78,7 @@
      <div class="form-group">
        <label class="col-md-4 control-label" for="signupsubmit"></label>
        <div class="col-md-4">
-         <button id="signupsubmit" name="signupsubmit" class="btn btn-primary">Submit</button>
+         <button id="signupsubmit" name="signupsubmit" class="btn btn-primary">Зарегистрироваться</button>
        </div>
      </div>
 

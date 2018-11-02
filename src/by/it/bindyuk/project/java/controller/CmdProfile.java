@@ -16,7 +16,7 @@ class CmdProfile extends Cmd {
             return Action.LOGIN.cmd;
         }
         if (Form.isPost(req) && req.getParameter("logout") != null) {
-            resp.addCookie(new Cookie("password",""));
+            resp.addCookie(new Cookie("password", ""));
             HttpSession session = req.getSession();
             session.invalidate();
             return Action.LOGIN.cmd;
