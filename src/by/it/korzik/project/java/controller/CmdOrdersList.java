@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class CmdOrdersList extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
-        req.setAttribute("orders",DAO.getDAO().order.getAll());
+        Util.updateAll(req);
         return null;
     }
 }

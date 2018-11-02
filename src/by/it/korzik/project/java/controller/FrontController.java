@@ -12,6 +12,7 @@ public class FrontController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         actionResolver = new ActionResolver();
+
     }
 
     @Override
@@ -33,6 +34,7 @@ public class FrontController extends HttpServlet {
             nextCommand = command.execute(req, resp);
         } catch (Exception e) {
             nextCommand = null;
+            req.setAttribute("error",e.toString());
             view = Action.ERROR.getJsp();
         }
         if (nextCommand == null || nextCommand == command) {

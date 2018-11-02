@@ -83,7 +83,7 @@ public class Reset {
             statement.executeUpdate("INSERT INTO `korzik`.`Users` (`id`, `userName`, `login`, `password`, `email`, `roles_id`) VALUES (DEFAULT, 'cook', 'cook', 'cook', 'cook@gmail.com', 2);");
             statement.executeUpdate("INSERT INTO `korzik`.`menu` (`id`, `name`, `ingridients`, `weight`, `price`) VALUES (DEFAULT, 'something', 'some ingridients', 150, 14);");
             statement.executeUpdate("INSERT INTO `korzik`.`menu` (`id`, `name`, `ingridients`, `weight`, `price`) VALUES (DEFAULT, 'anything', 'anything', 223, 12);");
-            statement.executeUpdate("INSERT INTO `korzik`.`orders` (`id`, `Users_id`, `menu_id`) VALUES (DEFAULT, 1, 1);");
+            statement.executeUpdate("INSERT INTO `korzik`.`orders` (`id`, `Users_id`, `menu_id`) VALUES (DEFAULT, 2, 1);");
             statement.executeUpdate("INSERT INTO `korzik`.`orders` (`id`, `Users_id`, `menu_id`) VALUES (DEFAULT, 2, 2);");
             statement.executeUpdate("INSERT INTO `korzik`.`orders` (`id`, `Users_id`, `menu_id`) VALUES (DEFAULT, 2, 1);");
 

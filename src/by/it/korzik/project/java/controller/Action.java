@@ -7,6 +7,9 @@ public enum Action {
     PROFILE {{
         cmd= new CmdProfile();
     }},
+    ADMIN {{
+        cmd= new CmdAdmin();
+    }},
     ORDERSLIST {{
         cmd= new CmdOrdersList();
     }},
@@ -21,13 +24,6 @@ public enum Action {
     }},
     RESET {{
         cmd= new CmdReset();
-    }},
-    LOGOUT {{
-
-        cmd= new CmdLogout();
-    }},
-    MENU {{
-        cmd= new CmdMenu();
     }},
     SIGNUP {{
         cmd= new CmdSignUp();

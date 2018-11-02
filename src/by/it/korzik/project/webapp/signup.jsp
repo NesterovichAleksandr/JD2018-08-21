@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -45,16 +46,15 @@
 
 
 <!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="role_id">role</label>
-  <div class="col-md-4">
-    <select id="role_id" name="role_id" class="form-control">
-      <option value="1">administrator</option>
-      <option value="2">cook</option>
-      <option value="3">customer</option>
-    </select>
-  </div>
-</div>
+<div class=col-md-2>
+<select id="roles_id" name="roles_id" class="form-control">
+   <c:forEach items="${roles}" var="role">
+      <option value="${role.id}"}>
+                 ${role.role}
+        </option>
+      </c:forEach>
+     </select>
+     </div>
 
 <!-- Button -->
 <div class="form-group">

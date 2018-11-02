@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class CmdIndex extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws SQLException {
-        req.setAttribute("menu",DAO.getDAO().menu.getAll());
+        Util.updateAll(req);
         return null;
     }
 }

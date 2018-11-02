@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -10,7 +11,6 @@
 <!-- Form Name -->
 <legend>LogIn</legend>
 
-<p>${user}</p>
 
 <!-- Text input-->
 <div class="form-group">
