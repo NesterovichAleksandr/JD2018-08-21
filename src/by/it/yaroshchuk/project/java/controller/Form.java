@@ -6,7 +6,15 @@ import java.text.ParseException;
 public class Form {
 
     static boolean isPost(HttpServletRequest req) {
-        return req.getMethod().equalsIgnoreCase("post");
+        System.out.println("IN ISPOST()");
+        if (req.getMethod().equalsIgnoreCase("post")){
+            System.out.println("TRUE");
+            return true;
+        }
+        else {
+            System.out.println("FALSE");
+            return false;
+        }
     }
 
     static boolean isGet(HttpServletRequest req) {

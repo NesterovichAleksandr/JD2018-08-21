@@ -20,8 +20,11 @@ public enum Action {
     CREATERESUME {{
             cmd = new CmdCreateResume();
         }},
-    LISTRESUMES {{
-            cmd = new CmdListResumes();
+    COMPANYLISTRESUMES {{
+            cmd = new CmdCompanyListResumes();
+    }},
+    USERLISTRESUMES {{
+            cmd = new CmdUserListResumes();
     }},
     PROFILE {{
         cmd = new CmdError();
