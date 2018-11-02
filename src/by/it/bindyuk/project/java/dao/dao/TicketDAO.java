@@ -53,7 +53,7 @@ public class TicketDAO extends AbstractDao implements InterfaceDAO<Ticket> {
                         "`routes_id to`=%d," +
                         "`data`='%s'," +
                         "`users_id`=%d" +
-                        "WHERE `id`=%d",
+                        " WHERE `id`=%d",
                 ticket.getTransport(),
                 ticket.getRoutesIdFrom(),
                 ticket.getRoutesIdTo(),

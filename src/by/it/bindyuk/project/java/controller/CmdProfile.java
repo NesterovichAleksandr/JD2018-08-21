@@ -21,9 +21,11 @@ class CmdProfile extends Cmd {
             session.invalidate();
             return Action.LOGIN.cmd;
         }
+        req.setAttribute("login",user.getLogin());
+        req.setAttribute("email",user.getEmail());
         List<Ticket> tickets = Dao.getDao().ticket.getAll(" WHERE `tickets`.`users_id`=" + user.getId());
         HttpSession session = req.getSession();
-        session.setAttribute("ticket", tickets);
+        session.setAttribute("tickets", tickets);
         return null;
     }
 }
