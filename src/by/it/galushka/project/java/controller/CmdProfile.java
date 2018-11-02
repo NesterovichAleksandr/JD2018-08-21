@@ -49,6 +49,15 @@ public class CmdProfile extends Cmd {
 
         List<Car> cars = Dao.getDao().car.getAll();
         session.setAttribute("cars", cars);
+
+        String where = " WHERE `Reserved`= 'false' ";
+        List<Car> freeCars = Dao.getDao().car.getAll(where);
+        if (freeCars.size() > 0) {
+            session.setAttribute("freeCars", freeCars);
+            session.setAttribute("carExist", "true");
+        }
+        else
+            session.setAttribute("carExist", "false");
         return null;
     }
 }

@@ -40,7 +40,7 @@ public class CmdAddOrder extends Cmd {
             List<Car> cars = Dao.getDao().car.getAll();
             session.setAttribute("cars", cars);
 
-            return Action.ADDORDERDONE.cmd;
+            return Action.PROFILE.cmd;
         }
         return null;
     }

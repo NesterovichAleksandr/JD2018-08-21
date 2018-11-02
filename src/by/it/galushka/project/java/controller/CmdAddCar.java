@@ -21,7 +21,7 @@ public class CmdAddCar extends Cmd {
             Car car = new Car(0, mark, model, color, eC, releaseDate, reserved, 1);
             Dao dao = Dao.getDao();
             dao.car.create(car);
-            return Action.EDITCARLIST.cmd;
+            return Action.PROFILE.cmd;
         }
         return null;
     }

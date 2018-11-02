@@ -13,13 +13,20 @@
         		<legend>Your order</legend>
 
                     <div class="col-md-4 control-label">
+
+                        <c:if test="${carExist==true}">
                         <select id="carList" name="carList" class="form-control">
-                            <c:forEach items="${cars}" var="car">
-                                <option value="${car.ID}" car=${car.ID} ${car.ID==car.ID?"selected":""}>
-                                        ${car.mark} ${car.model} ${car.color}
+                            <c:forEach items="${freeCars}" var="freeCar">
+                                <option value="${freeCar.ID}" car=${freeCar.ID} ${freeCar.ID==freeCar.ID?"selected":""}>
+                                        ${freeCar.mark} ${freeCar.model} ${freeCar.color}
                                 </option>
                             </c:forEach>
                         </select>
+                        </c:if>
+
+                        <c:if test="${carExist==false}">
+                            <input id="noCar" value="All car reserved, sorry..." readonly name="noCar" type="text" placeholder="" class="form-control input-md" required="">
+                        </c:if>
                     </div>
 
         		<!-- Password input-->
@@ -85,6 +92,7 @@
         		  </div>
         		</div>
 
+                <c:if test="${carExist==true}">
         		<!-- Button -->
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="Send"></label>
@@ -92,6 +100,11 @@
         		    <button id="Send" name="Send" class="btn btn-dark">Create order</button>
         		  </div>
         		</div>
+                </c:if>
+                <c:if test="${carExist==false}">
+                    <p class="font-weight-bold text-danger">Unable to add a new order because all cars are reserved!</p>
+                    <p class="font-weight-bold text-danger">Admin must add a new car from his account!</p>
+                </c:if>
 
         		</fieldset>
         		</form>
