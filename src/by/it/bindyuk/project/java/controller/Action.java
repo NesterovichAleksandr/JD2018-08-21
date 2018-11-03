@@ -54,6 +54,10 @@ public enum Action {
         {
             cmd = new CmdEditRoutes();
         }
+    }, EDITTICKET {
+        {
+            cmd = new CmdEditTicket();
+        }
     };
 
     public Cmd cmd = new CmdError();

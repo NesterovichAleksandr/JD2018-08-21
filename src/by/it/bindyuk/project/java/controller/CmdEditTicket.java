@@ -1,5 +1,6 @@
 package by.it.bindyuk.project.java.controller;
 
+import by.it.bindyuk.project.java.dao.beans.Route;
 import by.it.bindyuk.project.java.dao.beans.Ticket;
 import by.it.bindyuk.project.java.dao.beans.User;
 import by.it.bindyuk.project.java.dao.dao.Dao;
@@ -7,34 +8,58 @@ import by.it.bindyuk.project.java.dao.dao.Dao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
+import java.util.List;
 
 class CmdEditTicket extends Cmd {
     @Override
     Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        Dao dao = Dao.getDao();
-        User admin = Util.getUser(req);
-        if (admin == null) {
-            return Action.LOGIN.cmd;
-        }
-        if (Form.isPost(req)) {
-            long id = Long.valueOf(Form.getString(req, "id"));
-            String transport = Form.getString(req, "transport");
-            long routesIdFrom = Long.valueOf(Form.getString(req, "routes_idFrom"));
-            long routesIdTo = Long.valueOf(Form.getString(req, "routes_idTo"));
-            Timestamp data = Timestamp.valueOf(Form.getString(req, "data"));
-            long users_id = Long.valueOf(req.getParameter("users_id"));
+        User user = Util.getUser(req);
 
-            Ticket ticket = new Ticket(id, transport, routesIdFrom, routesIdTo, data, users_id);
-            if (req.getParameter("Update") != null) {
-                dao.ticket.update(ticket);
+        if (Form.isPost(req) && req.getParameter("confirm") != null) {
+            List<Route> routes = Dao.getDao().route.getAll();
+            assert user != null;
+            List<Ticket> all = Dao.getDao().ticket.getAll(" WHERE `tickets`.`users_id`=" + user.getId());
+            Ticket ticket = all.get(0);
+            String transport = Form.getString(req, "transport");
+            if (transport == null || transport.equalsIgnoreCase("")) {
+                transport = ticket.getTransport();
             }
-            if (req.getParameter("Delete") != null) {
-                dao.ticket.delete(ticket);
+
+            //==========================================================================================================
+            String from = req.getParameter("from");
+            long idFrom = 0;
+            for (Route route : routes) {
+                if (route.getCity().equalsIgnoreCase(from)) {
+                    idFrom = route.getId();
+                }
             }
+            if (from == null || from.equalsIgnoreCase("")) {
+                idFrom = ticket.getRoutesIdFrom();
+            }
+
+            //==========================================================================================================
+            String to = req.getParameter("to");
+            long idTo = 0;
+            for (Route route : routes) {
+                if (route.getCity().equalsIgnoreCase(to)) {
+                    idTo = route.getId();
+                }
+            }
+            if (to == null || to.equalsIgnoreCase("")) {
+                idTo = ticket.getRoutesIdTo();
+            }
+
+            Timestamp when = Timestamp.valueOf(req.getParameter("date"));
+            if (when.toString().equalsIgnoreCase("")) {
+                when = ticket.getData();
+            }
+            ticket.setTransport(transport);
+            ticket.setRoutesIdFrom(idFrom);
+            ticket.setRoutesIdTo(idTo);
+            ticket.setData(when);
+            Dao.getDao().ticket.update(ticket);
+            return Action.PROFILE.cmd;
         }
-        req.setAttribute("tickets", dao.ticket.getAll());
-        req.setAttribute("users", dao.user.getAll());
-        req.setAttribute("routes", dao.route.getAll());
         return null;
     }
 }

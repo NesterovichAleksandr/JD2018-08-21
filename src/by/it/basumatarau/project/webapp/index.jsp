@@ -3,10 +3,13 @@
 <html lang="en">
 <%@ include file="include/head.htm" %>
 <body>
-
 <div class="container">
     <%@ include file="include/menu.jsp" %>
-    <p>INDEX: ${message}</p>
+    <h1>This is an event prospector app<h1>
+    <br>
+    <br>
+    <p2>...right now there are ${count} events in database</p2>
 </div>
+
 </body>
 </html>

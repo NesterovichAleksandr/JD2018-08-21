@@ -7,7 +7,6 @@ import by.it.nesterovich.project.java.utils.Form;
 import by.it.nesterovich.project.java.utils.Patterns;
 import by.it.nesterovich.project.java.utils.Utils;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -31,15 +30,11 @@ public class CmdLogin extends Cmd {
                 HttpSession session = req.getSession();
                 session.setMaxInactiveInterval(30);
                 session.setAttribute("user", users.get(0));
-                Cookie cookieLogin = new Cookie("login", login);
-                Cookie cookiePassword = new Cookie("password", password);
-                cookieLogin.setMaxAge(60);
-                cookiePassword.setMaxAge(60);
-                resp.addCookie(cookieLogin);
-                resp.addCookie(cookiePassword);
+                session.setAttribute("userId", users.get(0).getId());
+                session.setAttribute("userLogin",login);
                 return Action.USERCABINET.cmd;
             } else {
-                req.setAttribute("user", "no user: " + login + " or incorrect password");
+                req.setAttribute("noUser", "no user: " + login + " or incorrect password");
             }
         }
         return null;
