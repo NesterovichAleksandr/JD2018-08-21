@@ -2,6 +2,7 @@ package by.it.artemliashkov.project.java.cmd;
 
 import by.it.artemliashkov.project.java.Actions;
 import by.it.artemliashkov.project.java.beans.Agent;
+import by.it.artemliashkov.project.java.dao.AgentDao;
 import by.it.artemliashkov.project.java.dao.Dao;
 import by.it.artemliashkov.project.java.utils.Form;
 
@@ -22,7 +23,7 @@ public class CmdLogin extends Cmd {
             String address = req.getParameter("address");
             Dao dao = Dao.getDAO();
             String where = String.format(" WHERE name='%s' AND address='%s'", name, address);
-            List<Agent> agents = dao.agent.getAll(where);
+            List<Agent> agents = new AgentDao().getAll(where);
             if (agents.size() > 0) {
                 HttpSession session = req.getSession();
                 session.setMaxInactiveInterval(30);

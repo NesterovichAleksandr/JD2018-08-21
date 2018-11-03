@@ -1,8 +1,6 @@
 package by.it.artemliashkov.project.java.dao;
 
 
-import by.it.artemliashkov.project.java.utils.Database;
-
 public class Dao {
     private static Dao dao;
 
@@ -28,6 +26,6 @@ public class Dao {
     }
 
     public void reset() {
-        Database.resetAndCreateDBWithTables();
+        Reset.main(new String[0]);
     }
 }

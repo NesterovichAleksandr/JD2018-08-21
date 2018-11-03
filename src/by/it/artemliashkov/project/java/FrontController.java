@@ -48,5 +48,6 @@ public class FrontController extends HttpServlet {
             getServletContext().getRequestDispatcher(view).forward(req, resp);
         } else
             resp.sendRedirect("do?command=" + nextCommand.toString());
+
     }
 }

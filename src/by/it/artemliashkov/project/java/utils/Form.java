@@ -13,7 +13,7 @@ public class Form {
         return req.getMethod().equalsIgnoreCase("get");
     }
 
-    public static String getString(HttpServletRequest request, String name) throws ParseException {
+    public static String getString(HttpServletRequest request, String name)  throws ParseException {
         return getString(request, name, ".*");
     }
 
@@ -21,21 +21,29 @@ public class Form {
         String value = request.getParameter(name);
         if (value != null && value.matches(pattern))
             return value;
-        throw new ParseException("Field " + name + " incorrect. ", 0);
+        throw new ParseException("Field "+name+" incorrect. ",0);
     }
 
-    public static Integer getInt(HttpServletRequest request, String name) throws ParseException {
+    public static Integer getInt(HttpServletRequest request, String name)  throws ParseException {
         String value = request.getParameter(name);
         if (value != null && value.matches("[-0-9]+"))
             return Integer.valueOf(value);
-        throw new ParseException("Field " + name + " incorrect. ", 0);
+        throw new ParseException("Field "+name+" incorrect. ",0);
 
     }
 
-    public static Double getDouble(HttpServletRequest request, String name) throws ParseException {
+    public static Long getLong(HttpServletRequest request, String name)  throws ParseException {
+        String value = request.getParameter(name);
+        if (value != null && value.matches("[-0-9]+"))
+            return Long.valueOf(value);
+        throw new ParseException("Field "+name+" incorrect. ",0);
+
+    }
+
+    public static Double getDouble(HttpServletRequest request, String name)  throws ParseException {
         String value = request.getParameter(name);
         if (value != null && value.matches("[-0-9.]+"))
             return Double.valueOf(value);
-        throw new ParseException("Field " + name + " incorrect. ", 0);
+        throw new ParseException("Field "+name+" incorrect. ",0);
     }
 }

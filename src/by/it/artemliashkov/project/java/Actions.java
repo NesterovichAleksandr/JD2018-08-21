@@ -23,7 +23,9 @@ public enum Actions {
     CREATECOMPANY {{
         cmd = new CmdCrtCompany();
     }},
-
+    EDITAGENTS{{
+        cmd = new CmdEditAgents();
+    }},
     ERROR {{
         cmd = new CmdError();
     }};

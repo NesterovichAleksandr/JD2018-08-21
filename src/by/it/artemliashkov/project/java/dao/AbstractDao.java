@@ -4,22 +4,20 @@ import by.it.artemliashkov.project.java.utils.ConnectionCreator;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
-class AbstractDao {
-
-    int executeUpdate(String sql) {
-        int result = -1;
+public abstract class AbstractDao {
+    protected long executeUpdate(String sql) throws SQLException {
+        long result;
         try (Connection connection = ConnectionCreator.getConnection();
-             Statement statement = connection.createStatement()
-        ) {
-            result = statement.executeUpdate(sql);
-            if (sql.trim().toUpperCase().startsWith("INSERT")) {
-                ResultSet resultSet = statement.executeQuery("SELECT LAST_INSERT_ID();");
-                if (resultSet.next()) result = resultSet.getInt(1);
+             Statement statement = connection.createStatement()) {
+            result = statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            if (result==1 && sql.trim().toUpperCase().startsWith("INSERT")) {
+                ResultSet resultSet = statement.getGeneratedKeys();
+                if (resultSet.next())
+                    result = resultSet.getLong(1);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return result;
     }

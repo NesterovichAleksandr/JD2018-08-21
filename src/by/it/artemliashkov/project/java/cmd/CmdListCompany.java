@@ -18,7 +18,7 @@ public class CmdListCompany extends Cmd {
 
             List<Company> companies = dao.company.getAll("");
             if (companies.size() > 0) {
-                req.setAttribute("Company", companies);
+                req.setAttribute("companies", companies);
             }
         }
         return null;

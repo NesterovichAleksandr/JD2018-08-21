@@ -1,7 +1,7 @@
 package by.it.artemliashkov.project.java.dao;
 
-import by.it.artemliashkov.project.java.utils.ConnectionCreator;
 import by.it.artemliashkov.project.java.beans.Agent;
+import by.it.artemliashkov.project.java.utils.ConnectionCreator;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

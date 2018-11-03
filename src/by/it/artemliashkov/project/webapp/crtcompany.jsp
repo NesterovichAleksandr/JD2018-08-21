@@ -1,16 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-<div class="container">
+    <div class="container">
     <%@ include file="include/menu.htm" %>
-    <p>Cmd CrtCompany: ${message}</p>
 
-    <form class="form-horizontal" action="do?command=CrtCompany" method="post">
-        <fieldset>
+<form class="form-horizontal" action="do?command=CreateCompany" method="post">
+<fieldset>
 
-            <!-- Form Name -->
-            <legend>Create company</legend>
+<!-- Form Name -->
+<legend>Add company</legend>
 
             <!-- Text input-->
             <div class="form-group">
@@ -53,18 +53,19 @@
                 </div>
             </div>
 
-
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="createcompanysubmit"></label>
-                <div class="col-md-4">
-                    <button id="createcompanysubmit" name="createcompanysubmit" class="btn btn-success">Create company</button>
-                </div>
-            </div>
-
-        </fieldset>
-    </form>
-
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+  </div>
 </div>
+
+</fieldset>
+</form>
+
+
+
+    </div>
 </body>
 </html>
