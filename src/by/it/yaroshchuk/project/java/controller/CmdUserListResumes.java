@@ -17,6 +17,7 @@ public class CmdUserListResumes extends Cmd {
         if(user==null)
             return Action.LOGIN.cmd;
         if(Form.isPost(req)){
+            String resumeName = Form.getString(req, "resumeName");
             String fullname = Form.getString(req, "fullName");
             String dob = Form.getString(req, "dob");
             String country = Form.getString(req, "country");
@@ -27,8 +28,9 @@ public class CmdUserListResumes extends Cmd {
             String experience = Form.getString(req, "experience");
             String post = Form.getString(req, "post");
             Integer worktime = Form.getInt(req, "worktime");
-            Resume resume = new Resume(Form.getInt(req,"resumeId"), fullname, dob, country, city, education, degree, graduateYear,
-                    experience, post, worktime, user.getId());
+            String about = Form.getString(req, "about");
+            Resume resume = new Resume(Form.getInt(req,"resumeId"), resumeName, fullname, dob, country, city, education, degree, graduateYear,
+                    experience, post, worktime, about, user.getId());
             if(req.getParameter("Update") != null)
                 dao.resume.update(resume);
             if(req.getParameter("Delete") != null)

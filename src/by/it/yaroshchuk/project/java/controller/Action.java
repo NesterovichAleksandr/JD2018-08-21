@@ -26,8 +26,23 @@ public enum Action {
     USERLISTRESUMES {{
             cmd = new CmdUserListResumes();
     }},
-    PROFILE {{
-        cmd = new CmdError();
+    USERSREQUESTS {{
+        cmd = new CmdUsersRequests();
+    }},
+    USERPROFILE {{
+        cmd = new CmdUserProfile();
+    }},
+    EDITUSERS {{
+        cmd = new CmdEditUsers();
+    }},
+    EDITRESUMES {{
+        cmd = new CmdEditResumes();
+    }},
+    EDITCOMPANIES {{
+        cmd = new CmdEditCompanies();
+    }},
+    REQUESTS {{
+        cmd = new CmdRequests();
     }},
     ERROR {{
             cmd = new CmdError();

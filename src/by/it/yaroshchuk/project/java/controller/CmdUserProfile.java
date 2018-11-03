@@ -1,15 +1,14 @@
 package by.it.yaroshchuk.project.java.controller;
 
-import by.it.yaroshchuk.project.java.beans.Resume;
+
 import by.it.yaroshchuk.project.java.beans.User;
 import by.it.yaroshchuk.project.java.dao.Dao;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
-public class CmdProfile extends Cmd {
+public class CmdUserProfile extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         User user = Util.getUser(req);

@@ -33,9 +33,9 @@ public class CmdCompanyListResumes extends Cmd {
             if(req.getParameter("requestbtn") != null) {
                 if(companies.size() > 0) {
                     company = companies.get(0);
-                    long userId = Form.getLong(req, "usersId");
+                    long resumeId = Form.getLong(req, "resumeId");
                     String message = Form.getString(req, "message");
-                    Request request = new Request(0, message, company.getId(), userId);
+                    Request request = new Request(0, message, company.getId(), resumeId);
                     System.out.println(request);
                     dao.request.create(request);
                 }

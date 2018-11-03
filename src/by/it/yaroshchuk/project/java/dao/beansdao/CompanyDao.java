@@ -2,6 +2,7 @@ package by.it.yaroshchuk.project.java.dao.beansdao;
 
 import by.it.yaroshchuk.project.java.beans.Company;
 import by.it.yaroshchuk.project.java.connection.ConnectionCreator;
+import by.it.yaroshchuk.project.java.dao.Dao;
 import by.it.yaroshchuk.project.java.dao.InterfaceDao;
 
 import java.sql.Connection;
@@ -79,5 +80,10 @@ public class CompanyDao extends AbstractDao implements InterfaceDao<Company> {
             }
         }
         return companies;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        Company company = new Company(1, "company_name1", "2007", "about123", 3);
+        System.out.println(Dao.getDao().company.update(company));
     }
 }

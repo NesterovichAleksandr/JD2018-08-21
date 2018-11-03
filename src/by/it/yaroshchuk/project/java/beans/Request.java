@@ -5,16 +5,16 @@ public class Request {
     private long id;
     private String message;
     private long companiesId;
-    private long usersId;
+    private long resumesId;
 
     public Request() {
     }
 
-    public Request(long id, String message, long companiesId, long usersId) {
+    public Request(long id, String message, long companiesId, long resumesId) {
         this.id = id;
         this.message = message;
         this.companiesId = companiesId;
-        this.usersId = usersId;
+        this.resumesId = resumesId;
     }
 
     public long getId() {
@@ -41,12 +41,12 @@ public class Request {
         this.companiesId = companiesId;
     }
 
-    public long getUsersId() {
-        return usersId;
+    public long getResumesId() {
+        return resumesId;
     }
 
-    public void setUsersId(long usersId) {
-        this.usersId = usersId;
+    public void setResumesId(long resumesId) {
+        this.resumesId = resumesId;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Request {
                 "id=" + id +
                 ", message='" + message + '\'' +
                 ", companiesId=" + companiesId +
-                ", usersId=" + usersId +
+                ", resumesId=" + resumesId +
                 '}';
     }
 }

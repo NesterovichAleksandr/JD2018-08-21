@@ -11,9 +11,18 @@
 					<!-- Form Name -->
 					<legend>Form Create Resume</legend>
 
-					 <!-- Text input-->
+				 <!-- Text input-->
              <div class="form-group">
-               <label class="col-md-4 control-label" for="textinput">Full name</label>
+               <label class="col-md-4 control-label" for="resumeName">Resume name</label>
+               <div class="col-md-6">
+               <input id="resumeName" name="resumeName" type="text" placeholder="" class="form-control input-md" required="" >
+
+               </div>
+             </div>
+
+			    <!-- Text input-->
+             <div class="form-group">
+               <label class="col-md-4 control-label" for="fullname">Full name</label>
                <div class="col-md-6">
                <input id="fullname" name="fullname" type="text" placeholder="" class="form-control input-md" required="" >
 
@@ -100,6 +109,15 @@
                <span class="help-block">years</span>
                </div>
              </div>
+
+             <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="about">About</label>
+                <div class="col-md-4">
+                <textarea class="form-control" id="about" name="about" rows="3"></textarea>
+
+                </div>
+              </div>
 
 
 					<!-- Button -->

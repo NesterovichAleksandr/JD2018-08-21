@@ -13,6 +13,15 @@
 					 <!-- Form Name -->
 					 <legend>Resume</legend>
 
+					  <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="resumeName">Resume name</label>
+                        <div class="col-md-4">
+                        <input id="resumeName" name="resumeName" type="text" placeholder="" class="form-control input-md" required="" value="${resume.resumeName}">
+
+                        </div>
+                      </div>
+
 					 <!-- Text input-->
 					 <div class="form-group">
 					   <label class="col-md-4 control-label" for="fullName">Full name</label>
@@ -102,6 +111,15 @@
 					   <span class="help-block">years</span>
 					   </div>
 					 </div>
+
+					 <!-- Text input-->
+                     <div class="form-group">
+                       <label class="col-md-4 control-label" for="about">About</label>
+                       <div class="col-md-4">
+                       <input id="about" name="about" type="text" placeholder="" class="form-control input-md" required="" value="${resume.about}">
+
+                       </div>
+                     </div>
 
 					 <!-- Text input-->
 					 <div class="form-group">

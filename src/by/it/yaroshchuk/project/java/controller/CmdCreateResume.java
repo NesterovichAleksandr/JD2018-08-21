@@ -15,6 +15,7 @@ public class CmdCreateResume extends  Cmd {
         if (Form.isPost(req)) {
             User user = Util.getUser(req);
             if(user != null) {
+                String resumeName = Form.getString(req, "resumeName");
                 String fullname = Form.getString(req, "fullname");
                 String dob = Form.getString(req, "dob");
                 String country = Form.getString(req, "country");
@@ -24,11 +25,12 @@ public class CmdCreateResume extends  Cmd {
                 Integer graduateYear = Form.getInt(req, "graduateYear");
                 String experience = Form.getString(req, "experience");
                 String post = Form.getString(req, "post");
+                String about = Form.getString(req, "about");
                 Integer worktime = Form.getInt(req, "worktime");
-                Resume resume = new Resume(0, fullname, dob, country, city, education, degree, graduateYear,
-                        experience, post, worktime, user.getId());
+                Resume resume = new Resume(0, resumeName, fullname, dob, country, city, education, degree, graduateYear,
+                        experience, post, worktime, about, user.getId());
                 Dao.getDao().resume.create(resume);
-                return Action.PROFILE.cmd;
+                return Action.USERLISTRESUMES.cmd;
             }
         }
         return null;

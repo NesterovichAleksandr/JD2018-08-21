@@ -9,7 +9,7 @@
 
 			<form class="form-horizontal"action="do?command=Login" method="post">
 				<fieldset>
-					<p>${user}<br></p>
+
 
 					<!-- Form Name -->
 					<legend>Form Login</legend>
@@ -37,6 +37,7 @@
 							<button id="signupsubmit" name="signupsubmit" class="btn btn-success">LogIn</button>
 						</div>
 					</div>
+
 				</fieldset>
 			</form>
 		</div>

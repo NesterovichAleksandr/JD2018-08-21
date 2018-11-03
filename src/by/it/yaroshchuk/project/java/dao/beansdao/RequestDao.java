@@ -1,5 +1,6 @@
 package by.it.yaroshchuk.project.java.dao.beansdao;
 
+
 import by.it.yaroshchuk.project.java.beans.Request;
 import by.it.yaroshchuk.project.java.connection.ConnectionCreator;
 import by.it.yaroshchuk.project.java.dao.InterfaceDao;
@@ -24,11 +25,11 @@ public class RequestDao extends AbstractDao implements InterfaceDao<Request> {
 
     @Override
     public boolean create(Request request) throws SQLException {
-        String sql = String.format("INSERT INTO `requests` (`message`,`companies_id`,`users_id`)" +
+        String sql = String.format("INSERT INTO `requests` (`message`,`companies_id`,`resumes_id`)" +
                         " VALUES ('%s', %d, %d);",
                 request.getMessage(),
                 request.getCompaniesId(),
-                request.getUsersId());
+                request.getResumesId());
         long id = executeUpdate(sql);
         if (id > 0) request.setId(id);
         return id > 0;
@@ -39,10 +40,10 @@ public class RequestDao extends AbstractDao implements InterfaceDao<Request> {
         String sql = String.format("UPDATE `requests` SET " +
                 "`message`='%s', " +
                 "`companies_id`=%d, " +
-                "`users_id`=%d WHERE `id`=%d",
+                "`resumes_id`=%d WHERE `id`=%d",
                 request.getMessage(),
                 request.getCompaniesId(),
-                request.getUsersId(),
+                request.getResumesId(),
                 request.getId());
         return (0 < executeUpdate(sql));
     }
@@ -50,6 +51,16 @@ public class RequestDao extends AbstractDao implements InterfaceDao<Request> {
     @Override
     public boolean delete(Request request) throws SQLException {
         String sql = String.format("DELETE FROM `requests` WHERE `requests`.`id` = %d", request.getId());
+        return (0 < executeUpdate(sql));
+    }
+
+    public boolean deleteFromResume(long resumeId) throws SQLException {
+        String sql = String.format("DELETE FROM `requests` WHERE `requests`.`resumes_id` = %d", resumeId);
+        return (0 < executeUpdate(sql));
+    }
+
+    public boolean deleteFromCompany(long companyId) throws SQLException {
+        String sql = String.format("DELETE FROM `requests` WHERE `requests`.`companies_id` = %d", companyId);
         return (0 < executeUpdate(sql));
     }
 
@@ -71,7 +82,7 @@ public class RequestDao extends AbstractDao implements InterfaceDao<Request> {
                 request.setId(resultSet.getLong("id"));
                 request.setMessage(resultSet.getString("message"));
                 request.setCompaniesId(resultSet.getLong("companies_id"));
-                request.setUsersId(resultSet.getLong("users_id"));
+                request.setResumesId(resultSet.getLong("resumes_id"));
                 requests.add((request));
             }
         }
