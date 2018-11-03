@@ -3,7 +3,7 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-     <div class="container">
+     <div class="container" align=center>
      <%@ include file="include/menu.htm" %>
      <form class="form-horizontal" action="do?command=Home">
 

@@ -3,19 +3,19 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-    <div class="container">
+    <div class="container" align="center">
     <%@ include file="include/menu.htm" %>
     <form class="form-horizontal" action="do?command=Login" method="post">
     <fieldset>
 
     <!-- Form Name -->
-    <legend>Вход</legend>
+    <h3>Вход</h3>
 
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="login">Логин</label>
       <div class="col-md-4">
-      <input id="login" name="login" value="user" type="text" placeholder="" class="form-control input-md" required="">
+      <input id="login" name="login" value="admin" type="text" placeholder="" pattern="[a-zA-Zа-яА-ЯёЁ0-9]{3,}" class="form-control input-md" required="">
 
       </div>
     </div>
@@ -24,7 +24,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="password">Пароль</label>
       <div class="col-md-4">
-        <input id="password" name="password" value="user" type="password" placeholder="" class="form-control input-md" required="">
+        <input id="password" name="password" value="admin" type="password" placeholder="" pattern="[a-zA-Z0-9а-яА-ЯёЁ]{3,}" class="form-control input-md" required="">
 
       </div>
     </div>

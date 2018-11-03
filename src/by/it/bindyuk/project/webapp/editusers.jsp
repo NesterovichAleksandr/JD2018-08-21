@@ -25,37 +25,37 @@
                 <div class="row">
                     <input name="id" type="hidden" value="${user.id}"/>
                     <div class=col-md-1>
-                        <input id="login" class="form-control input-md" name="login"
+                        <input id="login" pattern="[a-zA-Zа-яА-ЯёЁ0-9]{3,}" class="form-control input-md" name="login"
                                value="${user.login}"/>
                     </div>
 
                     <div class=col-md-1>
-                        <input id="password" class="form-control input-md" name="password"
+                        <input id="password" pattern="[a-zA-Z0-9а-яА-ЯёЁ]{3,}" class="form-control input-md" name="password"
                                value="${user.password}"/>
                     </div>
 
                     <div class=col-md-2>
-                        <input id="email" class="form-control input-md" name="email"
+                        <input id="email" pattern="[a-z0-9\._-]+@[a-z0-9_-]+\.[a-z0-9_-]{2,6}" class="form-control input-md" name="email"
                                value="${user.email}"/>
                     </div>
 
                     <div class=col-md-1>
-                        <input id="passpostSeries" class="form-control input-md" name="passpostSeries"
+                        <input id="passpostSeries" pattern="[a-zA-Zа-яА-ЯёЁ]{2,3}" class="form-control input-md" name="passpostSeries"
                                value="${user.passpostSeries}"/>
                     </div>
 
                     <div class=col-md-1>
-                        <input id="passportId" class="form-control input-md" name="passportId"
+                        <input id="passportId" pattern="[0-9]{6,9}" class="form-control input-md" name="passportId"
                                value="${user.passportId}"/>
                     </div>
 
                     <div class=col-md-2>
-                        <input id="bancardNumber" class="form-control input-md" name="bancardNumber"
+                        <input id="bancardNumber" pattern="[0-9]{16,20}" class="form-control input-md" name="bancardNumber"
                                value="${user.bancardNumber}"/>
                     </div>
 
                     <div class=col-md-1>
-                        <input id="cid" class="form-control input-md" name="cid"
+                        <input id="cid" pattern="[0-9]{3}" class="form-control input-md" name="cid"
                                value="${user.cid}"/>
                     </div>
 

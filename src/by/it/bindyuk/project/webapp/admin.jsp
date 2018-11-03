@@ -23,7 +23,7 @@
             <p><a class="btn btn-lg btn-success" href="do?command=EditTicket" role="button">Редактировать билеты</a></p>
           </div>
   <div class="jumbotron">
-            <p><a class="btn btn-lg btn-success" href="do?command=AddRoute" role="button">Добавлять города</a></p>
+            <p><a class="btn btn-lg btn-success" href="do?command=AddRoute" role="button">Добавить города</a></p>
           </div>
   <div class="jumbotron">
               <p><a class="btn btn-lg btn-success" href="do?command=Reset" role="button">Сброс базы</a></p>

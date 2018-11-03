@@ -8,7 +8,4 @@ public class CmdError extends Cmd {
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) {
         return null;
     }
-    static void setAttr(HttpServletRequest req, String s) {
-        req.setAttribute("printStackTrace", s);
-    }
 }
