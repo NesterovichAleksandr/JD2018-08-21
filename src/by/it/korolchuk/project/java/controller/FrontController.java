@@ -43,8 +43,10 @@ public class FrontController extends HttpServlet {
         }
         if (nextCommand == null || nextCommand == command) {
             getServletContext().getRequestDispatcher(view).forward(req,resp);
-    } else
-        resp.sendRedirect("do?command=" + nextCommand.toString());
+    } else {
+            resp.sendRedirect("do?command=" + nextCommand.toString());
+        }
+        resp.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
+        resp.setHeader("Pragma", "no-cache");
     }
-
 }
