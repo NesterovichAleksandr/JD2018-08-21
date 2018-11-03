@@ -10,7 +10,7 @@
         <c:forEach items="${resumes}" var="resume">
 		 
 			
-			<form class="send-request-${resume.id}" action="do?command=ListResumes" method="post">
+			<form class="send-request-${resume.id}" action="do?command=CompanyListResumes" method="post">
 				<fieldset>
 					<p> <c:out value="${resume.fullName}"/>
 					<c:out value="${resume.dob}"/>
@@ -39,10 +39,11 @@
 						</c:if>
 					
 							<c:forEach items="${requests}" var="request">
-								<c:if test="${request.resumesId==resume.id}">
+							<c:choose>
+								<c:when test="${request.resumesId==resume.id}">
 									<p class="text-success">Request is sended</p>
-								</c:if>
-								<c:if test="${request.resumesId!=resume.id}">
+								</c:when>
+								<c:otherwise>
 									<legend>Request Form</legend>
 
 									<!-- Text input-->
@@ -58,7 +59,8 @@
 											<button id="requestbtn" name="requestbtn" class="btn btn-success">Create request</button>
 										</div>
 									</div>
-								</c:if>
+								</c:otherwise>
+								</c:choose>
 							</c:forEach>
 						
 						</c:if>

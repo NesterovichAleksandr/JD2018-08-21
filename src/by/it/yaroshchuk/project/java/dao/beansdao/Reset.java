@@ -108,9 +108,7 @@ public class Reset {
 
 
 
-            //ADMIN
-            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) \n" +
-                    "VALUES (NULL, 'Admin', 'adminRolesTheWorld', 'admin@admin.com', '1');");
+
 
             //INSERT USERS WITH ROLE USER
             statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
@@ -119,6 +117,10 @@ public class Reset {
                     "VALUES (DEFAULT, 'user2', 'users1password', 'user2@gmail.com', '2');");
             statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
                     "VALUES (DEFAULT, 'veryStupidUser', 'stupidpassword', 'stupidStupid@gmail.com', '2');");
+
+            //ADMIN
+            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) \n" +
+                    "VALUES (NULL, 'Admin', 'adminRolesTheWorld', 'admin@admin.com', '1');");
 
             //INSERT USERS WITH ROLE COMPANY
             statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
