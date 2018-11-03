@@ -23,9 +23,17 @@
                 <div class="col">
                   <input id="email" name="email" type="text" class="form-control" value="${user.email}">
                 </div>
-                <div class="col-1">
-                  <input id="rolesId" name="rolesId" type="text" class="form-control" value="${user.roles_Id}">
-                </div>
+                    <div class="col">
+                        <select id="rolesId" name="rolesId" class="form-control">
+                            <c:forEach items="${roles}" var="role">
+                                <option value="${role.ID}" role=${role.ID} ${role.ID==user.roles_Id?"selected":""}>
+                                        ${role.role}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+
                 <div class="col-md-1">
                     <!-- Button -->
 

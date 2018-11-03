@@ -8,8 +8,20 @@
 
     <h2>Your profile:</h2>
 
-    <form class="form-horizontal" method="post" action="do?command=Profile">
+    <form class="form-horizontal" method="post" action="do?command=Profile" enctype="multipart/form-data">
             <fieldset>
+
+                <div class="form-group">
+                <img class="rounded float-left ml-3" src="img/user${user.ID}" height="100px">
+
+                <!-- File Button -->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="avatar"></label>
+                  <div class="col-md-4">
+                    <input id="avatar" name="avatar" class="input-file" type="file">
+                  </div>
+                </div>
+                </div>
 
                 <!-- Form Name -->
 

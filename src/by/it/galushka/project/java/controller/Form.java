@@ -44,6 +44,23 @@ class Form {
         if (value != null && value.matches("[-0-9]+"))
             return Long.valueOf(value);
         throw new ParseException("Field "+name+" incorrect. ",0);
+    }
 
+    static String getEmail(HttpServletRequest request, String name)  throws ParseException {
+        String value = request.getParameter(name);
+        if (value != null && value.matches("[A-z]+\\@[A-z]+\\.[A-z]+"))
+            return value;
+        throw new ParseException("Field "+name+" incorrect. ",0);
+    }
+
+    static String getLogin(HttpServletRequest request, String name)  throws ParseException {
+        String value = request.getParameter(name);
+        if (value != null && value.matches("[A-z0-9]+"))
+            return value;
+        throw new ParseException("Field "+name+" incorrect. Pattern: \"[A-z0-9]+\"",0);
+    }
+
+    static String getPassword(HttpServletRequest request, String name) throws ParseException {
+        return getLogin(request, name);
     }
 }

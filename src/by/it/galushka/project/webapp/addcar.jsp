@@ -61,7 +61,7 @@
         		<div class="form-group">
         		  <label class="col-md-4 control-label" for="Send"></label>
         		  <div class="col-md-4">
-        		    <button id="Send" name="Send" class="btn btn-primary">Send</button>
+        		    <button id="Send" name="Send" class="btn btn-dark">Add car</button>
         		  </div>
         		</div>
 

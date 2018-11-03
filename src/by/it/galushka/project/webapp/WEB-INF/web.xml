@@ -8,10 +8,20 @@
     <servlet>
         <servlet-name>FrontController</servlet-name>
         <servlet-class>by.it.galushka.project.java.controller.FrontController</servlet-class>
+        <multipart-config/>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>
         <url-pattern>/do</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>FilterImage</filter-name>
+        <filter-class>by.it.galushka.project.java.filters.FilterImage</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterImage</filter-name>
+        <url-pattern>/img/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

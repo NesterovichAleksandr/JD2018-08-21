@@ -33,7 +33,7 @@
        			<div class="form-group">
        			  <label class="col-md-4 control-label" for="signIn"></label>
        			  <div class="col-md-4">
-       			    <button id="signIn" name="signIn" class="btn btn-primary">Send</button>
+       			    <button id="signIn" name="signIn" class="btn btn-dark">Login</button>
        			  </div>
        			</div>
 

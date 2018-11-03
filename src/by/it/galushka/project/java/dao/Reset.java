@@ -45,6 +45,7 @@ class Reset {
                     "  `Color` VARCHAR(45) NULL,\n" +
                     "  `Engine capacity` DOUBLE NULL,\n" +
                     "  `Release date` VARCHAR(45) NULL,\n" +
+                    "  `Reserved` VARCHAR(45) NULL,\n" +
                     "  `users_ID` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`ID`),\n" +
                     "  INDEX `fk_cars_users1_idx` (`users_ID` ASC),\n" +
@@ -77,8 +78,7 @@ class Reset {
             statement.executeUpdate("INSERT INTO `galushka`.`roles` (`ID`, `Role`) VALUES (DEFAULT, 'Guest');");
             statement.executeUpdate("INSERT INTO `galushka`.`users` (`ID`, `Login`, `Password`, `Email`, `roles_ID`) VALUES (DEFAULT, 'admin', 'padmin', 'admin@it.by', 1);");
             statement.executeUpdate("INSERT INTO `galushka`.`users` (`ID`, `Login`, `Password`, `Email`, `roles_ID`) VALUES (DEFAULT, 'user', 'puser', 'user@it.by', 2);");
-            statement.executeUpdate("INSERT INTO `galushka`.`cars` (`ID`, `Mark`, `Model`, `Color`, `Engine capacity`, `Release date`, `users_ID`) VALUES (DEFAULT, 'Audi', 'A4', 'Grey', 2.0, '2018/01/01', 1);");
-            statement.executeUpdate("INSERT INTO `galushka`.`orders` (`ID`, `Passport id`, `Order date`, `Return date`, `Surname`, `Name`, `Middle name`, `Address`, `users_ID`) VALUES (DEFAULT, '123456789oiuyt', '2018/01/01', '2018/11/01', 'Ivanov', 'Ivan', 'Ivanovich', 'Lenina, 3', 2);");
+            statement.executeUpdate("INSERT INTO `galushka`.`cars` (`ID`, `Mark`, `Model`, `Color`, `Engine capacity`, `Release date`, `Reserved`, `users_ID`) VALUES (DEFAULT, 'Audi', 'A4', 'Grey', 2.0, '2018/01/01', 'false', 1);");
             System.out.println("--->Reset done");
         } catch (SQLException e) {
             e.printStackTrace();

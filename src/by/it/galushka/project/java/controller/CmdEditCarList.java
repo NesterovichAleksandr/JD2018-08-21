@@ -32,13 +32,14 @@ public class CmdEditCarList extends Cmd {
     }
 
     private Car getCar(HttpServletRequest req) throws ParseException {
-        Long id = Form.getLong(req, "ID");
+        long id = Form.getLong(req, "ID");
         String mark = req.getParameter("Mark");
         String model = req.getParameter("Model");
         String color = req.getParameter("Color");
         String engineCapacity = req.getParameter("EngineCapacity");
         double eC = Double.parseDouble(engineCapacity);
         String releaseDate = req.getParameter("ReleaseDate");
-        return new Car(id, mark, model, color, eC, releaseDate, 1);
+        String reserved = req.getParameter("Reserved");
+        return new Car(id, mark, model, color, eC, releaseDate, reserved, 1);
     }
 }

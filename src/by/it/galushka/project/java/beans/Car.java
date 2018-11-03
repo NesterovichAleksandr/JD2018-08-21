@@ -8,18 +8,20 @@ public class Car {
     private String Color;
     private double EngineCapacity;
     private String ReleaseDate;
+    private String Reserved;
     private long users_ID;
 
     public Car() {
     }
 
-    public Car(long ID, String mark, String model, String color, double engineCapacity, String releaseDate, long users_ID) {
+    public Car(long ID, String mark, String model, String color, double engineCapacity, String releaseDate, String reserved, long users_ID) {
         this.ID = ID;
         Mark = mark;
         Model = model;
         Color = color;
         EngineCapacity = engineCapacity;
         ReleaseDate = releaseDate;
+        Reserved = reserved;
         this.users_ID = users_ID;
     }
 
@@ -75,9 +77,30 @@ public class Car {
         ReleaseDate = releaseDate;
     }
 
+    public String getReserved() {
+        return Reserved;
+    }
+
+    public void setReserved(String reserved) {
+        Reserved = reserved;
+    }
+
     public void setUsers_ID(long users_ID) {
         this.users_ID = users_ID;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Car{" +
+//                "ID=" + ID +
+//                ", Mark='" + Mark + '\'' +
+//                ", Model='" + Model + '\'' +
+//                ", Color='" + Color + '\'' +
+//                ", EngineCapacity=" + EngineCapacity +
+//                ", ReleaseDate='" + ReleaseDate + '\'' +
+//                ", users_ID=" + users_ID +
+//                '}' + '\n';
+//    }
 
     @Override
     public String toString() {
@@ -88,7 +111,8 @@ public class Car {
                 ", Color='" + Color + '\'' +
                 ", EngineCapacity=" + EngineCapacity +
                 ", ReleaseDate='" + ReleaseDate + '\'' +
+                ", Reserved='" + Reserved + '\'' +
                 ", users_ID=" + users_ID +
-                '}' + '\n';
+                '}';
     }
 }

@@ -15,13 +15,14 @@ public class CarDao extends AbstractDao implements InterfaceDao<Car> {
     public boolean create(Car car) throws SQLException {
         String sql = String.format("INSERT INTO `cars`(`Mark`, `Model`, " +
                         "`Color`, `Engine capacity`, " +
-                        "`Release date`, `users_ID`) VALUES (" +
-                        "'%s','%s','%s','%f','%s','%d')",
+                        "`Release date`, `Reserved`, `users_ID`) VALUES (" +
+                        "'%s','%s','%s','%f','%s','%s','%d')",
                 car.getMark(),
                 car.getModel(),
                 car.getColor(),
                 car.getEngineCapacity(),
                 car.getReleaseDate(),
+                "false",
                 car.getUsers_ID());
         long id = executeUpdate(sql);
         if (id > 0) {
@@ -42,12 +43,13 @@ public class CarDao extends AbstractDao implements InterfaceDao<Car> {
     @Override
     public boolean update(Car car) throws SQLException {
         String sql = String.format("UPDATE `cars` SET `Mark`='%s',`Model`='%s',`Color`='%s'," +
-                        "`Engine capacity`=%f,`Release date`='%s',`users_ID`=%d WHERE `ID`=%d",
+                        "`Engine capacity`=%f,`Release date`='%s',`Reserved`='%s',`users_ID`=%d WHERE `ID`=%d",
                 car.getMark(),
                 car.getModel(),
                 car.getColor(),
                 car.getEngineCapacity(),
                 car.getReleaseDate(),
+                car.getReserved(),
                 car.getUsers_ID(),
                 car.getID());
         return (executeUpdate(sql) > 0);
@@ -81,6 +83,7 @@ public class CarDao extends AbstractDao implements InterfaceDao<Car> {
                 car.setColor(resultSetCars.getString("Color"));
                 car.setEngineCapacity(resultSetCars.getDouble("Engine capacity"));
                 car.setReleaseDate(resultSetCars.getString("Release date"));
+                car.setReserved(resultSetCars.getString("Reserved"));
                 car.setUsers_ID(resultSetCars.getLong("users_ID"));
                 cars.add(car);
             }
