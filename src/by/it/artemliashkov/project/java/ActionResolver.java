@@ -4,10 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 
 public class ActionResolver {
 
-    Actions resolver(HttpServletRequest req) {
+    Actions resovler(HttpServletRequest req) {
         Actions result = Actions.ERROR;
+
         String command = req.getParameter("command");
+        if (command == null) return Actions.INDEX;
+
         try {
+            Actions action = Actions.valueOf(command.toUpperCase());
+            req.getServletContext().log("RESOLVE:" + action.cmd.toString());
             result = Actions.valueOf(command.toUpperCase());
         } catch (IllegalArgumentException e) {
             //result = Action.ERROR;
@@ -15,5 +20,4 @@ public class ActionResolver {
         }
         return result;
     }
-
 }
