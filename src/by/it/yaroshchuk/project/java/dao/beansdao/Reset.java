@@ -120,7 +120,7 @@ public class Reset {
 
             //ADMIN
             statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) \n" +
-                    "VALUES (NULL, 'Admin', 'adminRolesTheWorld', 'admin@admin.com', '1');");
+                    "VALUES (NULL, 'Admin', '1111', 'admin@admin.com', '1');");
 
             //INSERT USERS WITH ROLE COMPANY
             statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
