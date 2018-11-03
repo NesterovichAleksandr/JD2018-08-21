@@ -15,7 +15,7 @@ enctype="multipart/form-data"
 <fieldset>
 
 <!-- Form Name -->
-<legend>Add ad</legend>
+<legend>Добавить объявление</legend>
 
 <!-- Text input-->
 <div class="form-group">
@@ -101,7 +101,7 @@ enctype="multipart/form-data"
 
 <!-- File Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="upload">File Button</label>
+  <label class="col-md-4 control-label" for="upload">Image</label>
   <div class="col-md-4">
     <input id="upload" name="upload" class="input-file" type="file">
   </div>
@@ -109,9 +109,8 @@ enctype="multipart/form-data"
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
   <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Создать объявление</button>
   </div>
 </div>
 

@@ -10,7 +10,7 @@
         <fieldset>
 
             <!-- Form Name -->
-            <legend>Sign Up Form</legend>
+            <legend>Изменить данные профиля</legend>
 
             <!-- Text input-->
             <div class="form-group">
@@ -58,6 +58,7 @@
     <table class="table">
         <thead>
         <tr>
+            <th scope="col">Фото</th>
             <th scope="col">Описание</th>
             <th scope="col">Этаж</th>
             <th scope="col">Этажность</th>
@@ -70,6 +71,7 @@
         <tbody>
         <c:forEach var="ad" items="${ads}">
             <tr>
+                <td><img src="image/ad${ad.id}" height="50px"> </td>
                 <td>${ad.description}</td>
                 <td>${ad.floor}</td>
                 <td>${ad.floors}</td>
@@ -84,7 +86,7 @@
         </tbody>
     </table>
 
-    <mytag:paginator count="${adcount}" step="5" urlprefix="?start="/>
+    <mytag:paginator count="${adcount}" step="5" urlprefix="do?command=Profile&start="/>
 
 
     <form class="form-horizontal" method="post" action="do?command=Profile">

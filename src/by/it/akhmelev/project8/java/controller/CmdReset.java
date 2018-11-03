@@ -12,6 +12,7 @@ public class CmdReset extends Cmd {
 
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+            req.getSession().invalidate();
             Dao.getDao().reset();
             return Action.SIGNUP.cmd;
     }
