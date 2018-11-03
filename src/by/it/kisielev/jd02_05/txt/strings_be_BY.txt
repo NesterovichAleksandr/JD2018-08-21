@@ -1,0 +1,3 @@
+messages.welcome=Дзень добры=)
+messages.question=Як твае справы?
+text.name=Мяне звати Тимон
