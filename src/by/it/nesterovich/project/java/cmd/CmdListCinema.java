@@ -17,7 +17,7 @@ public class CmdListCinema extends Cmd {
 
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        User user = Utils.getUser(req);
+        User user = Utils.getUser(req,resp);
         if (user == null) {
             return Action.LOGIN.cmd;
         }

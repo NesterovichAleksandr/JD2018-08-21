@@ -7,6 +7,7 @@ import by.it.nesterovich.project.java.utils.Form;
 import by.it.nesterovich.project.java.utils.Patterns;
 import by.it.nesterovich.project.java.utils.Utils;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -16,7 +17,7 @@ public class CmdLogin extends Cmd {
 
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        User user = Utils.getUser(req);
+        User user = Utils.getUser(req,resp);
         if (user != null) {
             return Action.USERCABINET.cmd;
         }
@@ -31,7 +32,10 @@ public class CmdLogin extends Cmd {
                 session.setMaxInactiveInterval(30);
                 session.setAttribute("user", users.get(0));
                 session.setAttribute("userId", users.get(0).getId());
-                session.setAttribute("userLogin",login);
+                session.setAttribute("userLogin", login);
+
+                Utils.setCookieUser(resp,login,password);
+
                 return Action.USERCABINET.cmd;
             } else {
                 req.setAttribute("noUser", "no user: " + login + " or incorrect password");
