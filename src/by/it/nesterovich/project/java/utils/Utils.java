@@ -39,7 +39,7 @@ public class Utils {
                 if (users.size()==0){
                     return null;
                 }
-                req.getSession().setMaxInactiveInterval(3);
+                req.getSession().setMaxInactiveInterval(30);
                 req.getSession().setAttribute("user", users.get(0));
                 req.getSession().setAttribute("userId", users.get(0).getId());
                 req.getSession().setAttribute("userLogin", login);
@@ -55,8 +55,8 @@ public class Utils {
     public static void setCookieUser(HttpServletResponse resp, String login, String password) {
         Cookie cookieLogin = new Cookie("login", login);
         Cookie cookiePassword = new Cookie("password", password + "sekret");
-        cookieLogin.setMaxAge(10);
-        cookiePassword.setMaxAge(10);
+        cookieLogin.setMaxAge(60);
+        cookiePassword.setMaxAge(60);
         resp.addCookie(cookieLogin);
         resp.addCookie(cookiePassword);
     }
