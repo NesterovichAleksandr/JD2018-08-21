@@ -1,9 +1,9 @@
 package by.it.litvin.project.java.controller;
 
 import by.it.litvin.project.java.dao.beans.User;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 
 public class Util {
 
