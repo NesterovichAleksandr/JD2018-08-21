@@ -37,12 +37,12 @@
 
     <filter>
         <filter-name>FilterImage</filter-name>
-        <filter-class>by.it.voinilo.project.java.Filters.FilterEncoding</filter-class>
+        <filter-class>by.it.voinilo.project.java.Filters.FilterImage</filter-class>
 
     </filter>
 
     <filter-mapping>
-        <filter-name>FilterEncoding</filter-name>
+        <filter-name>FilterImage</filter-name>
         <url-pattern>/images/*</url-pattern>
     </filter-mapping>
 </web-app>

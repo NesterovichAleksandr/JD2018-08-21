@@ -31,6 +31,8 @@ public class FilterImage implements Filter {
         else
             req.getRequestDispatcher("/images/noimage.png").forward(req,res);
 
+
+
     }
 
     @Override
