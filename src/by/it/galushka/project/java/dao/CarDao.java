@@ -46,12 +46,14 @@ public class CarDao extends AbstractDao implements InterfaceDao<Car> {
 
     @Override
     public boolean update(Car car) throws SQLException {
+        NumberFormat nf = NumberFormat.getInstance(Locale.ENGLISH);
+        nf.setGroupingUsed(false);
         String sql = String.format("UPDATE `cars` SET `Mark`='%s',`Model`='%s',`Color`='%s'," +
-                        "`Engine capacity`=%f,`Release date`='%s',`Reserved`='%s',`users_ID`=%d WHERE `ID`=%d",
+                        "`Engine capacity`='%s',`Release date`='%s',`Reserved`='%s',`users_ID`=%d WHERE `ID`=%d",
                 car.getMark(),
                 car.getModel(),
                 car.getColor(),
-                car.getEngineCapacity(),
+                nf.format(car.getEngineCapacity()),
                 car.getReleaseDate(),
                 car.getReserved(),
                 car.getUsers_ID(),
