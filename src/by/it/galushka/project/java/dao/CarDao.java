@@ -6,21 +6,25 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class CarDao extends AbstractDao implements InterfaceDao<Car> {
 
     @Override
     public boolean create(Car car) throws SQLException {
+        NumberFormat nf = NumberFormat.getInstance(Locale.ENGLISH);
+        nf.setGroupingUsed(false);
         String sql = String.format("INSERT INTO `cars`(`Mark`, `Model`, " +
                         "`Color`, `Engine capacity`, " +
                         "`Release date`, `Reserved`, `users_ID`) VALUES (" +
-                        "'%s','%s','%s','%f','%s','%s','%d')",
+                        "'%s','%s','%s','%s','%s','%s','%d')",
                 car.getMark(),
                 car.getModel(),
                 car.getColor(),
-                car.getEngineCapacity(),
+                nf.format(car.getEngineCapacity()),
                 car.getReleaseDate(),
                 "false",
                 car.getUsers_ID());
