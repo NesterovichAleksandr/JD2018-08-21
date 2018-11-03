@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
 <html>
 <%@ include file="include/head.htm" %>
 <body>
@@ -21,7 +22,7 @@
 <col style="width: 76px">
 </colgroup>
   <tr >
-    <td class="tg-ordi" colspan="2" rowspan="4"><a href="#"><img src="include/logo.png"></a></td>
+    <td class="tg-ordi" colspan="2" rowspan="4"><a href="#"><img src="images/ads${ad.id}"></a></td>
     <td class="tg-hwi9" colspan="2">${ad.name}</td>
   </tr>
   <tr>
@@ -44,7 +45,7 @@
   </c:forEach>
 
 </div>
-
+<mytag:paginator count="${adcount}" step="8" urlprefix="?start="/>
 </div>
 </body>
 </html>

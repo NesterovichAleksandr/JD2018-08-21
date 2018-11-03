@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 
 public class CmdProfile extends Cmd {
@@ -30,7 +31,19 @@ public class CmdProfile extends Cmd {
             }
         }
 
-        List<Ads> forms = Dao.getDao().ad.getALL(" WHERE `ads`.`roleparam_id`=" + user.getId());
+        Dao dao = Dao.getDao();
+        int adcount = dao.ad.getALL(" WHERE `ads`.`roleparam_id`=" + user.getId()).size();
+        req.setAttribute("adcount", adcount);
+        Integer start = 0;
+        try {
+            start = Form.getInt(req, "start");
+        } catch (ParseException e) {
+        }
+        if (start == null) {
+            start = 0;
+        }
+        String limit = String.format(" LIMIT %s, 8",start);
+        List<Ads> forms = Dao.getDao().ad.getALL(" WHERE `ads`.`roleparam_id`=" + user.getId()+limit);
         HttpSession session = req.getSession();
         session.setAttribute("ads", forms);
         return null;

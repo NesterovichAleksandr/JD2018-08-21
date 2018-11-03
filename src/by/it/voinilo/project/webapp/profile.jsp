@@ -1,3 +1,4 @@
+<%@ taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
@@ -76,14 +77,16 @@
                 <td>${ad.condition}</td>
                 <td>${ad.number}</td>
                 <td>${ad.price}</td>
-
-            </tr>
+                <td><img src="images/ads${ad.id}" height="50px"> </td>
+     </tr>
         </c:forEach>
 
 
         </tbody>
     </table>
-
+    <div align="center">
+<mytag:paginator count="${adcount}" step="8" urlprefix="?start="/>
+</div>
 
     <form class="form-horizontal" method="post" action="do?command=Profile">
         <fieldset>
@@ -99,6 +102,7 @@
 
         </fieldset>
     </form>
+
 </div>
 </body>
 </html>

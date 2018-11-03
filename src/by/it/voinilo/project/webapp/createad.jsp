@@ -5,7 +5,7 @@
 <div class = "container">
 <%@ include file="include/menu.htm" %>
 <p>CreateAd: ${message}</p>
-<form class="form-horizontal" action="do?command=CreateAd" method="post">
+<form class="form-horizontal" action="do?command=CreateAd" method="post" enctype="multipart/form-data">
 <fieldset>
 
 <!-- Form Name -->
@@ -64,7 +64,12 @@
 
   </div>
 </div>
-
+<div class="form-group">
+  <label class="col-md-4 control-label" for="upload">Image</label>
+  <div class="col-md-4">
+    <input id="upload" name="upload" class="input-file" type="file">
+  </div>
+</div>
 <!-- Button -->
 
 <div class="form-group" >
