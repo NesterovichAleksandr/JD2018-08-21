@@ -1,7 +1,7 @@
 package by.it.voinilo.project.java.controller;
 
 public enum Action {
-    GOTOADMINPAGE {{cmd = new CmdGotoAdminPage();}},
+    SEARCH{{cmd= new CmdSearch();}},GOTOADMINPAGE {{cmd = new CmdGotoAdminPage();}},
     PROFILE{{
         cmd=new CmdProfile();
     }},

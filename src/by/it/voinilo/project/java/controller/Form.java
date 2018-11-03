@@ -11,28 +11,30 @@ public class Form {
     static boolean isGet(HttpServletRequest request){
         return request.getMethod().equalsIgnoreCase("get");
     }
-    static String getString(HttpServletRequest request, String name)throws ParseException{
-        return getString(request,name, ".*");
+    static String getString(HttpServletRequest request, String name) throws ParseException {
+        return getString(request, name, ".*");
     }
 
-    static String getString(HttpServletRequest request,String name, String pattern) throws ParseException {
-        Pattern p =Pattern.compile(pattern);
+    static String getString(HttpServletRequest request, String name, String pattern) throws ParseException {
         String value = request.getParameter(name);
-        if (value!=null && value.matches(pattern)){
+        if (value != null && value.matches(pattern))
             return value;
-        }throw new ParseException("Field "+ name +"is incorrect", 0);
+        throw new ParseException("Field " + name + " incorrect. ", 0);
+    }
 
-    }
-    static Integer getInt (HttpServletRequest request, String name)throws ParseException{
+    static Integer getInt(HttpServletRequest request, String name) throws ParseException {
         String value = request.getParameter(name);
-        if (value!=null && value.matches("[-0-9]+")){
+        if (value != null && value.matches("[-0-9]+"))
             return Integer.valueOf(value);
-        }return null;
+        throw new ParseException("Field " +name+ " incorrect. ", 0);
     }
-    static Double getDouble (HttpServletRequest request, String name)throws ParseException{
+
+    static Long getLong(HttpServletRequest request, String name) throws ParseException {
         String value = request.getParameter(name);
-        if (value!=null && value.matches("[-0-9.]+")){
-            return Double.valueOf(value);
-        }return null;
+        if (value != null && value.matches("[-0-9]+"))
+            return Long.valueOf(value);
+        throw new ParseException("Field " +name+ " incorrect. ", 0);
     }
 }
+
+

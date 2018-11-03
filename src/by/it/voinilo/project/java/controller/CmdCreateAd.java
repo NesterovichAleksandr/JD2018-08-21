@@ -26,8 +26,10 @@ public class CmdCreateAd extends Cmd {
                 String number = Form.getString(req, "number");
                int price = Form.getInt(req,"price");
             Ads ads = new Ads(0, description, address, name, price, condition,number, user.getId());
-                Dao dao = Dao.getDao();
-                dao.ad.create(ads);
+            Dao dao = Dao.getDao();
+            dao.ad.create(ads);
+            util.saveImage(req, "ads"+ ads.getId());
+
                 return Action.PROFILE.cmd;
             }
 

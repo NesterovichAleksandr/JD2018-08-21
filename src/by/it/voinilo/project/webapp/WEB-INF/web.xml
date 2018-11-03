@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0"
-         metadata-complete="true">
+         metadata-complete="false">
     <welcome-file-list>
         <welcome-file>index</welcome-file>
     </welcome-file-list>
@@ -11,7 +11,7 @@
     <servlet>
         <servlet-name>FrontController</servlet-name>
         <servlet-class>by.it.voinilo.project.java.controller.FrontController</servlet-class>
-
+        <multipart-config/>
     </servlet>
 
     <servlet-mapping>
@@ -32,5 +32,17 @@
     <filter-mapping>
         <filter-name>FilterEncoding</filter-name>
         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
+        <filter-name>FilterImage</filter-name>
+        <filter-class>by.it.voinilo.project.java.Filters.FilterEncoding</filter-class>
+
+    </filter>
+
+    <filter-mapping>
+        <filter-name>FilterEncoding</filter-name>
+        <url-pattern>/images/*</url-pattern>
     </filter-mapping>
 </web-app>
