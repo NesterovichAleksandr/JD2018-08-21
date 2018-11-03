@@ -29,12 +29,12 @@ public class Ads_Dao extends AbstractDao implements interfaceDao<Ads> {
                 Ads ad = new Ads();
 
                 ad.setId(resultSet.getLong("id"));
-                ad.setDescription(resultSet.getString("description"));
-                ad.setAddress(resultSet.getString("address"));
                 ad.setName(resultSet.getString("name"));
-                ad.setPrice(resultSet.getString("price"));
+                ad.setAddress(resultSet.getString("address"));
+                ad.setDescription(resultSet.getString("description"));
                 ad.setCondition(resultSet.getString("condition"));
                 ad.setNumber(resultSet.getString("number"));
+                ad.setPrice(resultSet.getInt("price"));
                 ad.setRoleparam_id(resultSet.getInt("roleparam_id"));
                 ads.add(ad);
             }
@@ -50,11 +50,11 @@ public class Ads_Dao extends AbstractDao implements interfaceDao<Ads> {
     public boolean create(Ads ads) throws SQLException {
 
 
-            String sql = String.format("INSERT INTO `ads`(`description`," +
-                            " `address`, `name`, `price`, `condition`," +
-                            " `number`, `roleparam_id`) VALUES ('%s','%s','%s','%s','%s','%s','%d')",
-                    ads.getDescription(),ads.getAddress(),ads.getName(),ads.getPrice(),
-                    ads.getCondition(),ads.getNumber(), ads.getRoleparam_id());
+            String sql = String.format("INSERT INTO `ads`(`name`," +
+                            " `address`, `description`, `condition`, `number`," +
+                            " `price`, `roleparam_id`) VALUES ('%s','%s','%s','%s','%s','%d','%d')",
+                    ads.getName(),ads.getAddress(),ads.getDescription(),ads.getCondition(),ads.getNumber(),ads.getPrice(),
+                     ads.getRoleparam_id());
             long id = executeCreate(sql);
             if (id>0)ads.setId(id);
             return id>0;
@@ -79,11 +79,11 @@ public class Ads_Dao extends AbstractDao implements interfaceDao<Ads> {
     public boolean update(Ads ads) throws SQLException {
 
             String sql = String.format(
-                    "UPDATE `ads` SET `description`='%s'," +
-                            "`address`='%s',`name`='%s',`price`='%s'," +
-                            "`condition`='%s',`cellnumber`='%s',`roleparam_id`='%d' WHERE `id`= %d;",
-                    ads.getDescription(),ads.getAddress(),ads.getName(),ads.getPrice(),
-                    ads.getCondition(),ads.getNumber(), ads.getRoleparam_id(),ads.getId());
+                    "UPDATE `ads` SET `name`='%s'," +
+                            "`address`='%s',`description`='%s',`condition`='%s'," +
+                            "`number`='%s',`price`='%s',`roleparam_id`='%d' WHERE `id`= %d;",
+                    ads.getName(),ads.getAddress(),ads.getDescription(),ads.getCondition(),ads.getNumber(),ads.getPrice(),
+                    ads.getRoleparam_id());
             return executeUpdate(sql);
 
     }

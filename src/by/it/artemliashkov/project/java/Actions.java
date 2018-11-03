@@ -14,10 +14,18 @@ public enum Actions {
     SIGNUP {{
         cmd = new CmdSignUp();
     }},
-    CREATECOMPANY {{
-        cmd = new CmdCreateCompany();
+    LISTCOMPANY  {{
+        cmd = new CmdListCompany();
     }},
-
+    USERCABINET {{
+        cmd = new CmdUserCabinet();
+    }},
+    CREATECOMPANY {{
+        cmd = new CmdCrtCompany();
+    }},
+    EDITAGENTS{{
+        cmd = new CmdEditAgents();
+    }},
     ERROR {{
         cmd = new CmdError();
     }};

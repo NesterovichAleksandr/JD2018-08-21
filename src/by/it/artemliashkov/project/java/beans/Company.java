@@ -70,7 +70,7 @@ public class Company {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Company{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +

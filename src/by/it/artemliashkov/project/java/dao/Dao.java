@@ -24,4 +24,8 @@ public class Dao {
         }
         return dao;
     }
+
+    public void reset() {
+        Reset.main(new String[0]);
+    }
 }

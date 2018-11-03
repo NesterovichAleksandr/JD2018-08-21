@@ -11,7 +11,7 @@ public class CmdReset extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) {
         Dao.getDao().reset();
-        return Action.SIGNUP.cmd;
+        return Action.INDEX.cmd;
     }
 
 }

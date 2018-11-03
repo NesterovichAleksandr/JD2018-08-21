@@ -12,15 +12,14 @@ import javax.servlet.http.HttpSession;
 public class CmdUserCabinet extends Cmd {
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        User user = Utils.getUser(req);
+        User user = Utils.getUser(req,resp);
         if (user == null) {
             return Action.LOGIN.cmd;
         }
-
         if (Form.isPost(req) && req.getParameter("logout") != null) {
             HttpSession session = req.getSession();
             session.invalidate();
-            return Action.LOGIN.cmd;
+            return Action.INDEX.cmd;
         }
         return null;
     }

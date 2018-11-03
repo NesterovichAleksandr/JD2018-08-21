@@ -3,12 +3,12 @@
 <%@ include file="include/head.htm" %>
 <body>
 <div class="container">
-    <%@ include file="include/menu.htm" %>
+    <%@ include file="include/menu.jsp" %>
 
     <form class="form-horizontal" action="do?command=Login" method="post">
         <fieldset>
 
-            <p>${user}<br></p>
+            <p>${noUser}<br></p>
 
             <!-- Form Name -->
             <legend>Form Login</legend>
@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="login">Login</label>
                 <div class="col-md-4">
-                    <input id="login" name="login" value="TestLogin" type="text" placeholder=""
+                    <input id="login" name="login" value="user" type="text" placeholder=""
                            class="form-control input-md" required="">
 
                 </div>
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="password">Password</label>
                 <div class="col-md-4">
-                    <input id="password" name="password" value="testpassword" type="password" placeholder=""
+                    <input id="password" name="password" value="puser" type="password" placeholder=""
                            class="form-control input-md" required="">
 
                 </div>

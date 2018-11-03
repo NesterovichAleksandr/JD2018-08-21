@@ -16,7 +16,7 @@
                   <div class="card-img-overlay">
                     <h3 class="card-title">Registration</h3>
                     <p class="card-text">If you want to place an order you need to LOGIN or REGISTRATION (if you don`t have an account).</p>
-                    <p class="card-text"><ins>Click to go.</ins></p>
+                    <p class="card-text"><a href="do?command=SignUp"><ins>Click to go.</ins></a></p>
                   </div>
                 </div>
               </div>
@@ -26,7 +26,7 @@
                   <div class="card-img-overlay">
                     <h3 class="card-title">Login</h3>
                     <p class="card-text">If you want to place an order you need to LOGIN or REGISTRATION (if you don`t have an account).</p>
-                    <p class="card-text"><ins>Click to go.</ins></p>
+                    <p class="card-text"><a href="do?command=Login"><ins>Click to go.</ins></a></p>
                   </div>
                 </div>
               </div>
@@ -40,7 +40,7 @@
                   <div class="card-img-overlay">
                     <h3 class="card-title">Car list</h3>
                     <p class="card-text">Large fleet and many individual offers for you. Our fleet is updated every month.</p>
-                    <p class="card-text"><ins>Click to go.</ins></p>
+                    <p class="card-text"><a href="do?command=CarList"><ins>Click to go.</ins></a></p>
                   </div>
                 </div>
               </div>
@@ -49,7 +49,7 @@
                   <div class="card-img-overlay">
                     <h3 class="card-title">Reset</h3>
                     <p class="card-text">Be careful!<br> Update all data to basic settings.</p>
-                    <p class="card-text"><ins>Click to go.</ins></p>
+                    <p class="card-text"><a href="do?command=Reset"><span class="text-white"><ins>Click to go.</ins></span></a></p>
                   </div>
                 </div>
               </div>

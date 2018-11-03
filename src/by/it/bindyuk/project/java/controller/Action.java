@@ -57,7 +57,6 @@ public enum Action {
     }, ADMIN {
         {
             cmd = new CmdAdmin();
-        }
     };
 
     public Cmd cmd = new CmdError();

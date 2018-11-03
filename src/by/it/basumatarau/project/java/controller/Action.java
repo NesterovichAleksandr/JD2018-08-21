@@ -12,9 +12,17 @@ public enum Action {
         this.command = new CmdLogin();
         this.jsp = "/login.jsp";
     }},
+    SEARCH {{
+        this.command = new CmdSearch();
+        this.jsp = "/search.jsp";
+    }},
     PROFILE {{
         this.command = new CmdProfile();
         this.jsp = "/profile.jsp";
+    }},
+    ADMIN {{
+        this.command = new CmdAdmin();
+        this.jsp = "/admin.jsp";
     }},
     ERROR {{
         this.command = new CmdError();

@@ -1,5 +1,4 @@
 package by.it.artemliashkov.jd03_03;
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,11 +15,8 @@ public class ConnectionCreator {
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            DriverManager.registerDriver(new FabricMySQLDriver());
         } catch (ClassNotFoundException e) {
             System.out.println("Error loading driver: " + e);
-        } catch (SQLException e) {
-            System.out.println("Error: not register driver:  "+e);
         }
     }
 

@@ -1,10 +1,11 @@
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ include file="include/head.htm" %>
 <body>
 <div class = "container">
 <%@ include file="include/menu.htm" %>
 <p>CreateAd: ${message}</p>
-<form class="form-horizontal" action="do?command=CreateAd" method="post">
+<form class="form-horizontal" action="do?command=CreateAd" method="post" enctype="multipart/form-data">
 <fieldset>
 
 <!-- Form Name -->
@@ -63,13 +64,18 @@
 
   </div>
 </div>
-
+<div class="form-group">
+  <label class="col-md-4 control-label" for="upload">Image</label>
+  <div class="col-md-4">
+    <input id="upload" name="upload" class="input-file" type="file">
+  </div>
+</div>
 <!-- Button -->
 
 <div class="form-group" >
   <label class="col-md-5 control-label  " for="submit" ></label>
   <div class="col-md-5" align="right">
-    <button id="submit" name="submit" class="btn btn-primary btn-md" >Post</button>
+    <button id="submit" name="submit" class="btn btn-primary btn-md navbar-right" >Post</button>
   </div>
 </div>
 

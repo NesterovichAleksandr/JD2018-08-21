@@ -41,15 +41,15 @@ public class FrontController extends HttpServlet {
         String view = action.jsp;
         Cmd nextCommand;
 
+        //SessionResolver.resolve(req, resp);
 
         try{
-            SessionResolver.resolve(req, resp);
             nextCommand = command.execute(req, resp);
         }
         catch (Exception e){
             nextCommand = null;
             view = Action.ERROR.jsp;
-            req.setAttribute("printStackTrace", e.toString());
+            req.setAttribute("printStackTrace", e.getMessage());
         }
 
         if(nextCommand==null || nextCommand==command){
