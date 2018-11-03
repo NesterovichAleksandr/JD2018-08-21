@@ -3,6 +3,7 @@ package by.it.korolchuk.project.java.controller;
 import by.it.korolchuk.project.java.dao.Dao;
 import by.it.korolchuk.project.java.dao.beans.User;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,7 +20,15 @@ public class CmdLogin extends Cmd {
             String where = String.format(" WHERE Login='%s' AND PASSWORD='%s'", login, password);
             List<User> users = dao.user.getAll(where);
             if (users.size() > 0) {
-                HttpSession session = req.getSession();
+               User user = users.get(0);
+                HttpSession session = req.getSession(true);
+                session.setMaxInactiveInterval(100);
+                Cookie logCookie = new Cookie("login", login);
+                Cookie passCookie = new Cookie("password", Util.getPwdHash(user.getPassword(), user.getEmail()));
+                logCookie.setMaxAge(-1);
+                passCookie.setMaxAge(-1);
+                resp.addCookie(logCookie);
+                resp.addCookie(passCookie);
                 session.setAttribute("user", users.get(0));
                 return Action.PROFILE.cmd;
             }
