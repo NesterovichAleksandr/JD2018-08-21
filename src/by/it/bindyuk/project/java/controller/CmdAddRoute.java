@@ -6,7 +6,7 @@ import by.it.bindyuk.project.java.dao.dao.Dao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CmdAddRoute extends Cmd {
+ class CmdAddRoute extends Cmd {
     @Override
     Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         if (Form.isPost(req)) {

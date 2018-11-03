@@ -11,45 +11,68 @@
 <p>Email: ${email}</p>
 
     <h2>Купленные билеты</h2>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Транспорт</th>
-                <th scope="col">Откуда</th>
-                <th scope="col">Куда</th>
-                <th scope="col">Дата</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="ticket" items="${tickets}">
-                <tr>
-                    <td>${ticket.transport}</td>
-                    <td>${ticket.routesIdFrom}</td>
-                    <td>${ticket.routesIdTo}</td>
-                    <td>${ticket.data}</td>
-                </tr>
-            </c:forEach>
-
-
-            </tbody>
-        </table>
-
-    <form class="form-horizontal" action="do?command=Profile" method="post">
-    <fieldset>
-
-    <!-- Button -->
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="logout"></label>
-      <div class="col-md-4">
-        <button id="logout" name="logout" class="btn btn-warning">Выйти</button>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class=col-md-3>Транспорт</div>
+            <div class=col-md-3>Откуда</div>
+            <div class=col-md-3>Куда</div>
+            <div class=col-md-3>Дата</div>
+        </div>
     </div>
 
-    </fieldset>
-    </form>
+    <div class="container">
+        <c:forEach items="${tickets}" var="ticket">
+            <form class="update-ticket-${ticket.id}" action="do?command=Profile" method="post">
+                <div class="row">
+                    <input name="id" type="hidden" value="${ticket.id}"/>
+                    <div class=col-md-3>
+                        <input id="transport" class="form-control input-md" name="transport"
+                               value="${ticket.transport}"/>
+                    </div>
+
+                    <div class=col-md-3>
+                        <select id="routes_idFrom" name="routes_idFrom" class="form-control">
+                               <c:forEach items="${routes}" var="route">
+                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdFrom?"selected":""}>
+                                                   ${route.city}
+                                        </option>
+                               </c:forEach>
+                        </select>
+                    </div>
+
+                    <div class=col-md-3>
+                        <select id="routes_idTo" name="routes_idTo" class="form-control">
+                               <c:forEach items="${routes}" var="route">
+                                        <option value="${route.id}" route=${route.id} ${route.id==ticket.routesIdTo?"selected":""}>
+                                                   ${route.city}
+                                        </option>
+                               </c:forEach>
+                        </select>
+                    </div>
+
+                    <div class=col-md-3>
+                        <input id="data" class="form-control input-md" name="data"
+                               value="${ticket.data}"/>
+                    </div>
+
+                </div>
+            </form>
+
+            <p></p>
+        </c:forEach>
+
+        <form class="form-horizontal" method="post" action="do?command=Profile">
+                 <fieldset>
+                           <div class="form-group">
+                                  <label class="col-md-4 control-label" for="logout"></label>
+                                  <div class="col-md-4">
+                                          <button id="logout" name="logout" value="1" class="btn btn-success">Выйти</button>
+                                  </div>
+                           </div>
+                 </fieldset>
+        </form>
 
     </div>
+
 </body>
 </html>
-
-

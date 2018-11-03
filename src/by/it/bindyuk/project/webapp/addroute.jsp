@@ -3,19 +3,19 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-    <div class="container">
+    <div class="container" align="center">
     <%@ include file="include/menu.htm" %>
     <form class="form-horizontal" action="do?command=AddRoute" method="post">
         <fieldset>
 
         <!-- Form Name -->
-        <legend>Добавление города</legend>
+        <h3>Добавление города</h3>
 
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="city">Город</label>
           <div class="col-md-4">
-          <input id="city" name="city" type="text" placeholder="" class="form-control input-md" required="">
+          <input id="city" name="city" type="text" placeholder="" pattern="[a-zA-Zа-яА-ЯёЁ0-9]{1,20}" class="form-control input-md" required="">
 
           </div>
         </div>

@@ -3,7 +3,7 @@
 <html>
 <%@ include file="include/head.htm" %>
 <body>
-     <div class="container">
+     <div class="container" align=center>
      <%@ include file="include/menu.htm" %>
      <form class="form-horizontal" action="do?command=Home">
 
@@ -44,9 +44,9 @@
       </div>
 
       <div class="jumbotron">
-        <h1 class="display-3">Buy Ticket</h1>
+        <h1 class="display-3">Купить билет сейчас</h1>
         
-        <p><a class="btn btn-lg btn-success" href="do?command=Ticket" role="button">Buy now</a></p>
+        <p><a class="btn btn-lg btn-success" href="do?command=Ticket" role="button">Купить</a></p>
       </div>
 
       <div class="row marketing">

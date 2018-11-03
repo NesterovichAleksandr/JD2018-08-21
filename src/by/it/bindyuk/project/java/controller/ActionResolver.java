@@ -12,8 +12,7 @@ public class ActionResolver {
         try {
             result = Action.valueOf(command.toUpperCase()); //вытаскиваем значение этой команды
         } catch (IllegalArgumentException e) {
-            //result = Action.ERROR;
-            //message to error.jsp
+            e.printStackTrace();
         }
         return result; // если все прошло успешно то вернем ее
     }
