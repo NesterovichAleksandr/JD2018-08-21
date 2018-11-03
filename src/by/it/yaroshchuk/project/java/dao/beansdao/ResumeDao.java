@@ -24,9 +24,10 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
 
     @Override
     public boolean create(Resume resume) throws SQLException {
-        String sql = String.format("INSERT INTO `resumes` (`full_name`, `dob`, `country`, `city`, `education`," +
-                        " `degree`, `graduate_year`, `experience`, `post`, `worktime`, `users_id`)" +
-                        " VALUES ('%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', %d, %d);",
+        String sql = String.format("INSERT INTO `resumes` (`resume_name`, `full_name`, `dob`, `country`, `city`, `education`," +
+                        " `degree`, `graduate_year`, `experience`, `post`, `worktime`, `about`, `users_id`)" +
+                        " VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', %d, '%s', %d);",
+                resume.getResumeName(),
                 resume.getFullName(),
                 resume.getDob(),
                 resume.getCountry(),
@@ -37,6 +38,7 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
                 resume.getExperience(),
                 resume.getPost(),
                 resume.getWorktime(),
+                resume.getAbout(),
                 resume.getUsersId());
         long id = executeUpdate(sql);
         if (id > 0) resume.setId(id);
@@ -46,6 +48,7 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
     @Override
     public boolean update(Resume resume) throws SQLException {
         String sql = String.format("UPDATE `resumes` SET " +
+                        "`resume_name` = '%s', " +
                         "`full_name` = '%s', " +
                         "`dob` = '%s', " +
                         "`country` = '%s', " +
@@ -56,8 +59,10 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
                         "`experience` = '%s', " +
                         "`post` = '%s', " +
                         "`worktime`  = %d," +
+                        "`about` = '%s', " +
                         "`users_id` = %d"+
                         " WHERE `id` = %d",
+                resume.getResumeName(),
                 resume.getFullName(),
                 resume.getDob(),
                 resume.getCountry(),
@@ -68,6 +73,7 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
                 resume.getExperience(),
                 resume.getPost(),
                 resume.getWorktime(),
+                resume.getAbout(),
                 resume.getUsersId(),
                 resume.getId());
         return (0 < executeUpdate(sql));
@@ -76,6 +82,11 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
     @Override
     public boolean delete(Resume resume) throws SQLException {
         String sql = String.format("DELETE FROM `resumes` WHERE `resumes`.`id` = %d", resume.getId());
+        return (0 < executeUpdate(sql));
+    }
+
+    public boolean delete(long usersId) throws SQLException {
+        String sql = String.format("DELETE FROM `resumes` WHERE `resumes`.`users_id` = %d", usersId);
         return (0 < executeUpdate(sql));
     }
 
@@ -95,6 +106,7 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
             while (resultSet.next()) {
                 Resume resume = new Resume();
                 resume.setId(resultSet.getLong("id"));
+                resume.setResumeName(resultSet.getString("resume_name"));
                 resume.setFullName(resultSet.getString("full_name"));
                 resume.setDob(resultSet.getString("dob"));
                 resume.setCountry(resultSet.getString("country"));
@@ -105,6 +117,7 @@ public class ResumeDao extends AbstractDao implements InterfaceDao<Resume> {
                 resume.setExperience(resultSet.getString("experience"));
                 resume.setPost(resultSet.getString("post"));
                 resume.setWorktime(resultSet.getInt("worktime"));
+                resume.setAbout(resultSet.getString("about"));
                 resume.setUsersId(resultSet.getLong("users_id"));
                 resumes.add((resume));
             }

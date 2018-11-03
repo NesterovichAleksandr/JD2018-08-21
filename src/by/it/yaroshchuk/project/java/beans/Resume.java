@@ -3,6 +3,7 @@ package by.it.yaroshchuk.project.java.beans;
 public class Resume {
 
     private long id;
+    private String resumeName;
     private String fullName;
     private String dob;
     private String country;
@@ -13,14 +14,16 @@ public class Resume {
     private String experience;
     private String post;
     private int worktime;
+    private String about;
     private long usersId;
 
     public Resume() {
     }
 
-    public Resume(long id, String fullName, String dob, String country, String city, String education,
-                  String degree, int graduateYear, String experience, String post, int worktime, long usersId) {
+    public Resume(long id, String resumeName, String fullName, String dob, String country, String city, String education,
+                  String degree, int graduateYear, String experience, String post, int worktime, String about, long usersId) {
         this.id = id;
+        this.resumeName = resumeName;
         this.fullName = fullName;
         this.dob = dob;
         this.country = country;
@@ -31,6 +34,7 @@ public class Resume {
         this.experience = experience;
         this.post = post;
         this.worktime = worktime;
+        this.about = about;
         this.usersId = usersId;
     }
 
@@ -130,12 +134,29 @@ public class Resume {
         this.usersId = usersId;
     }
 
+    public String getResumeName() {
+        return resumeName;
+    }
+
+    public void setResumeName(String resumeName) {
+        this.resumeName = resumeName;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
     @Override
     public String toString() {
         return "Resume{" +
                 "id=" + id +
+                ", resumeName='" + resumeName + '\'' +
                 ", fullName='" + fullName + '\'' +
-                ", dob=" + dob +
+                ", dob='" + dob + '\'' +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
                 ", education='" + education + '\'' +
@@ -144,6 +165,7 @@ public class Resume {
                 ", experience='" + experience + '\'' +
                 ", post='" + post + '\'' +
                 ", worktime=" + worktime +
+                ", about='" + about + '\'' +
                 ", usersId=" + usersId +
                 '}';
     }

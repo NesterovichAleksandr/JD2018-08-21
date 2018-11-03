@@ -12,7 +12,7 @@ public enum Action {
             cmd = new CmdLogin();
         }},
     LOGOUT {{
-            cmd = new CmdIndex();
+            cmd = new CmdLogout();
         }},
     SIGNUP {{
             cmd = new CmdSignUp();
@@ -20,8 +20,29 @@ public enum Action {
     CREATERESUME {{
             cmd = new CmdCreateResume();
         }},
-    LISTRESUMES {{
-            cmd = new CmdListResumes();
+    COMPANYLISTRESUMES {{
+            cmd = new CmdCompanyListResumes();
+    }},
+    USERLISTRESUMES {{
+            cmd = new CmdUserListResumes();
+    }},
+    USERSREQUESTS {{
+        cmd = new CmdUsersRequests();
+    }},
+    USERPROFILE {{
+        cmd = new CmdUserProfile();
+    }},
+    EDITUSERS {{
+        cmd = new CmdEditUsers();
+    }},
+    EDITRESUMES {{
+        cmd = new CmdEditResumes();
+    }},
+    EDITCOMPANIES {{
+        cmd = new CmdEditCompanies();
+    }},
+    REQUESTS {{
+        cmd = new CmdRequests();
     }},
     ERROR {{
             cmd = new CmdError();

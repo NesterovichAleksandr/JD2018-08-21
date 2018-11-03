@@ -2,6 +2,7 @@ package by.it.yaroshchuk.project.java.dao.beansdao;
 
 import by.it.yaroshchuk.project.java.beans.Company;
 import by.it.yaroshchuk.project.java.connection.ConnectionCreator;
+import by.it.yaroshchuk.project.java.dao.Dao;
 import by.it.yaroshchuk.project.java.dao.InterfaceDao;
 
 import java.sql.Connection;
@@ -23,12 +24,12 @@ public class CompanyDao extends AbstractDao implements InterfaceDao<Company> {
 
     @Override
     public boolean create(Company company) throws SQLException {
-        String sql = String.format("INSERT INTO `companies` (`company_name`, `start_year`, `about`, `roles_id`)" +
+        String sql = String.format("INSERT INTO `companies` (`company_name`, `start_year`, `about`, `users_id`)" +
                         " VALUES ('%s', '%s', '%s', %d);",
                 company.getName(),
-                company.getStart_year(),
+                company.getStartYear(),
                 company.getAbout(),
-                company.getRolesId());
+                company.getUsersId());
         long id = executeUpdate(sql);
         if (id > 0) company.setId(id);
         return id > 0;
@@ -40,11 +41,11 @@ public class CompanyDao extends AbstractDao implements InterfaceDao<Company> {
                         "`company_name`='%s'," +
                         "`start_year`='%s'," +
                         "`about`='%s'," +
-                        "`roles_id`=%d WHERE `id`=%d",
+                        "`users_id`=%d WHERE `id`=%d",
                 company.getName(),
-                company.getStart_year(),
+                company.getStartYear(),
                 company.getAbout(),
-                company.getRolesId(),
+                company.getUsersId(),
                 company.getId());
         return (0 < executeUpdate(sql));
     }
@@ -72,12 +73,17 @@ public class CompanyDao extends AbstractDao implements InterfaceDao<Company> {
                 Company company = new Company();
                 company.setId(resultSet.getLong("id"));
                 company.setName (resultSet.getString("company_name"));
-                company.setStart_year(resultSet.getString("start_year"));
+                company.setStartYear(resultSet.getString("start_year"));
                 company.setAbout(resultSet.getString("about"));
-                company.setRolesId(resultSet.getLong("roles_id"));
+                company.setUsersId(resultSet.getLong("users_id"));
                 companies.add((company));
             }
         }
         return companies;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        Company company = new Company(1, "company_name1", "2007", "about123", 3);
+        System.out.println(Dao.getDao().company.update(company));
     }
 }

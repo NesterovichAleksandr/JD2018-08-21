@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CmdReset extends  Cmd {
     @Override
-    Cmd execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    public Cmd execute(HttpServletRequest req, HttpServletResponse resp) {
         Dao.getDao().reset();
         return Action.RESET.cmd;
     }

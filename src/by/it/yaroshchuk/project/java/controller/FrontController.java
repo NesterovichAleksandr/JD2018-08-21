@@ -11,7 +11,7 @@ public class FrontController extends HttpServlet {
     private ActionResolver actionResolver;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         actionResolver = new ActionResolver();
     }
 
@@ -39,9 +39,8 @@ public class FrontController extends HttpServlet {
         }
         if(nextCommand == null || nextCommand == command) {
             getServletContext().getRequestDispatcher(view).forward(req, resp);
-        }
-        else {
-            resp.sendRedirect("do?command" + nextCommand.toString());
+        } else {
+            resp.sendRedirect("do?command=" + nextCommand.toString());
         }
     }
 }

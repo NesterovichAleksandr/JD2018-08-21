@@ -4,19 +4,19 @@ public class Company {
 
     private long id;
     private String name;
-    private String start_year;
+    private String startYear;
     private String about;
-    private long rolesId;
+    private long usersId;
 
     public Company() {
     }
 
-    public Company(long id, String name, String start_year, String about, long rolesId) {
+    public Company(long id, String name, String startYear, String about, long usersId) {
         this.id = id;
         this.name = name;
-        this.start_year = start_year;
+        this.startYear = startYear;
         this.about = about;
-        this.rolesId = rolesId;
+        this.usersId = usersId;
     }
 
     public long getId() {
@@ -35,12 +35,12 @@ public class Company {
         this.name = name;
     }
 
-    public String getStart_year() {
-        return start_year;
+    public String getStartYear() {
+        return startYear;
     }
 
-    public void setStart_year(String start_year) {
-        this.start_year = start_year;
+    public void setStartYear(String startYear) {
+        this.startYear = startYear;
     }
 
     public String getAbout() {
@@ -51,12 +51,12 @@ public class Company {
         this.about = about;
     }
 
-    public long getRolesId() {
-        return rolesId;
+    public long getUsersId() {
+        return usersId;
     }
 
-    public void setRolesId(long rolesId) {
-        this.rolesId = rolesId;
+    public void setUsersId(long usersId) {
+        this.usersId = usersId;
     }
 
     @Override
@@ -64,9 +64,9 @@ public class Company {
         return "Company{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", start_year='" + start_year + '\'' +
+                ", startYear='" + startYear + '\'' +
                 ", about='" + about + '\'' +
-                ", rolesId=" + rolesId +
+                ", usersId=" + usersId +
                 '}';
     }
 }

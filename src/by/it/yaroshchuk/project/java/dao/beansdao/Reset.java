@@ -46,6 +46,7 @@ public class Reset {
                     "ENGINE = InnoDB;");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `hr`.`resumes` (\n" +
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
+                    "  `resume_name` VARCHAR(45) NULL,\n" +
                     "  `full_name` VARCHAR(45) NULL,\n" +
                     "  `dob` TIMESTAMP(6) NULL,\n" +
                     "  `country` VARCHAR(45) NULL,\n" +
@@ -56,6 +57,7 @@ public class Reset {
                     "  `experience` VARCHAR(45) NULL,\n" +
                     "  `post` VARCHAR(45) NULL,\n" +
                     "  `worktime` INT NULL,\n" +
+                    "  `about` VARCHAR(200) NULL,\n" +
                     "  `users_id` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`id`),\n" +
                     "  INDEX `fk_resumes_users1_idx` (`users_id` ASC),\n" +
@@ -69,13 +71,13 @@ public class Reset {
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `company_name` VARCHAR(45) NULL,\n" +
                     "  `start_year` VARCHAR(45) NULL,\n" +
-                    "  `about` VARCHAR(45) NULL,\n" +
-                    "  `roles_id` INT NOT NULL,\n" +
+                    "  `about` VARCHAR(200) NULL,\n" +
+                    "  `users_id` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`id`),\n" +
-                    "  INDEX `fk_companies_roles1_idx` (`roles_id` ASC),\n" +
-                    "  CONSTRAINT `fk_companies_roles1`\n" +
-                    "    FOREIGN KEY (`roles_id`)\n" +
-                    "    REFERENCES `hr`.`roles` (`id`)\n" +
+                    "  INDEX `fk_companies_users1_idx` (`users_id` ASC),\n" +
+                    "  CONSTRAINT `fk_companies_users1`\n" +
+                    "    FOREIGN KEY (`users_id`)\n" +
+                    "    REFERENCES `hr`.`users` (`id`)\n" +
                     "    ON DELETE NO ACTION\n" +
                     "    ON UPDATE NO ACTION)\n" +
                     "ENGINE = InnoDB;");
@@ -83,18 +85,18 @@ public class Reset {
                     "  `id` INT NOT NULL AUTO_INCREMENT,\n" +
                     "  `message` MEDIUMTEXT NULL,\n" +
                     "  `companies_id` INT NOT NULL,\n" +
-                    "  `users_id` INT NOT NULL,\n" +
+                    "  `resumes_id` INT NOT NULL,\n" +
                     "  PRIMARY KEY (`id`),\n" +
                     "  INDEX `fk_requests_companies1_idx` (`companies_id` ASC),\n" +
-                    "  INDEX `fk_requests_users1_idx` (`users_id` ASC),\n" +
+                    "  INDEX `fk_requests_resumes1_idx` (`resumes_id` ASC),\n" +
                     "  CONSTRAINT `fk_requests_companies1`\n" +
                     "    FOREIGN KEY (`companies_id`)\n" +
                     "    REFERENCES `hr`.`companies` (`id`)\n" +
                     "    ON DELETE NO ACTION\n" +
                     "    ON UPDATE NO ACTION,\n" +
-                    "  CONSTRAINT `fk_requests_users1`\n" +
-                    "    FOREIGN KEY (`users_id`)\n" +
-                    "    REFERENCES `hr`.`users` (`id`)\n" +
+                    "  CONSTRAINT `fk_requests_resumes1`\n" +
+                    "    FOREIGN KEY (`resumes_id`)\n" +
+                    "    REFERENCES `hr`.`resumes` (`id`)\n" +
                     "    ON DELETE NO ACTION\n" +
                     "    ON UPDATE NO ACTION)\n" +
                     "ENGINE = InnoDB;");
@@ -104,22 +106,57 @@ public class Reset {
             statement.executeUpdate("INSERT INTO `hr`.`roles` (`id`, `role`) VALUES (DEFAULT, 'user');");
             statement.executeUpdate("INSERT INTO `hr`.`roles` (`id`, `role`) VALUES (DEFAULT, 'company');");
 
-            //INSERT USERS
+
+
+            //ADMIN
+            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) \n" +
+                    "VALUES (NULL, 'Admin', 'adminRolesTheWorld', 'admin@admin.com', '1');");
+
+            //INSERT USERS WITH ROLE USER
             statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
                     "VALUES (DEFAULT, 'user1', 'users1password', 'user1@gmail.com', '2');");
+            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
+                    "VALUES (DEFAULT, 'user2', 'users1password', 'user2@gmail.com', '2');");
+            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
+                    "VALUES (DEFAULT, 'veryStupidUser', 'stupidpassword', 'stupidStupid@gmail.com', '2');");
+
+            //INSERT USERS WITH ROLE COMPANY
+            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
+                    "VALUES (DEFAULT, 'company1', 'users1password', 'company1@gmail.com', '3');");
+            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
+                    "VALUES (DEFAULT, 'company2', 'users1password', 'company2@gmail.com', '3');");
+            statement.executeUpdate("INSERT INTO `hr`.`users` (`id`, `login`, `password`, `email`, `roles_id`) " +
+                    "VALUES (DEFAULT, 'blah', 'users1password', 'blah@gmail.com', '3');");
 
             //INSERT RESUMES
             statement.executeUpdate("INSERT INTO `hr`.`resumes` " +
-                    "(`id`, `full_name`, `dob`, `country`, `city`, `education`, `degree`, " +
-                    "`graduate_year`, `experience`, `post`, `worktime`, `users_id`) " +
-                    "VALUES (NULL, 'Full Name1', '1992-10-25 00:00:00.000000', 'Country1', " +
+                    "(`id`,`resume_name`, `full_name`, `dob`, `country`, `city`, `education`, `degree`, " +
+                    "`graduate_year`, `experience`, `post`, `worktime`, `about`, `users_id`) " +
+                    "VALUES (NULL,'Resume N1', 'Full Name1', '1992-10-25 00:00:00.000000', 'Country1', " +
                     "'City1', 'University name1', 'some degree', '2015', 'Company name1', " +
-                    "'some post', '2', '1');");
+                    "'some post', '2', 'something about', '1');");
+            statement.executeUpdate("INSERT INTO `hr`.`resumes` " +
+                    "(`id`, `resume_name`, `full_name`, `dob`, `country`, `city`, `education`, `degree`, " +
+                    "`graduate_year`, `experience`, `post`, `worktime`, `about`, `users_id`) " +
+                    "VALUES (NULL,'My resume', 'Full Name2', '1992-10-25 00:00:00.000000', 'Country2', " +
+                    "'City2', 'University name2', 'some degree', '2015', 'Company name2', " +
+                    "'some post', '2', 'it is about me', '2');");
 
             //INSERT COMPANIES
             statement.executeUpdate("INSERT INTO `hr`.`companies` " +
-                    "(`id`, `company_name`, `start_year`, `about`, `roles_id`)" +
-                    "VALUES (NULL, 'company_name1', '2007', 'about1', 3)");
+                    "(`id`, `company_name`, `start_year`, `about`, `users_id`)" +
+                    "VALUES (NULL, 'company_name1', '2007', 'about1', '4')");
+            statement.executeUpdate("INSERT INTO `hr`.`companies` " +
+                    "(`id`, `company_name`, `start_year`, `about`, `users_id`)" +
+                    "VALUES (NULL, 'company_name2', '2007', 'about2', '5')");
+            statement.executeUpdate("INSERT INTO `hr`.`companies` " +
+                    "(`id`, `company_name`, `start_year`, `about`, `users_id`)" +
+                    "VALUES (NULL, 'blah blah  company', '2010', 'blahblahblahblahblahblahblah', '6')");
+
+            //INSERT REQUESTS
+            statement.executeUpdate("INSERT INTO `requests` (`id`, `message`, `companies_id`, `resumes_id`) " +
+                    "VALUES (NULL, 'blablablabla', '1', '1'), " +
+                    "(NULL, 'some message', '2', '1')");
 
         } catch (SQLException e) {
             e.printStackTrace();
