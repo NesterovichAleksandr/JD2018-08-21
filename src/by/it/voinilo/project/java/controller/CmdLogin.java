@@ -25,7 +25,7 @@ public class CmdLogin extends Cmd {
           if (users.size()>0) {
               HttpSession session = req.getSession();
               session.setAttribute("user", users.get(0));
-              session.setMaxInactiveInterval(30);
+              session.setMaxInactiveInterval(90);
               return Action.PROFILE.cmd;
           }
 

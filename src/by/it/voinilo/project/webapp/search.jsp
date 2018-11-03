@@ -13,6 +13,7 @@
 
 <c:forEach var="ad" items="${ads}">
 
+
 <table class="tg table table-bordered " style="undefined;table-layout: inherit; width: auto">
 <colgroup>
 <col style="width: 150px">
@@ -42,7 +43,6 @@
   </table>
 
   </c:forEach>
-
 </div>
 
 </div>

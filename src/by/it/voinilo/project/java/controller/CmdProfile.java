@@ -11,23 +11,29 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CmdProfile extends Cmd {
+    Dao dao = Dao.getDao();
     @Override
     public Cmd execute(HttpServletRequest req, HttpServletResponse response) throws SQLException {
         Roleparam user = util.getUser(req);
         if (user ==null)
             return  Action.LOGIN.cmd;
-        if (Form.isPost(req) && req.getParameter("logout") != null) {
-            HttpSession session = req.getSession();
-            session.invalidate();
-            return Action.LOGIN.cmd;
+        if (Form.isPost(req)) {
+            if (req.getParameter("update") != null) {
+                user.setLogin(req.getParameter("login"));
+                user.setEmail(req.getParameter("email"));
+                user.setPassword(req.getParameter("password"));
+                Dao.getDao().user.update(user);
+            } else if (req.getParameter("logout") != null) {
+                HttpSession session = req.getSession();
+                session.invalidate();
+                return Action.LOGIN.cmd;
+            }
         }
 
-        if (user != null) {
-            List<Ads> ads = Dao.getDao().ad.getALL(" WHERE `ads`.`roleparam_id`=" + user.getId());
-            HttpSession session = req.getSession();
-            session.setAttribute("ads", ads);
-            //return Action.PROFILE.cmd;
-        }
-            return null;
+        List<Ads> forms = Dao.getDao().ad.getALL(" WHERE `ads`.`roleparam_id`=" + user.getId());
+        HttpSession session = req.getSession();
+        session.setAttribute("ads", forms);
+        return null;
+
     }
 }

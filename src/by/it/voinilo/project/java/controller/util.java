@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 public class util {
     static Roleparam getUser(HttpServletRequest req) {
-         HttpSession session = req.getSession(false);
+        HttpSession session = req.getSession(false);
         if (session != null) {
             Object oUser = session.getAttribute("user");
             if (oUser != null) {
@@ -18,4 +18,5 @@ public class util {
         }
         return null;
     }
+
 }
