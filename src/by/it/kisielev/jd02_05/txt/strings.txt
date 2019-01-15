@@ -1,3 +1,0 @@
-messages.welcome=Welcome =)
-messages.question=How are you?
-text.name=My name Tim

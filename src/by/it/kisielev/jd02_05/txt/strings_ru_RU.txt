@@ -1,3 +1,0 @@
-messages.welcome=Привет=)
-messages.question=Как ты себя чувствуешь ?
-text.name=Меня зовут Тим

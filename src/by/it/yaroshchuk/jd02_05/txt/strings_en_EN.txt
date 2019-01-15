@@ -1,3 +1,0 @@
-message.welcome=WELCOME!
-message.question=How do you do?
-text.name= My name Marina

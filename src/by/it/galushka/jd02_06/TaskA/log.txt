@@ -1,5 +1,0 @@
-
-[Oct 8, 2018 3:00:10 PM] - ERROR!!!
-[Oct 8, 2018 3:00:10 PM] - java.lang.ArrayIndexOutOfBoundsException: 3
-[Oct 8, 2018 3:00:13 PM] - ERROR!!!
-[Oct 8, 2018 3:00:13 PM] - java.lang.ArrayIndexOutOfBoundsException: 3

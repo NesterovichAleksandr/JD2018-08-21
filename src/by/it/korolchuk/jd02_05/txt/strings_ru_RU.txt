@@ -1,3 +1,0 @@
-messages.welcome=Привет!!!
-messages.question=Как твои дела?
-text.name=Меня зовут Ксения!

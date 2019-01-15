@@ -1,2 +1,0 @@
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://beans.jd02_09.artemliashkov.it.by/", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
-package by.it.artemliashkov.jd02_09.beans;

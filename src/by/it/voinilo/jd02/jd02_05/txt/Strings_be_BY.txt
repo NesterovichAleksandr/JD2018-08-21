@@ -1,3 +1,0 @@
-messages.welcome = Прывітанне
-messages.question = Як твае справы?
-txt.name = Маё імя — Дзмітрый
